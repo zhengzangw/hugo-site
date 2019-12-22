@@ -1,0 +1,24 @@
+---
+title: 5-极限理论
+date: 2019-03-21
+tags: [math, notes]
+weight: 5
+---
+
+
+* 大数定律
+  * $X_n\overset{P}{\rightarrow}X$: 随机变量序列$\{X_n\}$ 依概率收敛于随机变量 $X$, 即 $\lim_{n\rightarrow\infty}P(|X_n-X|\geq\epsilon)=0$
+  * $\{X_n\}$ 服从大数定律：$\frac{1}{n}\sum_{k=1}^n(X_k-EX_k)\overset{P}{\rightarrow}0$
+  * 马尔科夫大数定律：$\{X_n\}$ 满足 $\frac{1}{n^2}D(\sum_{k=1}^nX_k)\rightarrow0$ （马尔科夫条件）则 $\{X_n\}$ 服从大数定律
+  * 切比雪夫大数定律：$\{X_n\}$ 为两两互不相关的随机变量序列，又存在 $C>0$, 使 $D(X_k)\leq C,k=1,2,...$, 则 $\{X_n\}$ 服从大数定律
+  * 独立同分布大数定律： $\{X_n\}$ 为独立同分布的随机变量，$EX_n=\mu$ ($D(X_n)=\sigma^2<\infty$)，则 $\frac{1}{n}\sum_{k=1}^nX_k\overset{P}{\rightarrow}\mu$
+  * Bernoulli 大数定理：$\mu_n$ 为 $n$ 重 伯努利试验中 $A$ 发生的次数，$p$ 为 $A$ 在每次实验中发生的概率，则任意的 $\epsilon$ 有 $\lim_{n\rightarrow\infty}P(|\frac{\mu_n}{n}-p|\geq\epsilon)=0$
+* 中心极限定理
+  * $\{X_n\}$ 服从中心极限定理：$\{X_n\}$ 为一列相互独立的随机变量序列，$EX_k=\mu_k,D(X_k)=\sigma^2,k=1,2,...$ 均存在，对于标准化变量列 $Y_n^*=\frac{\sum_{k=1}^nX_k-\sum_{k=1}^n\mu_k}{\sqrt{\sum_{k=1}^n\sigma_k^2}}$ 有 $\lim_{n\rightarrow\infty}P(Y_n^*\leq x)=\Phi(x)$
+    * $\sum_{k=1}^nX_k$ 的渐进分布为 $N(E(\sum_{k=1}^nX_k),D(\sum_{k=1}^nX_k))$
+  * 列维-林德伯格中心极限定理：$\{X_n\}$ 为独立同分布的随机变量序列，$EX_n=\mu,D(X_n)=\sigma^2$ 都存在，则 $\{X_n\}$ 服从中心极限定理
+  * 拉普拉斯中心极限定理：$\lim_{n\rightarrow\infty}P(\frac{\mu_n-np}{\sqrt{npq}}\leq x)=\Phi(x)$
+    * $X\sim B(n,p), X\sim N(np,npq)$
+    * $X\sim P(n), X\sim N(n,n)$
+  * 频率估计概率：$P(|\frac{\mu_n}{n}-p|<\epsilon)=2\Phi(\epsilon\sqrt{\frac{n}{pq}})-1$
+  * 林德伯格-费勒定理：$\{X_n\}$ 是独立随机变量列，$\mu_n=E(X_n),\sigma_n^2=D(X_n),B_n^2=\sum_{i=1}^n\sigma_i^2$。若对任何 $\tau>0$, 有 $\lim_{n\rightarrow\infty}\frac{1}{B_n^2}\sum_{k=1}^n\sum_{k=1}^nE((X_k-\mu_k)^2[\vert X_k-\mu_k\vert>\tau B_n])=0$, 则随机变量 $X_n^*=\sum_{k=1}^n\frac{X_k-\mu_k}{B_n}$ 服从中心极限定理

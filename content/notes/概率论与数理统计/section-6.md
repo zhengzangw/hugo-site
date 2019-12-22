@@ -1,0 +1,48 @@
+---
+title: 6-数理统计基础
+date: 2019-03-21
+tags: [math, notes]
+weight: 6
+---
+
+推断统计与描述统计
+
+* 总体：研究对象全体
+  * 个体：总体中每个成员
+* 样本，抽样，样本容量，样本值
+* 简单随机样本：代表性，独立性
+* 统计量：$T(x_1,x_2,\cdots,x_n)$
+  * 样本均值：$\overline X=\frac{1}{n}\sum_{i=1}^n X_i$
+  * 样本方差：$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline X)^2$
+    * 样本标准差
+  * 样本二阶中心矩：$S^{*2}=\frac{1}{n}\sum_{i=1}^n(X_i-\overline X^2)$
+  * 样本$k$阶原点矩：$A_k=\frac{1}{n}\sum_{i=1}^kX_i^k$
+  * 样本$k$阶中心矩：$B_k=\frac{1}{n}\sum_{i=1}^n(X_i-\overline X)^k$
+  * $S_{XY}=\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x}){y_i-\overline{y}}$
+  * 样本相关系数：$\frac{S_{XY}}{S^*_XS^*_Y}$
+* 大样本理论：$\frac{\sum_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\rightarrow N(0,1)$, 则 $X_i\sim N(\mu,\frac{\sigma^2}{n})$
+* 正态总体
+  * $\chi^2$ 分布：$X_i\sim N(0,1)$ 独立同分布，则 $\chi^2_n=\sum_{i=1}^nX_i^2\sim\chi^2(n)$, $p(x)=\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}e^{-\frac{x}{2}x^{\frac{n}{2}-1}},x>0$
+    * $\chi_1^2\sim\chi^2(n_1),\chi_2^2\sim\chi^2_2,\chi_1^2+\chi_2^2\sim\chi^2(n_1+n_2)$
+    * Cochran 分解定理：$X_i\sim N(0,1)$ 独立同分布，$\sum_{i=1}^kQ_i=\sum_{i=1}^nX_i^2$,$Q_i$ 为秩为 $n_i$ 的$X_1,X_2,\cdots,X_n$ 的非负二次型，则 $Q_i(i=1,2,\cdots,k)$ 相互独立且分别服从于自由度为 $n_i$ 的$\chi^2$ 分布的充要条件为 $\sum_{i=1}^k=n$
+  * t 分布：$X\sim N(0,1),Y\sim\chi^2(n)$, $X$ 与 $Y$ 独立，则$T=\frac{X}{\sqrt\frac{Y}{n}}\sim t(n)$, $p(x)=\frac{\Gamma(\frac{n+1}{2})}{\sqrt{n\pi}\Gamma(\frac{n}{2})}(1+=\frac{x^2}{n})^{-\frac{n+1}{2}}$
+  * F 分布：$U\sim\chi^2(n_1),V\sim\chi^2(n_2)$, $U$ 与 $V$ 独立，则 $F=\frac{U/n_1}{V/n_2}\sim F(n_1,n_2)$, $p(x)=\frac{\Gamma((n_1+n_2)/2)}{\Gamma(n_1/2)\Gamma(n_2/2)}(\frac{n_1}{n_2})^\frac{n_1}{2}x^{\frac{n_1}{2}-1}(1+\frac{n_1}{n_2}x)^{-\frac{n_1+n_2}{2}}$
+    * $F\sim F(n_1,n_2),\frac{1}{F}\sim F(n_2,n_1)$
+    * $T\sim t(n),T^2\sim F(1,n)$
+  * 上 $\alpha$ 分位点 $\gamma_\alpha$: $P(X>\lambda_\alpha)=\alpha$
+    * $u_{1-\alpha}=-u_\alpha$
+    * $t_{1-\alpha}(n) = -t_\alpha(n)$
+    * $F_{1-\alpha}(n_1,n_2)=\frac{1}{F_\alpha(n_2,n_1)}$
+
+| $N(0,1)$          | $\chi^2(n)$        | $t(n)$        | $F(n_1,n_2)$        |
+| ----------------- | ------------------ | ------------- | ------------------- |
+| $u_\alpha$ | $\chi^2_\alpha(n)$ | $t_\alpha(n)$ | $F_\alpha(n_1,n_2)$ |
+
+* 样本 $X_i\sim N(\mu,\sigma)$
+  * $\overline{X}\sim N(\mu,\frac{\sigma^2}{n})$
+  * $\frac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$
+    * $\overline{X}$ 与 $S^2$ 独立
+  * $T=\frac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$
+  * $F=\frac{S_1^2\sigma_2^2}{S_2^2\sigma_1^2}\sim F(n_1-1,n_2-1)$
+  * $U=\frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}\sim N(0,1)$
+  * $T=\sqrt{\frac{n_1n_2(n_1+n_2-2)}{n_1+n_2}}\frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{(n_1-1)S_1^2+(n_2-1)S_2^2}\sim t(n_1+n_2-2)$

@@ -1,0 +1,68 @@
+---
+title: 1-线性方程组
+date: 2018-11-25
+tags: [math, notes]
+weight: 1
+---
+
+## Guass消元
+
+* 数域：$\mathbb{F}\in\mathbb{C}$, (i)$0\in\mathbb{F},1\in\mathbb{f}$, (ii)$\forall a,b\in\mathbb{F},a\pm b\in\mathbb{F}, ab\in{F},\frac{a}{b}\in\mathbb{F}(b \not=0)$
+* 矩阵$A=(a_{ij})_{mn}$
+  * 阶数 $m*n$
+  * 方程组的增广矩阵
+  
+$$
+ \left[
+ \begin{matrix}
+   a_{11} & \cdots & a_{1n} & | &b_1\\
+   \vdots & \ddots & \vdots & | & \vdots \\
+   a_{n1} & \cdots & a_{n1} & | & b_n
+  \end{matrix}
+  \right] \tag{3}
+$$
+
+<!--more-->
+
+  * 矩阵三初等行变换
+    * $r_i\leftrightarrow r_j$
+    * $kr_i + r_j \rightarrow r_j$
+    * $kr_i \rightarrow r_i$
+  * 梯阵
+    * 若有零行在底
+    * 主元（某行从左向右第一非零元）为1
+    * 主元列指标随i严格递增
+  * 约化行梯阵
+    * 某一列有行主元则其余元素为0的梯阵
+  * **高斯消元**
+  * $N=(\alpha_i)$为基础解系，则$X=Ny$
+  * $AX=0$, 解空间与原空间垂直
+
+## 线性空间$\mathbb{F}^n,\mathbb{F}_n$
+
+* 线性无关
+  * $\sum_{i=1}^mk_i\alpha_i=0$,则$k_i=0$
+  * 线性相关的延长组线性相关，线性无关的缩短组线性无关
+* 线性表示
+  * $\beta=\sum_{i=1}^mk_i\alpha_i$
+  * 线性相关$\Leftrightarrow$任一向量可由其它线性表示
+  * $\alpha_1,\cdots,\alpha_l$线性无关，可由$\beta_1,\cdots,\beta_m$线性表示，则$l\leq m$
+* $\mathbb{F}^n$的基
+  * 线性无关
+  * 生成$\mathbb{F}$
+  * (三选一)个数等于维数
+* 维数：基的个数$dim\mathbb{F}$
+* 子空间：
+  * 非空子集为子空间当且仅当其对加、数乘封闭
+  * 生成子空间
+
+## 线性方程组的解之结构
+
+* 齐次线性方程组：记方程的解系为$H$,为$\mathbb{F}$子空间，H的基为基础解系。以未知数$x_{j_1},\cdots,x_{j_p}$为参数，令其中一个为1其余为零得到的$X_1,\cdots,X_p$为基础解系
+* 仿射空间：$\alpha+W$
+  * 仿射空间关系：重合或不交
+* 方程组解的关系
+  * 若$Y,Z$为方程$AX=b$的解，则$Y-Z$为方程$AX=0$的解
+  * 若$Y$为$AX=b$的解，$X$为$AX=0$的解，则$X+Y$为$AX=b$的解
+    * 若$AX=b$的解集为$S$,$AX=b$的解集为$H$，$Y\in S$, 则$S=Y+H$。 若$b=0$，则$S\cap H=\empty$
+  * $Y$为$AX=b$特解，$X$为$AX=0$的通解，则$Y+X$为$AX=b$的通解

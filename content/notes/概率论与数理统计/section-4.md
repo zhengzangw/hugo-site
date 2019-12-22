@@ -1,0 +1,67 @@
+---
+title: 4-随机变量的数字特征 
+date: 2019-03-21
+tags: [math, notes]
+weight: 4
+---
+
+* 期望
+  * $E(X)=\sum_{i=1}^{+\infty}x_ip_i$
+  * 若 $\int_{-\infty}^{+\infty}|x|p(x)dx<\infty$, 则 $E(X)=\int_{-\infty}^{+\infty}xp(x)dx$；否则不存在
+    * 若 $X$ 不变号，可称无穷期望存在
+  * $E(g(X))=\int_{-\infty}^{+\infty}g(x)p(x)dx$
+  * $E(g(X,Y))=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)p(x,y)dxdy$
+    * $g$ 为连续函数，则作用后的量为随机函数
+    * $E(c_1X_1+c_2X_2+\cdots+c_nX_n)=c_1E(X_1)+c_2E(X_2)+\cdots+c_nE(X_n)$
+    * $X,Y$ 独立，$E(XY)=E(X)E(Y)$
+    * 偶函数期望为0
+* 中位数：$m,P(X\geq m)\geq\frac{1}{2},P(X\leq m)\geq\frac{1}{2}$
+* 方差
+  * $EX^2<+\infty$, 则 $D(X)=\text{Var}(X)=E(X-EX)^2$ 为随机变量 $X$ 的方差
+    * $\sigma(X)=\sqrt{D(X)}$ 为均方差（标准差）
+  * $D(X)=EX^2-(EX)^2$
+  * $D(a)=0$
+  * $D(aX+b)=a^2D(X)$
+  * $D(X\pm Y)=D(X)+D(Y)+2E((X-EX)(Y-EY))$
+    * 独立：$D(\sum X)=\sum D(X)$
+  * $D(\sum_{i=1}^nX_i)=\sum_{i=1}^nD(X_i)+2\sum_{1\leq i<j\leq n}\text{cov}(x_i,x_j)$
+  * 马尔科夫不等式：$P(X\geq kEX)\leq\frac{1}{k}$
+  * 切比雪夫不等式：$P(|X-EX|\geq\epsilon)\leq\frac{DX}{\epsilon^2}$
+    * $D(X)=0\iff P\{X=C\}=1$
+  * 样本
+    * 样本均值：$\overline{X}$
+      * $D(\overline{X})=\frac{\sigma^2}{n}$
+    * 样本偏差：$X_i-\overline{X}$
+    * 样本方差：$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$
+      * $E(S^2)=\sigma^2$
+    * 中心化随机变量：$\tilde X=X-EX$
+      * $E(\tilde X)=0$
+    * 标准化随机变量：$X^*=\frac{X-EX}{\sqrt{D(X)}}$
+      * $E(X^*)=1$
+* 矩
+  * 随机变量 $X$ 和非负整数 $k$，若 $E(|X|^k)<\infty$ 则称 $EX^k$ 为 $X$ 的 $k$阶原点矩
+  * 随机变量 $X$ 和非负整数 $k$，若 $E(X-EX)^k<\infty$ 则称 $E(X-EX)^k$ 为 $X$ 的 $k$阶中心矩
+  * 三阶中心矩：分布是否有偏
+  * 四阶中心矩：衡量分布在均值附近的陡峭程度
+* 协方差
+  * 若 $E|X|,E|Y|,E|(X-EX)(Y-EY)|$ 都有限，则 $X$ 和 $Y$ 的协方差为 $\text{cov}(X,Y)=E((X-EX)(Y-EY))$
+    * $D(X\pm Y)=D(X)+D(Y)\pm 2\text{cov}(X,Y)$
+    * $D(\sum X_i)=\sum D(X_i)+2\sum \text{cov}(X_i,X_j)$
+    * $\text{cov}(X,Y)=E(XY)-EX*EY$
+    * $\text{cov}(aX+c_1,bY+c_2)=ab\text{cov}(X,Y)$
+    * 若 $X_1,X_2$ 和 $Y$ 的二阶矩有限，则 $\text{cov}(X_1+X_2,Y)=\text{cov}(X_1,Y)+\text{cov}(X_2,Y)$
+  * Cauchy-Schwarz 不等式：$(\text{cov}(X,Y))^2\leq D(X)D(Y)$
+    * 取等：$P(a(X-EX)+b(Y-EY)=0)=1$, $a,b$ 不全零
+* 相关系数
+  * $X,Y$二阶矩有限，$D(X),D(Y)>0$，则 $X$ 和 $Y$ 的相关系数 $corr(X,Y)=\rho_{XY}=\frac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}}$
+  * $\text{cov}(X^*,Y^*)=\rho_{XY}$
+  * $\rho_{XY}\leq 1$
+  * $|\rho_{XY}|=1\iff D(X)>0,D(Y)>0$ 且存在不全为零的 $a,b,c$ 使得 $P((cX+aY)=b)=1$.
+  * 最小线性二乘估计
+    * $X,Y$ 方差为 1,$EX=\mu_1,EY=\mu_2$, 求 $L(X)=a+bX$ 使 $E(Y-L(X))$ 最小
+    * $L(X)=\rho_{XY}*(X-\mu_1)+\mu_2$
+  * （线性）不相关 $\rho_{X,Y}=0$
+* 条件数学期望
+  * $E(X|Y=y_j)=\sum_{i=1}^{+\infty}\frac{x_ip_{ij}}{p_{\cdot j}}$
+  * $E(X|Y=y)=\int_{-\infty}^{\infty}\frac{xp(x,y)}{p_Y(y)}$
+  * 全期望公式：$E(E(X|Y))=E(X)$
