@@ -3,7 +3,6 @@ title: 计算机网络
 date: 2019-01-16
 weight: 12
 kind: computer
-status: focus
 ---
 
 * 教材

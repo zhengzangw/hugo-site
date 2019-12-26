@@ -362,3 +362,14 @@ P2P协议
   * 源描述
   * BYE
   * 特定于应用的分组
+
+## 其它协议
+
+* mDNS: 多播 DNS，端口 5353，UDP，UPnP
+  * 作用在一个局域网内，特定 IP 244.0.0.251
+  * 实现局域网内服务发现
+* SSDP（Simple Service Discovery Protocol，简单服务发现协议）:
+  * 在局域网中发现设备
+* NBNS (NetBIOS Name Server): 端口 137, UDP
+* LLMNR (链路本地多播名称解析): 使得双方的IPv4和IPv6的主机来执行名称解析为同一本地链路上的主机
+* BROWSER

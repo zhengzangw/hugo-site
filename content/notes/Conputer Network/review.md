@@ -1,8 +1,8 @@
 ---
-title: review
+title: REVIEW
 date: 2019-12-25
 tags: [notes, network]
-weight: 8
+weight: 9
 ---
 
 ## 访问 Web 页面的过程
@@ -13,3 +13,23 @@ weight: 8
 2. HTTP -> DNS -> ARP: IP=网关地址
 3. HTTP -> DNS: 网关 -> ISP DNS 查询
 4. HTTP: [HTTP|TCP|IP(DNS结果)|以太网(网关MAC地址)]
+
+## 知识提纲
+
+* 接入网络
+  * 网络边缘
+  * 接入方法
+  * ISP 组织方式
+* 运输层：提供逻辑链路
+  * 多路复用与多路分解
+  * 完整性检验
+  * 可靠数据传输
+  * 拥塞控制
+* 网络层
+  * 尽力而为服务
+  * 分片与重组
+  * 路由服务
+* 链路层
+  * 成帧
+  * 链路接入
+  * 差错检验与纠正
