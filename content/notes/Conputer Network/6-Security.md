@@ -5,7 +5,7 @@ tags: [notes, network]
 weight: 6
 ---
 
-## Requirement
+## 安全通信要求
 
 * CIA triad
   * Confidentiality
@@ -17,6 +17,7 @@ weight: 6
   * Availability
 * Authenticity
 * Accountability
+* operational security
 
 ## Threats
 
@@ -58,22 +59,51 @@ weight: 6
 | Spyware          |                                                                                                                                                                                                   |
 | Adware           |                                                                                                                                                                                                   |
 
-## SSL and TLS
+## 密码学
 
-provide a reliable end-to-end secure service
+* 对称秘钥密码体制
+  * 块密码：DES, 3DES, AES
+  * 密码块连接（CBC）：仅第一个报文发送一个随机值，然后双方使用计算的编码块代替后续随机数
+  * 攻击方法
+    * 唯密文攻击
+    * 已知明文攻击
+    * 选择明文攻击
+* 公开秘钥加密
+  * RSA
+  * 会话秘钥
+    * Diffe-Hellman 算法
+      * large prime $p$, integer $g$ is a generator of $Z^*_p$
+      * Alice: $a\in Z_{p-1},A=g^a\bmod p$
+      * Bob: $b\in Z_{p-1},B=g^b\bmod p$
+      * share $A,B$, $K=A^b=B^a=g^{ab}\bmod p$
+      * 离散对数问题
+* 密码散列函数：找到任意两个 $x,y,H(x)=H(y)$ 在计算上不可能
+  * MD5
+  * SHA-1 (160 bits)
+* 报文鉴别码(MAC) $H(m+s)$
+  * 鉴别秘钥 $s$
+  * Alice 发送报文 $(m,H(m+s))$
+  * Bob 验证 $m=H(m+s)$
+* 数字签名：$K_B^-(m)$
+* 公钥认证
+  * 认证中心(CA)：验证真实身份，颁发证书
+    * 主流机构：Symantec,GeoTrust,TrustAsia,Comodo,DigiCert,GlobalSign,Let's Encrypt
+  * 证书：$K_{CA}^-((K_B^+,B))$
+    * SSL 证书验证级别
+      * DVSSL 域名型证书
+      * OVSSL 企业型证书
+      * EVSSL 增强型证书
 
-### SSL (Secure Socket Layer)
+## 应用层
 
-* IP->TCP->SSL Record Protocol->SSL Handshake Protocol/SSL Change Cipher Spec Protocol/SSL Alert Protocal/HTTP
-* SSL Connection: peer-to-peer relationshiops that are transient
-* SSL Session
-  * an association between a client and a server
-  * created by the Handshake Protocal
-  * define a set of cryptographic security parameters, which can be shared among mutiple connections
-* Change Cipher Spec Protocol
-  * cause the pending state to be copied into the current state, which updates the cipher suite to be used on this connection.
+* 安全电子邮件 PGP(Pretty Good Privacy) 协议
+* SSH
 
-#### SSL Record Protocol
+## 运输层
+
+SSL and TLS: provide a reliable end-to-end secure service
+
+### SSL Record Protocol
 
 * Confidentiality: Handshake Protocol defines a shared secret key used for symmetric encryption of SSL payloads
 * Message integrity: Handshake Protocol defines a shared secret key used to form a message authentication code (MAC)
@@ -84,7 +114,7 @@ provide a reliable end-to-end secure service
 | 8 bits                | 8                                  | 8             | 16                 |
 | higher-layer protocol | major version of SSL (3 for SSLv3) | (0 for SSLv3) | max is $2^14+2048$ |
 
-#### Handshake Protocol
+### Handshake Protocol
 
 * Phase 1: ClientHello
   * Version
@@ -104,15 +134,51 @@ provide a reliable end-to-end secure service
   * ChangeCipherSpec
 * Phase 4: Server Finish
 
-### TLS (Transport Layer Security, SSL3.1, RFC 2246)
+## 网络层
 
-* TLS Record -> TLS Handshake
+IPSec 协议族
 
-### 证书
+* AH 协议（Authentication Header, 鉴别首部）
+  * 源鉴别服务
+  * 数据完整性服务
+* ESP 协议 (Encapsulation Security Payload, 封装安全性载荷)
+  * 源鉴别
+  * 数据完整性
+  * 机密性
+* 安全关联（SA）：一个单工逻辑连接
+  * 安全参数索引(SPI)：32 bits
+  * SA 初始接口和 SA 目的接口
+  * 加密类型，加密秘钥，完整性检查类型，鉴别秘钥
+* IPSec 数据报  
+  * 隧道模式
+    * 初始IPv4后附上 ESP 尾部 (填充 + 填充长度 + 下一首部)
+    * 加密上述结果，在之前附上 ESP 首部 (SPI + 序号)
+    * 以上算法生成鉴别 MAC
+    * 以上结果为载荷，增加新 IP 首部（隧道端点的 IP 地址，协议号 50）
+  * 运输模式
+* IKE 协议（Internet Key Exchange, RFC 5996）：交换秘钥
+* VPN(虚拟专用网络)：通过相对而言不太安全的网络互相连接在一起
 
-* 数字证书认证机构 Certificate Authority(CA)
-  * 主流机构：Symantec,GeoTrust,TrustAsia,Comodo,DigiCert,GlobalSign,Let's Encrypt
-* SSL 证书验证级别
-  * DVSSL 域名型证书
-  * OVSSL 企业型证书
-  * EVSSL 增强型证书
+## 链路层
+
+* WEP (Wired Equivalent Privacy, 有线等价保密)
+* IEEE 802.11i
+
+## 防火墙
+
+* 目标
+  * 内外进出流量都通过防火墙
+  * 仅被授权的流量允许tongg
+  * 防火墙免于渗透
+* 分类
+  * 传统分组过滤器
+  * 状态过滤器
+  * 应用程序网关
+
+## 入侵检测系统
+
+* IDS: Intrusion Detection System
+* IPS: Intrusion Prevention System
+* E.g.
+  * Snort: 检测 nmap 的 ping 扫描
+  * GFW

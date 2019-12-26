@@ -5,7 +5,14 @@ tags: [notes, network]
 weight: 8
 ---
 
-# SDN (Software Defined Network)
+## 通用转发
+
+* 基于目的地转发的特征：匹配 + 动作
+* 分组交换机（同时负责第三和第二层）
+  * 匹配动作表：远程控制器计算，安装和更新（位于控制平面）
+  * 基于匹配动作表更新：数据平面
+
+## SDN (Software Defined Network)
 
 利用定义成熟的 API 将网络设备的数据与控制功能分离，集中管理，可编程化
 可编程交换机: Google B4 20%->80%

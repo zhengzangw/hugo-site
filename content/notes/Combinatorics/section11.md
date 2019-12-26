@@ -1,5 +1,5 @@
 ---
-title: 10. Matching Theory
+title: 11. Matching Theory
 date: 2019-12-18
 tags: [math, ps, notes]
 weight: 11
@@ -28,3 +28,36 @@ weight: 11
   * $r\leq s$
   * $r\geq s$: 
 * Erdős-Szekeres Theorem: A sequence of more than $mn$ different real numbers must contain either an increasing subsequence of length {\displaystyle m+1}{\displaystyle m+1}, or a decreasing subsequence of length $(m+1)(n+1)$.
+
+## Flow
+
+* Flow
+  * digraph: $D(V,E)$, source $s$, sink $t$
+  * capacity: $c:E\rightarrow\mathbb{R}^+$
+  * flow: $f:E\rightarrow\mathbb{R}^+$
+  * constrain
+    * capacity: $\forall(u,v)\in E,f_{uv}\leq c_{uv}$
+    * conservation: $\forall u\in V\backslash\{s,t\},\sum_{(w,u)\in E}f_{wu}=\sum_{(u,v)\in E}f_{uv}$
+  * value of flow: $\sum_{(s,u)\in E}f_{su}=\sum_{(v,t)\in E}f_{vt}$
+* Cut
+  * same input
+  * $s$-$t$cut: $S\subset V,s\in S,t\notin S,\sum_{u\in S,v\notin S,(u,v)\in E}c_{uv}$
+* Flow Integrality Theorem: max integral flow = max-flow if capcities are integers
+* Max-Flow Min-Cut Theorem: max-flow = min-cut (Ford-Fulkerson 1956, Kotzig 1956)
+* Augmenting Path: $s=u_0u_1\cdots u_k=t$
+  * $f(u_iu_{i+1})<c(u_iu_{i+1})$ if $u_i\rightarrow u_{i+1}$
+  * $f(u_{i+1}u_i)>0$ if $u_i\leftarrow u_{i+1}$
+  * maximum flow $\iff$ no augmenting path
+* Proof that max-flow = min-cut iff no augmenting path
+  * Weak duality
+    * $\sum_{u:(s,u)\in E}f_{su}=\sum_{u\in S,v\notin S,(u,v)\in E}f_{uv}-\sum_{u\in S,v\notin S,(u,v)\in E}f_{vu}$
+    * flow $\leq \sum_{u\in S,v\notin S,(u,v)\in E}f_{uv}\leq$ cut
+  * no augmenting path
+    * $S=\{u|\exists \text{augmenting path from } s \text{ to} u\}$
+    * $s\in S,t\notin S$
+    * $\forall u\in S,v\notin S,(u,v)\in E,f_{uv}=c_{uv},f_{vu}=0$
+    * flow = cut
+* Menger's Theorem: undirected graph, $s$-$t$ cut $C\subset E$ that removing $C$ disconnects $s,t$
+  * min $s$-$t$ cut = max # of disjoint $s$-$t$ path
+
+## Linear Programming
