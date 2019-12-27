@@ -62,6 +62,7 @@ UDP 报文段首部
   * C->S: SYN 1, seq i
   * S->C: SYN 1, seq j, ack i+1
   * C->S: SYN 0, seq i+1, ack j+1
+  * C->S: Data, seq i+1, ack j+1
 * 结束连接
   * C->S: FIN
   * S->C: ACK

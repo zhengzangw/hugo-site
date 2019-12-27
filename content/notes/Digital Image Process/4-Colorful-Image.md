@@ -1,8 +1,7 @@
 ---
 title: Colorful Image Processing
 date: 2019-09-02
-tags: [ml, notes]
-weight: 5
+weight: 4
 ---
 
 - 全彩色：用全彩色传感器获取的真实彩色

@@ -1,7 +1,6 @@
 ---
 title: Morphology
 date: 2019-09-02
-tags: [ml, notes]
 weight: 7
 ---
 

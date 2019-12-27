@@ -1,8 +1,7 @@
 ---
 title: Compressing
 date: 2019-09-02
-tags: [ml, notes]
-weight: 7
+weight: 6
 ---
 
 * 压缩率 $C=\frac{b}{b'}$

@@ -1,8 +1,7 @@
 ---
 title: Image Restoration
 date: 2019-09-02
-tags: [ml, notes]
-weight: 4
+weight: 3
 ---
 
 $f(x,y)$ - 退化函数 $H$ - 加性噪声 $\eta(x,y)$ - (逆过程)复原滤波器 - $\hat f(x,y)$

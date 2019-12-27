@@ -1,8 +1,7 @@
 ---
 title: Image Segmentation
 date: 2019-09-03
-tags: [network, notes]
-weight: 6
+weight: 5
 ---
 
 - $R$: 图像所占区域

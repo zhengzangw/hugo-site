@@ -15,6 +15,7 @@ weight: 1
     * PoP(Point of Presence)
     * 多宿(multi-home)
     * 对等(peer): IXP(Internet Exchange Point) 
+
 ![ISP](/images/content/isp.png)
 
 * 根据基础设施向分布式应用程序提供的服务描述
@@ -39,6 +40,7 @@ weight: 1
     * 普通的双向电话信道 0 - 4kHz
   * 电缆(cable Internet access)：利用有线电视公司现有的有线电视基础设施
     * CMTS(Cable Modem Termination System)
+    * HFS
   * FTTH(Fiber To The Home)
     * AON(Active Optical Network)
     * PON(Passive Optical Network)
