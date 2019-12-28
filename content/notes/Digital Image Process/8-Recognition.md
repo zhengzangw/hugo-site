@@ -1,7 +1,7 @@
 ---
 title: Pattern Recognition
 date: 2019-09-02
-weight: 8
+weight: 9
 ---
 
 ## 基本概念
@@ -32,8 +32,15 @@ weight: 8
 
 ## 最佳统计分类器
 
-* 条件平均风险：$r_j(x)=\sum_{k=1}^WL_{kj}p(w_k|x)\doteq\sum_{k=1}^WL_{kj}L_{kj}p(x|\omega_k)P(\omega_k)$
+* 条件平均风险：$r_j(x)=\sum_{k=1}^WL_{kj}p(w_k|x)$
 * 0-1损失：$L_{ij}=1-\delta_{ij}$
+* 0-1损失下决策函数：$d_j(x)=p(x|w_j)P(w_j)$
 * 0-1损失贝叶斯分类器：$\arg\max_i p(x|\omega_i)P(\omega_i)$
+* 假设 $p(x|\omega_i)$ 为高斯函数
+  * $p(x|\omega_j)=\frac{1}{(2\pi)^{n/2}|C_j|^{1/2}}e^{-1/2(x-m_j)^TC_j^{-1}(x-m_j)}$
+  * 估计参数
+    * $m_j=\frac{1}{N_j}\sum_{x\in\omega_j}x$
+    * $C_j=\frac{1}{N_j}\sum_{x\in\omega_j}xx^T-m_jm_j^T$
+  * 决策函数：$d_j(x)=\ln O(\omega_j)-\frac{1}{2}\ln|C_j|-\frac{1}{2}[(x-m_j)^TC_j^{-1}(x-m_j)]$
 
 ## 神经网络

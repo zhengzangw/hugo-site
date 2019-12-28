@@ -1,8 +1,10 @@
 ---
 title: Image Segmentation
 date: 2019-09-03
-weight: 5
+weight: 6
 ---
+
+## 基础知识
 
 - $R$: 图像所占区域
 - 图像分割：$R=\cup_{i=1}^n R_i$
@@ -48,10 +50,10 @@ weight: 5
   - Marr-Hildreth 边缘检测器
     - $\nabla^2=\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}$
     - $G(x,y)=e^{-\frac{x^2+y^2}{2\sigma^2}}$
-    - LoG(高斯得到拉普拉斯)：$\nabla^2 G(x,y)=[\frac{x^2+y^2-2\sigma^2}{\sigma^4}]e^{-\frac{x^2+y^2}{2\sigma^2}}$
+    - LoG(高斯的拉普拉斯)：$\nabla^2 G(x,y)=[\frac{x^2+y^2-2\sigma^2}{\sigma^4}]e^{-\frac{x^2+y^2}{2\sigma^2}}$
     - 零交叉：$x^2+y^2=2\sigma^2$
     - 生成不同尺寸的模板
-      - 对 $\nabla^2 G(x,y)$ 进行采样，得到 $n\times n$ 的模板
+      - 对 $G(x,y)$ 进行采样，得到 $n\times n$ 的模板
       - 与拉普拉斯模板卷积
     - 算法
       - 用 $n\times n$ 的高斯低通滤波器平滑图像
@@ -65,8 +67,8 @@ weight: 5
       - 根据梯度方向确定边缘方向 $d_k$
       - 如果 $M(x,y)$ 的值比 $(x,y)$ 在 $d_k$ 方向任意邻居小则对其抑制
     - 滞后阈值：减少伪边缘点
-      - 低阈值：$T_L,g_{\text{NH}}(x,y)=g(x,y)\geq T_H$
-      - 高阈值：$T_H,g_{\text{NL}}(x,y)=g(x,y)\geq T_L$
+      - 低阈值：$T_L,g_{\text{NL}}(x,y)=g(x,y)\geq T_H$
+      - 高阈值：$T_H,g_{\text{NH}}(x,y)=g(x,y)\geq T_L$
       - 比值：2:1 或 3:1
       - $g_{\text{NL}}(x,y)=g_{\text{NL}}(x,y)-g_{\text{NH}}(x,y)$
     - 连通性分析

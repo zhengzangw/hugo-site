@@ -1,7 +1,7 @@
 ---
 title: Frequency Domain
 date: 2019-09-02
-weight: 2
+weight: 3
 ---
 
 ## 傅里叶变换
@@ -132,8 +132,8 @@ $$f(x,y)=\frac{1}{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F(u,v)e^{i2\pi(ux/M+vy/N)}$
 * 旋转性
     * 极坐标：$f(r,\theta+\theta_0)\iff F(\omega,\varphi+\theta_0)$
 * 对称性
-  * 偶函数：$w_o(x,y)=-w_o(M-x,N-y)$
-  * 奇函数：$w_e(x,y)=w_o(M-x,N-y)$
+  * 偶函数：$w_e(x,y)=w_e(M-x,N-y)$
+  * 奇函数：$w_o(x,y)=-w_o(M-x,N-y)$
   * $w_e(x,y)=\frac{w(x,y)+w(M-x,N-y)}{2}$
   * $w_o(x,y)=\frac{w(x,y)-w(M-x,N-y)}{2}$
   * 实函数的傅里叶变换是共轭对称的：$F^*(u,v)=F(-u,-v)$
@@ -161,27 +161,27 @@ $$f(x,y)=\frac{1}{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F(u,v)e^{i2\pi(ux/M+vy/N)}$
   * 样本数：$A,B$
   * $0$ 填充：$P\geq A+B-1$
 
-## 频域率滤波
+## 频域滤波
 
 - 直观
   - 变化最慢的分量，与平均灰度成正比
   - 低频对应于图像中缓慢变化的灰度（墙）
   - 高频对应于图像剧烈变化的灰度（边缘）
 - 频域滤波器：$H(u,v)$
-  - $g(x,y)=\mathfrak{F}^{-1}(H(u,v)\mathfrak{F}(f)(u,v))$
-  - 假设 $F(u,v)$ 中心化
-- 频域滤波
-  - $M\times N$ 补零成 $P=2M,Q=2N$, $f_p(x,y)$ 乘以 $(-1)^{x+y}$，变换得 $F(u,v)$
-  - 生成 $P\times Q$, 中心在 $(\frac{P}{2},\frac{Q}{2})$ 处的滤波函数 $H(u,v)$，$G(u,v)=H(u,v)F(u,v)$
-  - $g_p(x,y)=\text{Re}(\mathfrak{F}^{-1}(G(u,v)))(-1)^{x+y}$
-  - 提取 $g_p(x,y)$ 中左下角的 $M\times N$ 的图像
-- 高通滤波器：衰减低频通过高频，强化细节，对比度降低
-  - 略微平移：对比度保留
-- 零相角滤波器：$\mathfrak{F}^{-1}(H(u,v)F(u,v))=\mathfrak{F}^{-1}(H(u,v)R(u,v)+iH(u,v)C(u,v))$
+  - $g(x,y)=\mathcal{F}^{-1}(H(u,v)F(u,v))$
+  - $F(u,v)$ 中心化: $F(u,v)=\mathcal{F}(f(x,y)(-1)^{x+y})$
+- **频域滤波流程**
+  - 补零：$M\times N$ 补零成 $P=2M,Q=2N$ 的图像 $f_p(x,y)$
+  - 频域中心化：$f_p(x,y)(-1)^{x+y}$
+  - DFT: $F(u,v)$
+  - 滤波函数 $H(u,v)$生成： $P\times Q$, 中心在 $(\frac{P}{2},\frac{Q}{2})$
+  - $G(u,v)=H(u,v)F(u,v)$
+  - 得到处理后函数：$g_p(x,y)=\text{Re}(\mathfrak{F}^{-1}(G(u,v)))(-1)^{x+y}$
+  - 提取 $g_p(x,y)$ 中左上角的 $M\times N$ 的图像
 - 对应的空间滤波器：$g(x,y)=\mathfrak{F}^{-1}(H(u,v))$
   - 构造空间滤波器来近似频率滤波器
-- 一维频率域高斯滤波器 $H(u)=Ae^{-u^2/2\sigma^2}$
-  - 空间域：$h(x)=\sqrt{2\pi}\sigma Ae^{-2\pi^2\sigma^2x^2}$
+- 零相角滤波器：$\mathcal{F}^{-1}(H(u,v)F(u,v))=\mathcal{F}^{-1}(H(u,v)R(u,v)+iH(u,v)C(u,v))$
+
 
 ### 平滑图像（低通滤波）
 
@@ -190,27 +190,29 @@ $$f(x,y)=\frac{1}{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F(u,v)e^{i2\pi(ux/M+vy/N)}$
 - 理想低通滤波器(ILPF)：$H(u,v)=[D(u,v)\leq D_0]$
   - $D(u,v)=[(u-\frac{P}{2})^2+(v-\frac{Q}{2})^2]^{\frac{1}{2}}$
   - 截止频率：$D_0$
-  - 半径为 $D_0$ 内的频率百分比：$100[\sum_u\sum_v{|F(u,v)|^2}/P_T]$
   - 振铃(ringring) 现象
 - Butterworth 低通滤波器(BLPF)：$H(u,v)=\frac{1}{1+(D(u,v)/D_0)^{2n}}$
   - $n=2$：平滑效果较好，且无振铃
-- 高斯低通滤波器(GLPF)：$H(u,v)=e^{-D^2(u,v)/2\sigma^2}$
-  - $\sigma=D_0$
+- 高斯低通滤波器(GLPF)：$H(u,v)=e^{-D^2(u,v)/2D_0^2}$
 
 ### 锐化图像
 
-- 理想高通滤波器
-- 布特沃斯高通滤波器
-- 高斯高通滤波器
+- 高通滤波器：衰减低频通过高频，强化细节，对比度降低
+  - 略微平移保留对比度
+  - 理想高通滤波器
+  - 布特沃斯高通滤波器
+  - 高斯高通滤波器
 - 频率域的拉普拉斯算子
   - $H(u,v)=-4\pi^2(u^2+v^2)$
-  - $\nabla^2f(x,y)=\mathfrak{F}^{-1}(H(u,v)F(u,v))$
-  - $g(x,y)=\mathfrak{F}^{-1}((1+4\pi^2D^2(u,v))F(u,v))$
-    - 量纲问题
+  - $\nabla^2f(x,y)=\mathcal{F}^{-1}(H(u,v)F(u,v))$
+  - 图像锐化
+    - $g(x,y)=f(x,y)+c\nabla^2f(x,y)$
+    - $g(x,y)=\mathcal{F}^{-1}((1+4\pi^2D^2(u,v))F(u,v))$
+      - 量纲问题
 - 非锐化掩蔽
   - $g(x,y)=f(x,y)+kg_{\text{mask}(x,y)}$
-  - $g(x,y)=\mathfrak{F}^{-1}((1+k(1-H_{\text{LP}(u,v)}))F(u,v))$
-  - 高频增强滤波：$\mathfrak{F}^{-1}((k_1+k_2H_{\text{HP}(u,v)})F(u,v))$
+  - $g(x,y)=\mathcal{F}^{-1}((1+k(1-H_{\text{LP}(u,v)}))F(u,v))$
+  - 高频增强滤波：$\mathcal{F}^{-1}((k_1+k_2H_{\text{HP}(u,v)})F(u,v))$
     - $1-H_{\text{LP}}=H_{\text{HP}}$
     - 防止图像变暗
 - 同态滤波
@@ -230,5 +232,6 @@ $$f(x,y)=\frac{1}{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}F(u,v)e^{i2\pi(ux/M+vy/N)}$
   - 理想带通滤波器：$H_{\text{BP}}=1-H_{\text{BR}}$
 - 陷波滤波器（notch filters）
   - $H_{\text{NR}}=\prod_{k=1}^QH_k(u,v)H_{-k}(u,v)$
+  - $H_k(u,v)$ 是中心在 $(u_k,v_k)$ 的高通滤波器
   - 交互式改变，不进行补0填充
   - 处理摩尔模式

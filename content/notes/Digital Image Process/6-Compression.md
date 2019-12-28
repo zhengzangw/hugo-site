@@ -1,19 +1,19 @@
 ---
 title: Compressing
 date: 2019-09-02
-weight: 6
+weight: 7
 ---
 
-* 压缩率 $C=\frac{b}{b'}$
-* 相对冗余 $R=1-\frac{1}{C}$
-
 ## 冗余
+
+* 压缩比： $C=\frac{b}{b'}$
+* 相对冗余： $R=1-\frac{1}{C}$
   
 ### 编码冗余
 
 * $r_k$: $M\times N$ 大小图像的灰度数值
   * $p(r_k)=\frac{n_k}{MN}$
-  * 变长比特数：$L_{\text{avg}}=\sum_{k=0}^{L-1}l(r_k)p_r(r_k)$
+  * 平均比特数：$L_{\text{avg}}=\sum_{k=0}^{L-1}l(r_k)p_r(r_k)$
   * 固定比特数：$l(r_k)=m,L_{\text{avg}}=m$
 
 ### 空间和时间冗余
@@ -25,7 +25,7 @@ weight: 6
   * 可逆映射
   * 不可逆映射
 
-### 不相关的冗余
+### 不相关的信息
 
 * 有损压缩
   * 被视觉系统忽略的信息
@@ -50,6 +50,20 @@ weight: 6
   * $\text{SNR}_{\text{ms}}=\frac{\sum\sum \hat f(x,y)^2}{\sum\sum e(x,y)^2}$
   * 主观误差
 
+## 图像压缩
+
+* (Mapper -> Quantizer -> Symbol coder)[encoder] -> (Symbol decoder -> Inverse mapper)[decoder]
+  * Mapper: 转换为便于去掉空间和时间冗余，可逆
+  * Quantizer: 根据保真度准则降低精度，不可逆
+  * Symbol decoder: 生成定长/变长编码
+* 霍夫曼编码：对符号概率排序，合并低概率符号
+* 行程编码(run-length pairs)
+* 符号编码：将图像表示为符号的集合
+  * 符号：图像中频繁出现的子图像
+  * 三元组集合：$\{(x_1,y_1,t_1),\cdots\}$
+
+二值图像压缩方法
+
 | 二值图像压缩方法 | 组织          | 描述             |
 | ---------------- | ------------- | ---------------- |
 | CCITT 3          | ITU-T         | 行程，霍夫曼编码 |
@@ -57,6 +71,8 @@ weight: 6
 | JBIG(JBIGI)      | ISO/IEC/ITU-T | 算术编码         |
 | JBIG2            | ISO/IEC/ITU-T |                  |
 | TIFF             |               |                  |
+
+图像压缩方法
 
 | 连续色调图像 | 组织          | 描述                     |
 | ------------ | ------------- | ------------------------ |
@@ -68,6 +84,8 @@ weight: 6
 | PDF          | Adobe Systems |                          |
 | PNG          | W3C           |                          |
 | TIFF         | Aldus         |                          |
+
+视频压缩方法
 
 | 视频       | 组织      | 描述                 |
 | ---------- | --------- | -------------------- |
@@ -85,18 +103,6 @@ weight: 6
 | Quick-Time | Apple     | 媒体容器             |
 | VC-1       | SMPTE     |                      |
 | WMV9       | Microsoft |                      |
-
-## 图像压缩
-
-* (Mapper -> Quantizer -> Symbol coder)[encoder] -> (Symbol decoder -> Inverse mapper)[decoder]
-  * Mapper: 转换为便于去掉空间和时间冗余，可逆
-  * Quantizer: 根据保真度准则降低精度，不可逆
-  * Symbol decoder: 生成定长/变长编码
-* 霍夫曼编码：对符号概率排序，合并低概率符号
-* 行程编码(run-length pairs)
-* 符号编码：将图像表示为符号的集合
-  * 符号：图像中频繁出现的子图像
-  * 三元组集合：$\{(x_1,y_1,t_1),\cdots\}$
 
 ## 水印
 

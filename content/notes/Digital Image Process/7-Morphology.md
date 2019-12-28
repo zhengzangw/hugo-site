@@ -1,8 +1,10 @@
 ---
 title: Morphology
 date: 2019-09-02
-weight: 7
+weight: 8
 ---
+
+## 形态学基本概念
 
 * 形态学(morphology)：生物学的分支，研究动植物形态和结构
 * 数学形态学：提取表示区域形状的图像成分

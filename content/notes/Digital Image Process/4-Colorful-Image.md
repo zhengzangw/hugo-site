@@ -1,8 +1,10 @@
 ---
 title: Colorful Image Processing
 date: 2019-09-02
-weight: 4
+weight: 5
 ---
+
+## 彩色基础
 
 - 全彩色：用全彩色传感器获取的真实彩色
 - 伪彩色：为特定灰度或灰度范围赋予颜色
@@ -21,7 +23,7 @@ weight: 4
     - 主颜色：RGB
       - 国际照明委员会(1931)：700nm,546.1nm,435.8nm
     - 次生色
-- 颜料的主颜色（吸收）：Yellow,Magenta,Cyan
+- 颜料的主颜色（吸收）：Yellow, Magenta, Cyan
 - 属性
   - 亮度 brightness：强度
   - 色调 hue：主波长
@@ -56,7 +58,7 @@ weight: 4
   - 将亮度和颜色信息解耦合
   - intensity: 平行面与强度轴（灰色）的交点
   - satuaration: 越小白光越大，与强度轴距离
-  - hue: 包含强度轴的面与强度轴的夹角
+  - hue: 包含强度轴的面与强度轴的夹角，与红色轴夹角
 - HSB(brightness)/HSV(Value)
 
 ## 伪彩色图像处理
@@ -77,6 +79,24 @@ weight: 4
   - CIE $L^*a^*b^*$ 模型：设备无关的颜色模型
 - 直方图处理
 - 平滑与锐化
+
+## 彩色图像分割
+
+- HIS 颜色空间直观
+  - 利用 $H$ 指定颜色
+  - 利用 $S$ 进一步限定区域
+  - $I$ 很少用来分割
+- RGB 空间分割效果更好
+  - 距离
+  - 方形盒子：长度与标准差成比例
+- 彩色边缘检测
+  - $u=\frac{\partial R}{\partial x}r+\frac{\partial G}{\partial x}g+\frac{\partial B}{\partial x}b$
+  - $v=\frac{\partial R}{\partial y}r+\frac{\partial G}{\partial y}g+\frac{\partial B}{\partial y}b$
+  - $g_xx=u^Tu$
+  - $g_yy=v^Tv$
+  - $g_xy=u^Tv$
+  - $\theta(x,y)$
+  - $F_\theta(x,y)$
 
 ## 显示器
 
@@ -100,21 +120,3 @@ weight: 4
     - Chrome 仅支持 sRGB
 
 ![色域标准](https://pic2.zhimg.com/80/dd3aad2d8d08af43e4b3555728c29b65_hd.jpg)
-
-## 彩色图像分割
-
-- HIS 颜色空间直观
-  - 利用 $H$ 指定颜色
-  - 利用 $S$ 进一步限定区域
-  - $I$ 很少用来分割
-- RGB 空间分割效果更好
-  - 距离
-  - 方形盒子：长度与标准差成比例
-- 彩色边缘检测
-  - $u=\frac{\partial R}{\partial x}r+\frac{\partial G}{\partial x}g+\frac{\partial B}{\partial x}b$
-  - $v=\frac{\partial R}{\partial y}r+\frac{\partial G}{\partial y}g+\frac{\partial B}{\partial y}b$
-  - $g_xx=u^Tu$
-  - $g_yy=v^Tv$
-  - $g_xy=u^Tv$
-  - $\theta(x,y)$
-  - $F_\theta(x,y)$
