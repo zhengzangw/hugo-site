@@ -9,7 +9,7 @@ weight: 11
 
 * SDR: system of Distinct Representives
   * distinct $x_1,x_2,\cdots,x_m,x_i\in S_i,i=1,2,\cdots,m$
-* Hall's Theorem (marriage theorem): $S_1,S_2,\cdots,S_m$ have a SDR $\iff \forall I\subseteq\{1,2,\cdots,m\},|\bigcup_{i\in I}S_i\geq|I|$
+* Hall's Theorem (marriage theorem): $S_1,S_2,\cdots,S_m$ have a SDR $\iff \forall I\subseteq\{1,2,\cdots,m\},|\bigcup_{i\in I}S_i|\geq|I|$
 * Hall's Theorem (graph theory form): A bipartite graph $G(U,V,E)$ has a matching of $U$ $\iff\forall S\subseteq U,|N(S)|\geq|S|$
   * $N(S)=\{v|\exists u\in S,uv\in E\}$
   * proof: induction, divide into two cases according to critical family ($|\bigcup_{i=1}^kS_i|=k$)

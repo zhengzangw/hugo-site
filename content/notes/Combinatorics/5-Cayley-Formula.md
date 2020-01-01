@@ -1,7 +1,6 @@
 ---
-title: 5. Cayley's formula
+title: 5. Cayley's Formula
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 5
 ---
 
@@ -31,11 +30,9 @@ weight: 5
 
 ## Kirchhoff's Matrix-Tree Theorem
 
-* Laplacian matrix: $L=D-A$
-  * $xLx^T=\frac{1}{2}\sum_{ij\in E}(x_i-x_j)^2$
+* Adjacent matrix $A$: $A_{ij}=[\{i,j\}\in E]$
+* Degree matrix $D$: $D_{ij}=\text{deg}(i)[i=j]$
 * incidence matrix: $B_{n\times m}$
-  * $L=BB^T$
-  * $L_{i,i}=B_iB_i^T$
 
 $$ B(i,e)=\begin{cases}
 1 & e=\{i,j\}\wedge i<j\\
@@ -44,6 +41,10 @@ $$ B(i,e)=\begin{cases}
 \end{cases}
 $$
 
+* Laplacian matrix: $L=D-A$
+  * $xLx^T=\frac{1}{2}\sum_{ij\in E}(x_i-x_j)^2$
+  * $L=BB^T$
+  * $L_{i,i}=B_iB_i^T$
 * Kirchhoff's Matrix-Tree Theorem
   * $L_{i,i}$: submatrix of $L$ obtained by removing the ith row and ith collumn
   * $t(G)$: number of spanning trees in $G$

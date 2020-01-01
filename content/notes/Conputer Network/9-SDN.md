@@ -1,8 +1,7 @@
 ---
-title: SDN
+title: 9. SDN
 date: 2019-01-28
-tags: [notes, network]
-weight: 8
+weight: 9
 ---
 
 ## 通用转发

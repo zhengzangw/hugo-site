@@ -1,8 +1,7 @@
 ---
-title: "Data Link Layer"
+title: "5. Data Link Layer"
 date: 2019-01-28
-tags: [notes, network]
-weight: 4
+weight: 5
 ---
 
 ## 提供服务
@@ -69,6 +68,7 @@ Carrier Sensing Multiple Access
 #### CSMA/CD (带冲突检测的载波监听多点接入)
 
 * $1$ 持续 CSMA + 二进制指数退避
+  * 发现信道空闲等待 96 比特时间
 * 干扰信号，帧间最小间隔
 * 检测冲突的时间不超过端到端传播时延两倍
 * CSMA/CD 效率：当有大量的活跃结点，且每个节点有大量帧要发送时，帧在信道中无碰撞传输的那部分时间在长期运行时间中所占比例
@@ -97,7 +97,7 @@ Carrier Sensing Multiple Access
   * CA: 进行二进制随机退避，侦听到信道空闲递减该值，减到 0 则发送
   * 接受完成后 SIFS 对方发送 ACK
   * 超时则在第二步回退，成功从第二步开始
-  
+
 ### 轮流协议
     
 * 轮询协议：主节点循环的方式轮询(poll)每个节点

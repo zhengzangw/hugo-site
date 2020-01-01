@@ -1,8 +1,7 @@
 ---
-title: "Data Link Layer: Wireless"
+title: "6. Data Link Layer: Wireless"
 date: 2019-01-28
-tags: [notes, network]
-weight: 5
+weight: 6
 ---
 
 ## 无线网络分类

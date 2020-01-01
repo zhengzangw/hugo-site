@@ -1,8 +1,7 @@
 ---
-title: Transport Layer
+title: 3. Transport Layer
 date: 2019-01-28
-tags: [notes, network]
-weight: 2
+weight: 3
 ---
 
 ## 提供服务
@@ -74,10 +73,10 @@ UDP 报文段首部
 
 ### TCP 首部格式
 
-| Source Port               | Destination Port | Seqence Number                          | Acknowledgement Number | Data Offset      | Reserved | Flags       | Window      | Checksum     | Urgent Pointer         | Options         |
-| ------------------------- | ---------------- | --------------------------------------- | ---------------------- | ---------------- | -------- | ----------- | ----------- | ------------ | ---------------------- | --------------- |
-| 16 bits                   | 16               | 32                                      | 32                     | 4                | 4        | 8           | 16          | 16           | 16                     | option,variable |
-| Telnet=13,HTTP=80,TFTP=69 |                  | 第一个数据八位组的序号（SYN置位则加一） | 希望接受的序号（累积确认）         | 首部32位字的数量 |          | 置1含义见下 | 信用量分配W | 因特网检验和 | 紧急数据最后一个八位组 |                 |
+| Source Port               | Destination Port | Seqence Number                          | Acknowledgement Number     | Data Offset      | Reserved | Flags       | Window      | Checksum     | Urgent Pointer         | Options         |
+| ------------------------- | ---------------- | --------------------------------------- | -------------------------- | ---------------- | -------- | ----------- | ----------- | ------------ | ---------------------- | --------------- |
+| 16 bits                   | 16               | 32                                      | 32                         | 4                | 4        | 8           | 16          | 16           | 16                     | option,variable |
+| Telnet=13,HTTP=80,TFTP=69 |                  | 第一个数据八位组的序号（SYN置位则加一） | 希望接受的序号（累积确认） | 首部32位字的数量 |          | 置1含义见下 | 信用量分配W | 因特网检验和 | 紧急数据最后一个八位组 |                 |
 
 | Flags | Function                 |
 | ----- | ------------------------ |

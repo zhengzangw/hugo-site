@@ -1,8 +1,7 @@
 ---
-title: Security
+title: 7. Security
 date: 2019-01-28
-tags: [notes, network]
-weight: 6
+weight: 7
 ---
 
 ## 安全通信要求

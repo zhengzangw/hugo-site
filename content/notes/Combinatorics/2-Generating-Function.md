@@ -25,18 +25,19 @@ weight: 2
   * Expand $G(x)$ into a power series and read off the coefficient of $x^n$
     * Taylor expansion: $G(x)=\sum_{n\geq 0}\frac{G^{(n)}(0)}{n!}x^n$
     * Geometric sequence: $\frac{1}{1-x}=\sum_{n\geq0}x^n$
-      * $G(x)=\sum_{i=1}^{k}\frac{a_i}{1-b_ix}$, coefficient of $x^n$ in $G(x)$ is $\sum_{i=1}^ka_ib_i^n$
+      * $G(x)=\sum_{i=1}^{k}\frac{a_i}{1-b_ix}$, $[x^n]G(x)=\sum_{i=1}^ka_ib_i^n$
     * Newton's formular: $(1+x)^\alpha=\sum_{n\geq0}{\alpha\choose n}x^n$
       * ${\alpha\choose n}=\frac{\alpha(\alpha-1)\cdots(\alpha-(n-1))}{n!}$
       * ${-n\choose m}=(-1)^m{n+m-1\choose m}$
 * Catalan Number: $C_n=\sum_{k=0}^{n-1}C_kC_{n-1-k},C_0=1$
   * Interpretation
+    * 出入栈：the number of expressions containing n pairs of parentheses which are correctly matched
     * Dyck words of length $2n$(A Dyck word is a string consisting of n X's and n Y's such that no initial segment of the string has more Y's than X's)
-    * the number of expressions containing n pairs of parentheses which are correctly matched
-    * the number of different ways n + 1 factors can be completely parenthesized
-    * the number of full binary trees with n + 1 leaves
-    * the number of monotonic lattice paths along the edges of a grid with n × n square cells, which do not pass above the diagonal
-    * triangulations of a convex (n+2)-gon
+    * the number of different ways $n + 1$ factors can be completely parenthesized
+    * the number of full binary trees with $n + 1$ leaves
+    * 单调路径：the number of monotonic lattice paths along the edges of a grid with $n × n$ square cells, which do not pass above the diagonal
+    * 三角形剖分：triangulations of a convex $(n+2)$-gon
+    * 二叉树种类
   * $C_n=\frac{1}{n+1}{2n\choose n}$
     * Generating function
       * $G(x)^2=\sum_{n\geq0}\sum_{k=0}^nC_kC_{n-k}x^n$

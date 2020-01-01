@@ -1,7 +1,6 @@
 ---
-title: Basics
+title: 1. Basics
 date: 2019-09-03
-tags: [network, notes]
 weight: 1
 ---
 

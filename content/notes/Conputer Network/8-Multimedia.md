@@ -1,8 +1,7 @@
 ---
-title: Multimedia
+title: 8. Multimedia
 date: 2019-01-28
-tags: [notes, network]
-weight: 7
+weight: 8
 ---
 
 ## 流式存储视频
