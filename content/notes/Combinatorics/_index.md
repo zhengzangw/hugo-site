@@ -3,7 +3,6 @@ title: 组合数学
 date: 2019-01-16
 weight: 7
 kind: math
-status: focus
 ---
 
 * 教材

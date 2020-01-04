@@ -1,7 +1,6 @@
 ---
 title: 8. Extremal Graph Theory
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 8
 ---
 

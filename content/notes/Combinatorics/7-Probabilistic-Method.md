@@ -1,7 +1,6 @@
 ---
 title: 7. Probabilistic Method
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 7
 ---
 
@@ -24,7 +23,7 @@ $$P(A)=P(\wedge_{i=1}^n\overline{A}_i)>0\Leftarrow P(\vee_{i=1}^nA_i)<1\Leftarro
   * $k$-paradoxical: $\forall V, |V|=k,\exists v$ beats them all
   * Theorem (Erdős 1963): if ${n\choose k}(1-2^{-k})^{n-k}<1$, there is a tournament on $n$ vertices that is $k$-paradoxical
 
-## Expectation
+## The Averaging principle
 
 $$\exists x,A(x)\geq t\Leftarrow E(x)\geq t$$
 

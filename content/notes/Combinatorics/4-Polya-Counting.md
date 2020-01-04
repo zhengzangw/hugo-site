@@ -1,7 +1,6 @@
 ---
 title: 4. Pólya's Theory of Counting
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 4
 ---
 

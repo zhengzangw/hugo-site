@@ -1,7 +1,6 @@
 ---
 title: 11. Matching Theory
 date: 2019-12-18
-tags: [math, ps, notes]
 weight: 11
 ---
 

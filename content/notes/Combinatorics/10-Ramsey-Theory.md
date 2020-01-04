@@ -1,7 +1,6 @@
 ---
 title: 10. Ramsey's Theory
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 10
 ---
 

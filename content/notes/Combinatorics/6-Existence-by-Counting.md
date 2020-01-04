@@ -1,7 +1,6 @@
 ---
 title: 6. Existence by Counting
 date: 2019-09-04
-tags: [math, ps, notes]
 weight: 6
 ---
 

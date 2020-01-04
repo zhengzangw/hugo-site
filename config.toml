@@ -21,6 +21,7 @@ assetDir=["/assets", "/themes/ztyblog/assets"]
 
 [blackfriday]
     smartypants = false
+    tabSizeDefault = 2
 
 [params]
     author = "Zangwei Zheng"
@@ -30,14 +31,14 @@ assetDir=["/assets", "/themes/ztyblog/assets"]
     updatelisturl = "https://github.com/zhengzangw/hugo-site/issues"
     mail = "zzw@smail.nju.edu.cn"
     iconfontURL = "//at.alicdn.com/t/font_1559566_kit45x0ln3e.css"
-	contentcommithash = "cee20217288e105752af1b26275e45509fb2ddcd"
-	contentcommitdate = "Sun Dec 29 20:42:38 2019 +0800"
-	contentcommitcomment = "rebuilding site Sun Dec 29 20:42:38 CST 2019"
-	themecommithash = "eeac8e4231289739a9de86b64d512e4fe5345290"
-	themecommitdate = "Tue Dec 24 03:05:18 2019 +0800"
-	themecommitcomment = "use cdn to load katex"
-	binarycommithash = "bf80260d52c4f9bcbd6ca204b214631b7bfda386"
-	binarycommitdate = "Sun Dec 29 20:42:40 2019 +0800"
+	contentcommithash = "184166298c2bf44d904400ad10747259fd9b79d4"
+	contentcommitdate = "Wed Jan 1 20:04:15 2020 +0800"
+	contentcommitcomment = "rebuilding site Wed Jan  1 20:04:15 CST 2020"
+	themecommithash = "26f11d3404fd522c0b902f278eaa9de987f6a66c"
+	themecommitdate = "Wed Jan 1 15:59:37 2020 +0800"
+	themecommitcomment = "pass the appended element to loadPage"
+	binarycommithash = "07de91b3d31181cfa22e0657cfd9a50f7b7b8614"
+	binarycommitdate = "Wed Jan 1 20:04:17 2020 +0800"
     bangumiseasonstart = "2018"
     [[params.social]]
         identifier = "github"

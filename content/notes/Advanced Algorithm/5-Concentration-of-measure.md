@@ -1,13 +1,17 @@
 ---
 title: 5. Concentration of measure
 date: 2019-09-04
-tags: [algorithm, math, notes]
 weight: 5
 ---
 
+## Basic Tail inequality
+
+* Markov's Inequality: $P(X\geq t)\leq\frac{E(x)}{t}$
+* Chebyshev's Inequality: $P(|X-E(X)|\geq t)\leq\frac{V(X)}{t^2}$
+
 ## Chernoff Bound
 
-* Proof Methods:
+* Chernoff Bound Method
   * $P(X\geq (1+\delta)\mu)=P(e^{\lambda X}\geq e^{\lambda(1+\delta)\mu})\leq\frac{E(e^{\lambda X})}{e^{\lambda(1+\delta)\mu}}$
   * $E(e^{\lambda X})=\prod_{i=1}^n E(e^{\lambda X_i})$
     * Moment generating functions $M(\lambda)=E[e^{\lambda X}]=\sum_{k=0}^\infty\frac{\lambda^k}{k!}E(X^k)$
