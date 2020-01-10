@@ -127,7 +127,7 @@ $$
   * Ryser's formula: $\sum_{\pi\in S_n}\prod_{i\in[n]}A_{i,\pi(i)}=\sum_{I\subseteq[n]}(-1)^{n-|I|}\prod_{i\in[n]}\sum_{j\in I}A_{i,j}$
     * $O(n!)\rightarrow O(n2^n)$
 
-### 数论
+### Number Theory
 
 $P=\{a>0|a|n\},\leq_p$ is $|$
 

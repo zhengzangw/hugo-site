@@ -4,7 +4,7 @@ date: 2019-09-04
 weight: 7
 ---
 
-## Probability
+## Existence by Probability
 
 $$\exists x,A(x)\Leftarrow P(A(x))>0$$
 
@@ -19,9 +19,9 @@ $$P(A)=P(\wedge_{i=1}^n\overline{A}_i)>0\Leftarrow P(\vee_{i=1}^nA_i)<1\Leftarro
 
 ### Paradoxical Tournament
   
-  * orientation of the edges of the complete graph on set of vertices $V$
-  * $k$-paradoxical: $\forall V, |V|=k,\exists v$ beats them all
-  * Theorem (Erdős 1963): if ${n\choose k}(1-2^{-k})^{n-k}<1$, there is a tournament on $n$ vertices that is $k$-paradoxical
+* orientation of the edges of the complete graph on set of vertices $V$
+* $k$-paradoxical: $\forall V, |V|=k,\exists v$ beats them all
+* Theorem (Erdős 1963): if ${n\choose k}(1-2^{-k})^{n-k}<1$, there is a tournament on $n$ vertices that is $k$-paradoxical
 
 ## The Averaging principle
 

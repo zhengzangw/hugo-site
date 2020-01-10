@@ -1,24 +1,38 @@
 ---
-title: Monte Carlo Method
+title: Markov Chain Monte Carlo Methods
 date: 2019-12-18
+weight: 12
 ---
 
-## Defintion
+## Median Trick
 
-* Problem
+* $\forall\epsilon$, return a $\hat Z$ in time Poly($|\phi|,\frac{1}{\epsilon}$), $P((1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z)\geq\frac{2}{3}$
+* Repeat $O(\log(\frac{1}{\delta}))$ and choose median number (Chernoff Bound)
+* FPRAS: $\forall\epsilon,\delta$, return a $\hat Z$ in time Poly($|\phi|,\frac{1}{\epsilon},\log\frac{1}{\delta}$), $P((1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z)\geq1-\delta$
+
+## Monte Carlo Method
+
+* (P)Problem
   * Universe $U$, subset $S\subseteq U$ where $\rho=\frac{|S|}{|U|}$
   * Assume a uniform sampler for elements
   * Estimate $Z=|S|$
-* Monte Carlo Method: sample $X_1,X_2,\cdots,X_N$ uniformly and independently from $U$, $Y_i=[X_i\in S]$, $\hat Z=\frac{|U|}{N}\sum_{i=1}^NY_i$
+* Monte Carlo Method
+  * Sample $X_1,X_2,\cdots,X_N$ uniformly and independently from $U$
+  * $Y_i=[X_i\in S]$
+  * counting: $\hat Z=\frac{|U|}{N}\sum_{i=1}^NY_i$
+* $\epsilon$-approx estimator: $(1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z$
 * Estimator Theorem(Naive): $N\geq\frac{4}{\epsilon^2\rho}\ln\frac{2}{\delta}=\Theta(\frac{1}{\epsilon^2\rho}\ln\frac{1}{\delta})\Rightarrow P(\hat Z$ is $\epsilon$-approx of $|S|)\geq 1-\delta$
 
-## Counting DNF Solutions
+### Counting DNF Solutions
 
-#P-hard
-
-* Naive: $\rho=\frac{|S|}{|U|}$ can be exponentially small
-* Implicityly: $m$ sets $S_1,S_2,\cdots,S_m$, estimate $|\bigcup_{i=1}^mS_i|$
-* Multiset Union: $\rho\geq\frac{1}{m}$
+* (P)Counting DNF Solutions
+  * Input: DNF formula $\phi:\{T,F\}^n\rightarrow\{T,F\},U=\{T,F\}^n$
+  * Output: $Z=|\phi^{-1}(T)|,S=\phi^{-1}(T)$
+  * #P-hard
+  * $\rho=\frac{|S|}{|U|}$ can be exponentially small
+* (P)Union of Sets
+  * Input: $m$ sets $S_1,S_2,\cdots,S_m$, estimate $|\bigcup_{i=1}^mS_i|$
+  * Output: $|\bigcup_{i=1}^mS_i|$
   * Assumption following is efficient
     * compute $|S_i|$
     * sample uniform $x\in S_i$
