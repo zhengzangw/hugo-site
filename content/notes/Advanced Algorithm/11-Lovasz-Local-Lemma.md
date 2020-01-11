@@ -13,16 +13,36 @@ weight: 11
 
 ## Constraint Satisfaction Problem
 
-* CSP
-  * variables: $X=\{x_1,x_2,\cdots,x_n\},X_i\in\Omega$
+* CSP Definition
+  * variables: $V=\{v_1,v_2,\cdots,v_n\},v_i\in\Omega$
   * constraints: $C_1,C_2,\cdots,C_m,C_i:\Omega^{S_i}\rightarrow\{T,F\},S_i\subset X$
+  * assignment: $\sigma\in[q]^V$
+  * $\mu(\sigma)=\prod_{i=1}^mC_i(\sigma_{S_i})/Z$
+* CSP
   * satisfiability: determine whether $\exists$ an assignment satisfying all constraints
-    * search
+    * search: find an assignment
   * optimization: find an assignment satisfying as may constraints as possible
     * refutation: find a proof of no assignment can satisfy $>m^*$ constraints for $m^*$ as small as possible
   * counting: estimate the number of satisfying assignments
     * sampling: random sample a satisfying assignments
     * inference: calculate the possibility of a variable being assigned certain value
+
+| CSP             | Satisfiability | Optimization | Counting    |
+| --------------- | -------------- | ------------ | ----------- |
+| 2SAT            | P              | NP-hard      | #P-complete |
+| 3SAT            | NP-complete    | NP-hard      | #P-complete |
+| matching        | P              | P            | #P          |
+| 2-coloring(cut) | P              | NP-hard      | FP          |
+| 3-coloring      | NP-complete    | NP-hard      | #P-complete |
+
+* Poly-time inter-reducible
+  * appox. counting
+  * sampling
+  * approx. inference
+* Random Sampling
+  * Uniform independent set in graphs of max-degree $\Delta$: (poly-time when $\Delta$≤5, NP-hard when $\Delta$≥6 or higher
+  * Uniform matching in any graph (always poly-time)
+  * Uniform proper$q$-coloring of graphs of max-dgree $\Delta$: NP-hard when $q<\Delta$
 * $k$-SAT
   * $\Omega=\{T,F\}$, constraints are clauses
   * $k$-CNF: each clause contains $k$ variables

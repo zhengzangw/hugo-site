@@ -82,7 +82,6 @@ GreedyMaxCut(V,E){
 * Analysis Details
   * $|E|=\sum_{i=1}^n(|E(S_i,\{v_i\})|+|E(T_i,\{v_i\})|)$
   * SOL$_G=\sum_{i=1}^n\max(|E(S_i,\{v_i\})|,|E(T_i,\{v_i\})|)\geq\frac{1}{2}E\geq\frac{1}{2}$OPT$_G$
-  * 
 * best known approximation ratio $\alpha^*\approx 0.878$ (best if assuming unique game conjecture)
 
 ### Derandomization from Average Case
