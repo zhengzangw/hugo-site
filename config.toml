@@ -1,45 +1,130 @@
-baseURL = "https://zhengzangw.com/"
-languageCode = "zh-CN"
-theme="ztyblog"
-copyright="CC BY-NC 4.0"
-title = "Welcome"
+baseURL = "https://zhengzangw.com/" #Your Site URL
+title = "Welcome" #Title for the homepage
 
+# Language
+DefaultContentLanguage = "en"
 hasCJKLanguage = true
+
+# Theme
+theme="ztyblog"
+
+# Code Highlight Setting
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = false
 pygmentsStyle = "colorful"
+
+# Folder Location
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+# Building Options
+buildDrafts  = false
+buildFuture  = false
+buildExpored = false
+canonifyURLs = true
 enableRobotsTXT = true
-enableGitInfo = true
-Paginate = 10
-assetDir=["/assets", "/themes/ztyblog/assets"]
+enableGitInfo   = false
+enableEmoji     = true
+enableMissingTranslationPlaceholders = false
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
+rssLimit  = 10 # Maximum number of items in the RSS feed.
+Paginate = 10 # Number of Posts per page for blog
+copyright="CC BY-NC 4.0" # Copyright Protocol for your site
 
 [author]
     name = "Zangwei Zheng"
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
-[blackfriday]
-    smartypants = false
-    tabSizeDefault = 2
+# Markdown Render Settings
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+        definitionList = true
+        footnote = true
+        linkify = true
+        strikethrough = true
+        table = true
+        taskList = true
+        typographer = false
+        [markup.goldmark.parser]
+        attribute = true
+        autoHeadingID = true
+        autoHeadingIDType = "github"
+        [markup.goldmark.renderer]
+        hardWraps = false
+        unsafe = false
+        xHTML = false
+    # blackfriday for legacy
+    [markup.blackfriday]
+        hrefTargetBlank = true
+        smartypants = false
+        tabSizeDefault = 2
+    [markup.tableOfContents]
+        endLevel = 3
+        ordered = false
+        startLevel = 2
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        hl_Lines = ""
+        lineNoStart = 1
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = true
+        style = "monokai"
+        tabWidth = 4
 
 [params]
-    author = "Zangwei Zheng"
-    description = "Zangwei Zheng's Site"
-    copyright = "2017 - 2019, Zangwei Zheng. All rights reserved."
-    dateformFull = "2006-01-02 15:04 CST"
-    updatelisturl = "https://github.com/zhengzangw/hugo-site/issues"
-    mail = "zzw@smail.nju.edu.cn"
-    iconfontURL = "//at.alicdn.com/t/font_1559566_kit45x0ln3e.css"
-	contentcommithash = "f5ead2ff62127540b3221d5b190f12fd712a9e15"
-	contentcommitdate = "Mon Jan 13 19:41:57 2020 +0800"
-	contentcommitcomment = "rebuilding site Mon Jan 13 19:41:57 CST 2020"
+    dateformFull = "2006-01-02 15:04 CST" # Date Formata
+    description = "Zangwei Zheng's Site" # Description for your site
+    keywords = "blog" # Keyworks for searching engine
+
+    # Git Info
+    ## Git info for raw content
+    contentcommithash = "7cda57fc0c5d9f778b09e0137896ec1c636f684b"
+	contentcommitdate = "Sat Jan 25 23:04:34 2020 +0800"
+	contentcommitcomment = "rebuilding site Sat Jan 25 23:04:34 CST 2020"
+    ## Git info for theme
 	themecommithash = "26f11d3404fd522c0b902f278eaa9de987f6a66c"
 	themecommitdate = "Wed Jan 1 15:59:37 2020 +0800"
 	themecommitcomment = "pass the appended element to loadPage"
-	binarycommithash = "cf15e6e4e4e1c89bbf62e81d36d5f62b5d5aa92f"
-	binarycommitdate = "Mon Jan 13 19:41:59 2020 +0800"
+	## Git info for your whole site
+    binarycommithash = "b56a25a13e1e29abc126b370f37c905b68517e47"
+	binarycommitdate = "Sat Jan 25 23:04:36 2020 +0800"
+
+    # Home Page
+    homeimage = "/images/boat.jpg" # Image URL for home page
+    homeblend = "blue" # Image blend color: blank, blue, green, red, white
+    themecommitinfo = true
+    gitinfo = true
+    copyright = "2017 - 2019, Zangwei Zheng. All rights reserved." # Copyright
+    icp = "waiting"
+    security = "waiting"
+    leonsans = false # Enable animate Welcome
+    
+    # Notes
+    updatelisturl = "https://github.com/zhengzangw/hugo-site/issues"
+    mail = "zzw@smail.nju.edu.cn"
+
+    # Bangumi
     bangumiseasonstart = "2018"
+
+    # 404 Page
+    notfoundimage = "/images/dessert.jpg"
+    notfoundblend = "red"
+    # Markdown Render
+    mathmode = true # Enable "_" render in mathmode in markdown
+    linkicon = true # Add link icon for h1-h6
+    tablecenter = true # Correct text-center table align
+
     [[params.social]]
         identifier = "github"
         name = "Github"
@@ -50,16 +135,14 @@ assetDir=["/assets", "/themes/ztyblog/assets"]
         name = "email"
         icon = "icon-email"
         url = "mailto:zzw@smail.nju.edu.com"
+    
     [params.pagination]
-        class = "pagination justify-content-center"
         showFirst = true
         showPrevious = true
         showBeginEnd = true
         previousIndicator = "Previous"
         nextIndicator = "Next"
         pagesBetweenActive = 2
-        firstIndicator = '<i class="iconfont icon-back-arrow-"></i>'
-        lastIndicator = '<i class="iconfont icon-back-arrow-reverse"></i>'
 
 [menus]
     [[menu.main]]
