@@ -49,7 +49,7 @@ title = "Friend's Links"
     icon = "lyz.png"
     url = "https://maxwell-lyu.github.io/"
 [[friends]]
-    name = "aruko (Wei He)"
+    name = "Maruko (Wei He)"
     icon = "marukohe.jpg"
     url = "https://marukohe.github.io"
 [[friends]]

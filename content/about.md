@@ -1,6 +1,7 @@
 ---
 title: About Me
 date: 2017-09-01
+disablemathmode: true
 ---
 
 I am a junior student at Nanjing University, pursuing Bachelor's Degree of Computer Science.
