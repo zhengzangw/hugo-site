@@ -89,16 +89,16 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "110efbe3de8d5346fe902016d0cb308428848a40"
-	contentcommitdate = "Sun Jan 26 19:07:59 2020 +0800"
-	contentcommitcomment = "rebuilding site Sun Jan 26 19:07:59 CST 2020"
+	contentcommithash = "025b703b43540b282122c5d266aebb38aafcc207"
+	contentcommitdate = "Mon Jan 27 22:16:18 2020 +0800"
+	contentcommitcomment = "rebuilding site Mon Jan 27 22:16:18 CST 2020"
     ## Git info for theme
-	themecommithash = "431b69d63b665adac6a9043280ffeaecd320f7d0"
-	themecommitdate = "Sun Jan 26 19:07:47 2020 +0800"
-	themecommitcomment = "better config"
+	themecommithash = "7da7661f5cead5ce411fe75b6aaadfba55879bfd"
+	themecommitdate = "Mon Jan 27 22:15:41 2020 +0800"
+	themecommitcomment = "better config.example"
 	## Git info for site binary
-	binarycommithash = "1b12c6b1f006eaf01ab6cc3979d89d7353c28f36"
-	binarycommitdate = "Sun Jan 26 19:08:02 2020 +0800"
+	binarycommithash = "85d63a44cb0aaf231b90a2d6dacaa953e8696da9"
+	binarycommitdate = "Mon Jan 27 22:16:21 2020 +0800"
 
     # Home Page
     homeimage = "/images/boat.jpg" # Image URL for home page
