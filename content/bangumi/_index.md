@@ -1,10 +1,19 @@
 +++
 title = "追番列表"
 [[year]]
+    year = "2020 1月"
+    [[year.entry]]
+        name = "某科学的超电磁炮T"
+        status = "当前"
+    [[year.entry]]
+        name = "因为太怕痛就全点防御力了"
+        status = "当前"
+    [[year.entry]]
+[[year]]
     year = "2019 10月"
     [[year.entry]]
         name = "刀剑神域 爱丽丝篇 异界战争"
-        status = "当前"
+        status = "追完"
         comment = "试图展现出每个人的特色。但是不要在战斗中疯狂独白啊"
     [[year.entry]]
         name = "FATE 绝对魔兽战线"
@@ -12,12 +21,12 @@ title = "追番列表"
         comment = ""
     [[year.entry]]
         name = "我们无法一起学习"
-        status = "弃坑"
+        status = "追完"
         comment = ""
     [[year.entry]]
         name = "厨神小当家"
-        status = "当前"
-        comment = "中配主角可以，龙套配音有点出境"
+        status = "追完"
+        comment = "精简版重制？"
     [[year.entry]]
         name = "厨病激发男孩"
         status = "追完"
@@ -28,16 +37,16 @@ title = "追番列表"
         comment = ""
     [[year.entry]]
         name = "这个勇者明明超强却过分谨慎"
-        status = "当前"
-        comment = ""
+        status = "推荐"
+        comment = "逗"
     [[year.entry]]
         name = "刺客伍六七 最强发型师（第二季）"
-        status = "当前"
+        status = "追完"
         comment = ""
     [[year.entry]]
         name = "我，不是说了能力要平均值么！"
-        status = "当前"
-        comment = ""
+        status = "追完"
+        comment = "卖人设"
     [[year.entry]]
         name = "入间同学入魔了"
         status = "当前"
@@ -351,6 +360,9 @@ title = "追番列表"
         status = "喜欢"
 [[year]]
     year = 2012
+    [[year.entry]]
+        name = "JoJo的奇妙冒险"
+        status = "补番"
     [[year.entry]]
         name = "中二病也要谈恋爱！"
         status = "看完"
