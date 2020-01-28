@@ -1,9 +1,9 @@
 ---
 title: 人工智能
 date: 2019-01-16
+letter: A
 weight: 27
-kind: algorithm
----
+textbook: "*Artificial Intelligence: A Modern Approach*"
+course: NJU 人工智能 - 高阳
 
-教材：*Artificial Intelligence: A Modern Approach*  
-课程：NJU 人工智能 - 高阳
+---

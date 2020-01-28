@@ -9,6 +9,13 @@ title = "追番列表"
         name = "因为太怕痛就全点防御力了"
         status = "当前"
     [[year.entry]]
+        name = "镇魂街 第二季"
+        status = "当前"
+        comment = "制作不良"
+    [[year.entry]]
+        name = "理科生坠入情网，故尝试证明"
+        status = "追完"
+        comment = "作为理科生，没对上电波"
 [[year]]
     year = "2019 10月"
     [[year.entry]]

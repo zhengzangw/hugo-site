@@ -2,12 +2,7 @@
 title: 近世代数
 date: 2019-01-16
 weight: 7
-kind: math
+letter: M
+textbook: "*Abstract Algebra*；《近世代数》南大"
+course: "Problem Solving - NJU; 近世代数 - NJU - 孙智伟"
 ---
-
-* 教材
-  * *Abstract Algebra*
-  * 《近世代数》南大
-* 课程
-  * Problem Solving - NJU
-  * 近世代数 - NJU - 孙
