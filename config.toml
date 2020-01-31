@@ -114,13 +114,13 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "18f09f2b85df6c105a2be90a4b12c82e9b924e1e"
-	contentcommitdate = "Tue Jan 28 21:38:28 2020 +0800"
-	contentcommitcomment = "rebuilding site Tue Jan 28 21:38:27 CST 2020"
+	contentcommithash = "4a2c264a0ef94c1ab48f5f87c9e241ee56b858cf"
+	contentcommitdate = "Fri Jan 31 12:31:09 2020 +0800"
+	contentcommitcomment = "rebuilding site Fri Jan 31 12:31:09 CST 2020"
     ## Git info for theme
-	themecommithash = "0ce2cd5cd5c11a02ff6aade96c32578393af15ca"
-	themecommitdate = "Tue Jan 28 21:38:10 2020 +0800"
-	themecommitcomment = "better notes"
+	themecommithash = "fa2e18252b01b14d3f39e7b66880652a46c61401"
+	themecommitdate = "Fri Jan 31 12:30:39 2020 +0800"
+	themecommitcomment = "update Readme and config example"
 	## Git info for site binary
 	binarycommithash = "355b212a0cb669dd8634f2691194bf0920347e54"
 	binarycommitdate = "Tue Jan 28 21:38:29 2020 +0800"
@@ -146,7 +146,7 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
         showFirst = true
         showPrevious = true
         showBeginEnd = true
-        pagesBetweenActive = 2.
+        pagesBetweenActive = 2
 
 [menus]
     [[menu.main]]
