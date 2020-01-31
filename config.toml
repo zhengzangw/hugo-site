@@ -1,5 +1,5 @@
 baseURL = "https://zhengzangw.com/" #Your Site URL
-title = "Welcome" #Title for the homepage
+title = "Zheng Zangwei's Site" #Title for the homepage
 
 # Language
 DefaultContentLanguage = "en"
@@ -37,7 +37,7 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
-# Markdown Render Settings
+# Markdown Render Settings, see https://gohugo.io/getting-started/configuration-markup for detailed explanation
 [markup]
     defaultMarkdownHandler = "goldmark"
     [markup.goldmark]
@@ -55,7 +55,7 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
             autoHeadingIDType = "github"
         [markup.goldmark.renderer]
             hardWraps = false
-            unsafe = false
+            unsafe = false # Render HTML in Markdown
             xHTML = false
     # blackfriday for legacy
     [markup.blackfriday]
@@ -78,27 +78,15 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
         tabWidth = 4
 
 [params]
-    dateformFull = "2006-01-02 15:04 CST" # Date Formata
+    dateformFull = "2006-01-02 15:04 CST" # Date Format
     description = "Zangwei Zheng's Site" # Description for your site
     keywords = "blog" # Keyworks for searching engine
-    useCDN = true
+    useCDN = true # whether use CDN for css/js, true Recommended, if not, use npm and ./load.js to add static file
 
-    # Comments
-    comments = true
-    disqusname = "zhengzangw-com"
-    
-    # Git Info
-    ## Git info for whole site
-	contentcommithash = "025b703b43540b282122c5d266aebb38aafcc207"
-	contentcommitdate = "Mon Jan 27 22:16:18 2020 +0800"
-	contentcommitcomment = "rebuilding site Mon Jan 27 22:16:18 CST 2020"
-    ## Git info for theme
-	themecommithash = "7da7661f5cead5ce411fe75b6aaadfba55879bfd"
-	themecommitdate = "Mon Jan 27 22:15:41 2020 +0800"
-	themecommitcomment = "better config.example"
-	## Git info for site binary
-	binarycommithash = "85d63a44cb0aaf231b90a2d6dacaa953e8696da9"
-	binarycommitdate = "Mon Jan 27 22:16:21 2020 +0800"
+    # Markdown Render
+    mathmode = true # Enable "_" render in mathmode in markdown
+    linkicon = true # Add link icon for h1-h6
+    tablecenter = true # Correct text-center table align
 
     # Home Page
     homeimage = "/images/boat.jpg" # Image URL for home page
@@ -109,27 +97,39 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     icp = "waiting"
     security = "waiting"
     leonsans = false # Enable animate Welcome
-    
-    # Notes
-    updatelist = true
-    updatelisturl = "https://github.com/zhengzangw/hugo-site/issues"
-    sendcorrect = true
-    sendcorrecturl = "zzw@smail.nju.edu.cn"
-
-    # Bangumi
-    bangumiseasonstart = "2018"
-
-    # Search
-    enablesearch = true # Enable Search Module; Also add search in menu
 
     # 404 Page
     notfoundimage = "/images/dessert.jpg"
     notfoundblend = "red"
 
-    # Markdown Render
-    mathmode = true # Enable "_" render in mathmode in markdown
-    linkicon = true # Add link icon for h1-h6
-    tablecenter = true # Correct text-center table align
+    # Comments
+    comments = true # whether use disqus comment plugin
+    disqusname = "zhengzangw-com"
+
+    # Notes
+    updatelist = true
+    updatelisturl = "https://github.com/zhengzangw/hugo-site/issues"
+    sendcorrect = true
+    sendcorrecturl = "zzw@smail.nju.edu.cn"
+    
+    # Git Info
+    ## Git info for whole site
+	contentcommithash = "18f09f2b85df6c105a2be90a4b12c82e9b924e1e"
+	contentcommitdate = "Tue Jan 28 21:38:28 2020 +0800"
+	contentcommitcomment = "rebuilding site Tue Jan 28 21:38:27 CST 2020"
+    ## Git info for theme
+	themecommithash = "0ce2cd5cd5c11a02ff6aade96c32578393af15ca"
+	themecommitdate = "Tue Jan 28 21:38:10 2020 +0800"
+	themecommitcomment = "better notes"
+	## Git info for site binary
+	binarycommithash = "355b212a0cb669dd8634f2691194bf0920347e54"
+	binarycommitdate = "Tue Jan 28 21:38:29 2020 +0800"
+
+    # Bangumi
+    bangumiseasonstart = "2018" # After which year, group by season instead of year
+
+    # Search
+    enablesearch = true # Enable Search Module; Also add search in menu
 
     [[params.social]]
         identifier = "github"
@@ -146,7 +146,7 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
         showFirst = true
         showPrevious = true
         showBeginEnd = true
-        pagesBetweenActive = 2
+        pagesBetweenActive = 2.
 
 [menus]
     [[menu.main]]
@@ -176,21 +176,32 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
         url = "/bangumi/"
         pre = "icon-bilibili-line"
         post = "追番列表"
+        weight = 1
     [[menu.second]]
         identifier = "friends"
         name = "friends"
         url = "/friends/"
         pre = "icon-friend"
         post = "友链"
+        weight = 2
     [[menu.second]]
         identifier = "resources"
         name = "resources"
         url = "/slides/"
         pre = "icon-resources"
         post = "资源"
+        weight = 3
     [[menu.second]]
         identifier = "search"
         name = "Search"
         url = "/search/"
         pre = "icon-search"
         post = "站内搜索"
+        weight = 4
+    [[menu.second]]
+        identifier = "portal"
+        name = "Portal"
+        url = "/portal/"
+        pre = "icon-iconentrance"
+        post = "自定门户"
+        weight = 5

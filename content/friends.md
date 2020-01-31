@@ -1,5 +1,6 @@
 +++
 title = "Friend's Links"
+layout = "friends"
 [[friends]]
     name = "Fancy Pei"
     icon = "fancypei.jpg"
