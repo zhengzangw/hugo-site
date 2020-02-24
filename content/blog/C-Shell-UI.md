@@ -24,6 +24,10 @@ tags: [c,shell]
 
 ## Escape Character
 
+```sh
+echo -e "\033[32;31m string \033[0m"
+```
+
 * \e[#m
 * \033
 * \x1b

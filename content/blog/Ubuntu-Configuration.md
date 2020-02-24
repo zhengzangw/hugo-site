@@ -1,61 +1,80 @@
 ---
-title: Configurate Ubuntu 
+title: Configurate Ubuntu
 date: 2019-03-21
-tags: [linux,config]
+tags: [linux, config]
 ---
 
-# Install Ubuntu
+## Platform
 
-## Virtual machine on mac
+### Virtual Machine on macosx
 
 Install virtualbox
 
+```sh
     brew cask install virtualbox
+```
 
 Download Ubuntu from [Tsinghua Image](https://mirror.tuna.tsinghua.edu.cn/ubuntu-releases/)
 
-* 18.04 is LTS now
+LTS version
+
+- 16.04
+- 18.04
 
 <!--more-->
 
-### Guest Additions CD Image
-
-Device -> Insert Guest Additions CD Image
+Guest Additions CD Image: Device -> Insert Guest Additions CD Image
 
 After installation and restart, turn on Shared Clipboard and Drag and Drop
 
-## Virtual machine on disk by mac
+### Disk on macosx
 
 Install unetbootin and download Ubuntu 16.04 iso
+
 > Note that directly install Ubuntu 18.04 may cause inbuild monitor fail to work
 
 Install refind on mac (need `crsutil disable`)
 
 Make a boot USB. Start from it with option held, and install on my Disk. Divide the disk by four parts
 
-* EFI:
-* Swap:
-* Ext4:/
-* EXt4:/home
+- EFI:
+- Swap:
+- Ext4:/
+- EXt4:/home
 
 After installation complete, open ubuntu on Disk and upgrade it to 18.04
 
 To run Ubuntu on mac, at least three external devices are needed:
 
-* keyboard
-* mouse
-* network card (for certain network inbuild one fails)
+- keyboard
+- mouse
+- network card (for certain network inbuild one fails)
 
-## apt
+### Cloud
+
+## Users
+
+```sh
+useradd newuser
+passwd newuser
+usermod -s /bin/bash newuser
+usermod -d /home/newuser newuser
+visudo
+# Add below root ALL=(ALL:ALL) ALL
+# newuser ALL=(ALL:ALL) ALL
+```
+
+## APT
 
 ```sh
 sudo apt update && sudo apt upgrade
+sudo apt install openssh-server # Client default installed, server need to be installed
 sudo apt install build-essential man gcc-doc git vim
+sudo apt install zsh tldr tree tmux ctags wget net-tools curl cmake
+sudo apt install flex bison # for compiler
 sudo apt install libreadline-dev libsdl2-dev qemu-system-x86 # For hw
 sudo apt install libc6-dev-i386 # For c -m32
 sudo apt install g++-multilib # For c++ -m32
-sudo apt install cmake
-sudo apt install zsh tldr tree tmux ctags wget net-tools curl
 sudo apt install texlive-full, linux-tools-common, linux-tools-generic, linux-tools-`uname -r`
 ```
 
@@ -71,7 +90,7 @@ sudo rm /var/lib/apt/lists/lock
 sudo gedit /etc/apt/sources.list
 ```
 
-写入如下内容 （以下是 18.04的，版本不符请上官网）
+写入如下内容 （以下是 18.04 的，版本不符请上[清华镜像](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)）
 
 ```config
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
@@ -89,27 +108,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-## git
-
-```bash
-git config --global user.name "zhengzangw"
-git config --global user.email "zhengzangw@163.com"
-git config --global core.editor vim
-git config --global core.excludesfile ~/.gitignore
-```
-
-## Tmux
-
-```bash
-cd
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-```
-
 ## Vim
-
-<!--more-->
 
 ### Install with lua
 
@@ -225,18 +224,91 @@ git pull
 git submodule update --init --recursive
 ```
 
-## fzf
+## CLI apps config
+
+### git
+
+```bash
+git config --global user.name "zhengzangw"
+git config --global user.email "zhengzangw@163.com"
+git config --global core.editor vim
+git config --global core.excludesfile ~/.gitignore
+```
+
+### Tmux
+
+```bash
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+```
+
+### fzf
 
 ```zsh
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-## Cross Compilation
+### ssh
+
+Config ssh server
+
+```shell
+sudo gedit /etc/ssh/sshd_config
+#PasswordAuthentication yes
+sudo /etc/init.d/ssh restart
+cd ~
+mkdir .ssh
+```
+
+Generate ssh key pair on mac
+
+```sh
+ssh-keygen -t rsa
+scp id_rsa.pub serveraddress:~/.ssh/
+cat *.pub >> authorized_keys
+```
+
+Add in mac ssh config
+
+```ssh
+Host alias
+    User newuser
+    HostName serveraddress
+    IdentityFile ~/.ssh/id_rsa
+```
+
+### ss
 
 ```bash
-sudo apt install linux-libc-dev-mips-cross libc6-mips-cross libc6-dev-mips-cross binutils-mips-linux-gnu gcc-mips-linux-gnu g++-mips-linux-gnu
+sudo apt install shadowsocks-libev libsodium-dev
 ```
+
+The second one is for rc4-md5
+
+Setting at `/etc/shadowsocks-libev/config.json`, run with `nohup sudo ss-local -c /etc/shadowsocks-libev/config.json &`
+
+Install Chrome and [SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega), select sock5 and `127.0.0.1:port`.
+
+## vscode
+
+### Sync Setting
+
+Sync setting by plugin 'Setting Sync'
+
+- token: \*\*\*
+- gist: \*\*\*
+
+Also change following settings:
+
+- titlebarstyle
+- menubarvisibility
+
+### Remote
+
+Use Remote-SSH with ssh
 
 ## Python
 
@@ -276,49 +348,16 @@ source .bashrc
 mkvirtualenv ml --python=python3.5
 ```
 
-## ssh
-
-```shell
-sudo EDITOR=vim visudo
-/etc/ssh/sshd_config PasswordAuthentication yes
-/etc/init.d/ssh restart
-config
-(debian)mkdir .ssh
-scp \*.pub $SVR:~/.ssh/\*.pub
-cat *.pub >> authorized_key
-```
-
-## vscode
-
-Sync setting by plugin 'Setting Sync'
-
-* token: ***
-* gist: ***
-
-Also change following settings:
-
-* titlebarstyle
-* menubarvisibility
-
-## ss
+## MIPS Cross Compilation
 
 ```bash
-sudo apt install shadowsocks-libev libsodium-dev
+sudo apt install linux-libc-dev-mips-cross libc6-mips-cross libc6-dev-mips-cross binutils-mips-linux-gnu gcc-mips-linux-gnu g++-mips-linux-gnu
 ```
-
-The second one is for rc4-md5
-
-Setting at `/etc/shadowsocks-libev/config.json`, run with `nohup sudo ss-local -c /etc/shadowsocks-libev/config.json &`
-
-Install Chrome and [SwitchyOmega](https://github.com/FelisCatus/SwitchyOmega), select sock5 and `127.0.0.1:port`.
-
-## Language Input
-
-Use fcitx and reboot.
 
 ## Software
 
-* Vscode
-* Chrome
-* tweaks
-  * `sudo apt install gnome-shell-extension-autohidetopbar`
+- Language Input: fcitx
+- Vscode
+- Chrome
+- tweaks
+  - `sudo apt install gnome-shell-extension-autohidetopbar`

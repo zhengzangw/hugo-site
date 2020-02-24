@@ -114,16 +114,16 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "91796e0b3f7b2bd9809f4d9dcaba2bdc903656ba"
-	contentcommitdate = "Fri Jan 31 12:31:42 2020 +0800"
-	contentcommitcomment = "rebuilding site Fri Jan 31 12:31:42 CST 2020"
+	contentcommithash = "a0e102b329001ad5cd0e9cab31d7170691e222fd"
+	contentcommitdate = "Thu Feb 6 14:11:28 2020 +0800"
+	contentcommitcomment = "rebuilding site Thu Feb  6 14:11:28 CST 2020"
     ## Git info for theme
 	themecommithash = "fa2e18252b01b14d3f39e7b66880652a46c61401"
 	themecommitdate = "Fri Jan 31 12:30:39 2020 +0800"
 	themecommitcomment = "update Readme and config example"
 	## Git info for site binary
-	binarycommithash = "50512b0b191aa759b9939272033af71521ba46c3"
-	binarycommitdate = "Fri Jan 31 12:31:44 2020 +0800"
+	binarycommithash = "a8a5df76961e056d7faf31a5a012c7de9543674c"
+	binarycommitdate = "Thu Feb 6 14:11:30 2020 +0800"
 
     # Bangumi
     bangumiseasonstart = "2018" # After which year, group by season instead of year
