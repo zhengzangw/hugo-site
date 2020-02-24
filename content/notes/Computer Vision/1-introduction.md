@@ -1,0 +1,57 @@
+---
+title: introduction
+date: 2020-02-18
+---
+
+## 计算机视觉
+
+- Image(video) -> (sensing device) -> (interpreting device) -> Interpretations
+- Automatic understanding of images and video
+  - Measurement: Computing properties of the 3D world from visual data
+  - Perception and interpretation: Algorithms and representations to allow a machine to recognize objects, scene and people
+- 应用
+  - Faces and digital cameras
+  - Video-based interfaces
+  - safety and security
+    - Navigation, driver safety
+    - Monitoring pool
+    - Pedestrian detection
+    - Surveillance
+  - Vison for medical and neuroimages
+- 困难：Gap between low level signal and high level meanings
+  - ill posed problem
+  - large variation: illumination, object pose, clutter, occlusions, intra-class appearance, viewpoint
+  - intra-class variation
+  - context
+  - complexity
+- Progress chart by dataset
+  - Roberts 1963
+  - COIL
+  - MIT-CMU Faces (2000)
+  - UIUC Cars
+  - INRIA Pedestrians
+  - MSRC 21 Objects (2005)
+  - Caltech-101
+  - Caltech-256
+  - PASCAL VOC (2010)：奠定了计算机视觉评价体系
+  - Faces in the Wild
+  - 80M Tiny Images
+  - ImageNet：多；长尾
+  - Birds-200
+- Tasks
+  - Recogintion: General categories
+  - Large scale recognition
+  - Recognition in first-person view
+  - Object detection, instance segmentation
+  - image captioning
+  - image generation
+- CVPR'19 by the numbers
+  - Submissions: 5160
+  - Accepted: 1294
+  - Registered Attendees: 9227
+- Marr's vision framework
+  - computational level
+  - algorithmic/representational level
+  - implementational/physical level
+- Malik's Perspective: Recognition, Reorganization, Reconstruction
+- Important note: In general, computer vision does not work (except in certain situations/conditions)

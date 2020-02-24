@@ -71,4 +71,4 @@ $$ p=\frac{1}{t}\int^t_0P(s)ds $$
 
 $$B(t,n)=\int_0^te^{-\lambda t}\frac{(\lambda t)^{n-1}}{n!}dG_n(t)$$
 
-$$ B(t)=\sum_{n=1}^\infty B(t,n) $$
+$$B(t)=\sum_{n=1}^\infty B(t,n)$$
