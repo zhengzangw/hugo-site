@@ -2,7 +2,7 @@
 title: Chapter 8 
 date: 2018-11-13
 tags: [ics, notes]
-weight: 
+weight: 8
 ---
 
 ## I/O子系统
