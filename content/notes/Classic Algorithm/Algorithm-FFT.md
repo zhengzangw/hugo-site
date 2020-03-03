@@ -4,6 +4,8 @@ date: 2018-08-20
 tags: [math, algorithm]
 ---
 
+## FFT
+
 迭代实现，计算卷积。
 
 <!--more-->
@@ -49,7 +51,7 @@ void polymulti(int n, int m, complex F[], complex G[])
 }
 ```
 
-# NTT
+## NTT
 
 模意义下运算
 
@@ -62,7 +64,7 @@ const int P = 998244353, G = 3, Gni = 332748118;
 
 加const不加const 速度两个级别。原因未知。
 
-# 分治FFT
+## 分治FFT
 
 cdq + FFT
 cdq框架
@@ -75,7 +77,7 @@ void cdq(l,r){
 }
 ```
 
-# 任意模数NTT（MTT）
+## 任意模数NTT（MTT）
 
 设模mod  
 数范围m，数长度n，最大值为$nm^2$。取三个（或多个）素数乘积大于该值，再在模意义下利用中国剩余定理求解。  
@@ -87,29 +89,29 @@ $$k = （a_3-A）M^{-1} (m_3)$$
 非素数模求逆不能用快速幂  
 注意：使用快乘
 
-# KWT
+## KWT
 
 构造FWT(A)使FWT(A@B) = FWT(A)*FWT(B)
 
-## xor
+### xor
 
 $$A@B = (A_0@B_0+A_1@B_1,A_1@B_0+A_0@B_1)$$
 $$FWT(A) = (FWT(A_0+A_1),FWT(A_0-A_1))$$
 $$DWT(A) = (DWT((A_0+A_1)/2),DWT((A_0-A_1)/2)))$$
 
-## and
+### and
 
 $$A@B = (A_0@B0+A_0@B_1+A_1@B_0,A_1@B_1)$$
 $$FWT(A) = (FWT(A_0+A_1),FWT(A_1))$$
 $$DWT(A) = (DWT(A_0-A_1),DWT(A_1))$$
 
-## or
+### or
 
 $$A@B = (A_0@B_0,A_0@B_1+A_1@B_0+A_1@B_1)$$
 $$FWT(A) = (FWT(A_0),FWT(A_0+A_1))$$
 $$DWT(A) = (DWT(A_0),DWT(A_1-A_0))$$
 
-# KMT
+## KMT
 
 利用子集和变换及其逆变换，直接相乘  
 DPi(x) 为只考虑前x位的子集得到的变换  
@@ -136,7 +138,58 @@ for (int i=0;i<n;++i)
         a[j] = md(a[j]+a[j^(1<<i)]*(type==1?1:-1));
 ```
 
-# 卡常技巧
+## 多项式求逆
+
+### 要求
+
+求n-1次多项式F关于模$x^{n}$的逆$F^{-1}$
+
+### 推导
+
+$h(x)f(x)=1 (x^n)$  
+$h(x)f(x)-1 = 0 (x^n)$  
+$h^2(x)f^2(x)-2*h(x)*f(x)+1 = 0 (x^{2n})$  
+$h^2(x)f(x)-2h(x)+g(x) = 0 (x^{2n})$  
+$g(x) = 2h(x)-h^2(x)f(x) = h(x)(2-h(x)f(x)) (x^{2n})$
+
+### 算法
+
+利用递归+FFT  
+也可不用递归，使用递推
+
+## 多项式除法
+
+$$A_R(x) = x^nA(\frac{1}{x})$$
+两函数满足：$A_R[i] = A[n-i]$
+
+推导：
+$$F(x) = Q(x)*G(x) + R(x)$$
+$$x^nF(\frac{1}{x}) = x^{n-m}Q(\frac{1}{x})*x^mG(\frac{1}{x})+ x^{n-m+1}x^{m-1}R)\frac{1}{x})$$
+$$F_R(x)=Q_R(x)*G_R(x)+x^{n-m+1}*R_R(x) (mod\ x^{n-m+1})$$
+$$Q_R(x) = F_R(x)*G_R^{-1}(x) (mod x^{n-m+1})$$
+
+继而，
+$$R(x) = F(x) - G(x)*Q(x)$$
+
+### 核心代码
+
+```C++
+//多项式除法
+//O(nlogn) F(x) = Q(x)G(x) + R(x) n = m*(n-m) + (m-1)
+LL G_R[MAXN],G_R_inv[MAXN],F_R[MAXN],Q_R[MAXN],G_Q[MAXN];
+void poly_div(int n,int m,int mod,LL F[],LL G[],LL Q[],LL R[]){
+    for (int i=0;i<=m;++i) G_R[i] = G[m-i];
+    for (int i=n-m+1;i<=n;++i) G_R[i] = 0;
+    poly_inv(G_R, n-m+1, mod, G_R_inv);
+    for (int i=0;i<=n-m;++i) F_R[i] = F[n-i];
+    poly_mult(n-m, n-m, F_R, G_R_inv, Q_R);
+    for (int i=0;i<=n-m;++i) Q[i] = Q_R[n-m-i];
+    poly_mult(m,n-m,G,Q,G_Q);
+    for (int i=0;i<=n;++i) R[i] = md(F[i] - G_Q[i]);
+}
+```
+
+## 卡常技巧
 
 * IO优化
 * inline
@@ -158,56 +211,3 @@ for (int i=0;i<n;++i)
 * memset快
 * strlen O(L)
 * 位运算
-
-# 多项式求逆
-
-## 要求
-
-求n-1次多项式F关于模$x^{n}$的逆$F^{-1}$
-
-<!--more-->
-
-## 推导
-
-$h(x)f(x)=1 (x^n)$  
-$h(x)f(x)-1 = 0 (x^n)$  
-$h^2(x)f^2(x)-2*h(x)*f(x)+1 = 0 (x^{2n})$  
-$h^2(x)f(x)-2h(x)+g(x) = 0 (x^{2n})$  
-$g(x) = 2h(x)-h^2(x)f(x) = h(x)(2-h(x)f(x)) (x^{2n})$
-
-### 算法
-
-利用递归+FFT  
-也可不用递归，使用递推
-
-# 多项式除法
-
-$$A_R(x) = x^nA(\frac{1}{x})$$
-两函数满足：$A_R[i] = A[n-i]$
-
-推导：
-$$F(x) = Q(x)*G(x) + R(x)$$
-$$x^nF(\frac{1}{x}) = x^{n-m}Q(\frac{1}{x})*x^mG(\frac{1}{x})+ x^{n-m+1}x^{m-1}R)\frac{1}{x})$$
-$$F_R(x)=Q_R(x)*G_R(x)+x^{n-m+1}*R_R(x) (mod\ x^{n-m+1})$$
-$$Q_R(x) = F_R(x)*G_R^{-1}(x) (mod x^{n-m+1})$$
-
-继而，
-$$R(x) = F(x) - G(x)*Q(x)$$
-
-## 核心代码
-
-```C++
-//多项式除法
-//O(nlogn) F(x) = Q(x)G(x) + R(x) n = m*(n-m) + (m-1)
-LL G_R[MAXN],G_R_inv[MAXN],F_R[MAXN],Q_R[MAXN],G_Q[MAXN];
-void poly_div(int n,int m,int mod,LL F[],LL G[],LL Q[],LL R[]){
-    for (int i=0;i<=m;++i) G_R[i] = G[m-i];
-    for (int i=n-m+1;i<=n;++i) G_R[i] = 0;
-    poly_inv(G_R, n-m+1, mod, G_R_inv);
-    for (int i=0;i<=n-m;++i) F_R[i] = F[n-i];
-    poly_mult(n-m, n-m, F_R, G_R_inv, Q_R);
-    for (int i=0;i<=n-m;++i) Q[i] = Q_R[n-m-i];
-    poly_mult(m,n-m,G,Q,G_Q);
-    for (int i=0;i<=n;++i) R[i] = md(F[i] - G_Q[i]);
-}
-```

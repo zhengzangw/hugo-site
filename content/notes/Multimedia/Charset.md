@@ -1,7 +1,7 @@
 ---
 title: 字符编码
 date: 2019-01-22
-tags: [os, notes]
+weight: 7
 ---
 
 ## 现代字符编码模型

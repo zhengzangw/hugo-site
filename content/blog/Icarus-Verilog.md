@@ -4,8 +4,6 @@ date: 2018-11-18
 tags: [mac, config]
 ---
 
-# Verilog
-
 ## Mac
 
 * brew install icarus-verilog

@@ -1,5 +1,5 @@
 ---
-title: 辩论
+title: 经济事件
 date: 2019-12-26
 draft: true
 ---
