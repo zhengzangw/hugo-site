@@ -3,6 +3,8 @@ title: Features and Filters
 date: 2020-02-25
 ---
 
+## Images and Filtering
+
 - Digital Image
 - Bayer Filer：相机滤色版每个点有三个值，一个为传感器得到，两个为插值
 - Image transformation
@@ -22,3 +24,8 @@ date: 2020-02-25
 - Image noise and image smoothing
 - Convolution operation
 - Media filter
+
+## Frequency Domain and Sampling
+
+- Fourier Transform
+- Sampling

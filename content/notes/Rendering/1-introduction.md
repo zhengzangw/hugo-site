@@ -50,28 +50,21 @@ image[i][j] = findColor(hit)
 - 不考虑阴影，反射
 - 只考虑 direct illumination
 
-## Concepts
+## 前沿进展
 
-### Geometry Optics
+### GradNet (2019 SIGGRAPH)
 
-- 光的直线传播定律
-- 光的反射定律
-  - 法向量：$N$
-  - 入射光：$L$ （归一化）
-  - 反射光：$R=2(N\cdot L)N-L$
-- 光的折射定律
-  - Snell's law: $\eta_L\sin\theta_L=\eta_T\sin\theta_T$
-  - $T=-N\sqrt{1-\frac{\eta^2_L}{\eta^2_T\sin^2\theta_L}\sin^2\theta_L}-\frac{\eta_L}{\eta_T}[L-(N\cdot L)N]=(\frac{\eta_L}{\eta_T}N\cdot L-\sqrt{1-\frac{\eta_L^2}{\eta_T^2}[1-(N\cdot L)^2]})N-\frac{\eta_L}{\eta_T}L$
-  - Total Internal Reflection
-- 基本假设
-  - Linearity
-  - Energy conservation
-  - Steady state
-  - No polarization
-  - No fluorescence or phosphorescence
+- 去噪
+- Gradient-domain Rendering: Off-path 计算梯度
+- 主图+两张梯度图去噪：优化方程
+- 增加约束项：速度慢 -> 用网络模拟过程
+- Deep learning based, unsupervised, fast to reconstruct high-quality image
 
-### Radiometry and Color
+### Deep Shading (EGST 2007)
 
-### BRDF and Reflection Functions
+- Convolutional Neural Networks
+- U-net
 
-### The Rendering Equation
+### Deep Illumination (arXiv)
+
+- GAN

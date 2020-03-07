@@ -1,7 +1,6 @@
 ---
 title: Mac App Installed on my mac
 date: 2019-03-21
-tags: [mac, config]
 ---
 
 # Developer's Tools
@@ -16,17 +15,16 @@ PyCharm CE: Python
 Sagemath: sage
 IntelliJ IDEA CE: Java
 Android Studio
-MATLAB: Matlab
+MATLAB R2019a: Matlab
 CocosCreator: Javascript/Cocos
 Orange3: quick ML
-sequal pro: SQL
 script editor: Apple Script
+Qt Series: Qt
 
 - Ecllipse Java: Java
 - CLion: C++
 - Visual Studio: C#
 - CodeRunner: multi language
-- Qt Series: Qt
 - DataGrip: SQL
 - Mathematica: Mathematica
 ```
@@ -63,6 +61,10 @@ iTerm
 
 ```diff
 Dash: documents
+sequal pro: SQL
++ Dropdmg
++ VNC Viewer
++ VNC Server
 
 - Gitkraken: github
 - SPSS: for data analysis
@@ -72,65 +74,60 @@ Dash: documents
 
 # Designer's Tools
 
-## Picture
+## Text&Color
+
+```diff
+colorwell: color
+HelloFont: font Management
+Font Books
+
+- RightFont: manage font
+```
+
+## Image
 
 ```diff
 Photoshop: Picture Design
 MediBangPaintPro: Draw
-colorwell: color
+Photos
+Wix Photo Albums
+snipaste: Screenshot
+paparazzi!: Webshot
++ Magicavoxel: 3D
 
 - Polarr Photo Edit: easy photo edit
 - ColorSnapper2: color
 - xScope: icon design
-```
-
-## Music
-
-```diff
-Logic Pro X: Music Design
-VOCOLOID 5 Editor: Music Design
-
-- Audition
-```
-
-## Video
-
-```diff
-Total Video Converter Pro: Convertion
-+ GIF Brewery
-Arctime Pro: Caption
-Wix Photo Albums
-
-- Gifrocket: for gif generation
-- Premiere
-- After Effects
-```
-
-## Screenshot
-
-```diff
-snipaste: Screenshot
-kap: Screenshot
-screenflow: Screen recording and editing
-paparazzi!: Webshot
-
 - annotate: for screenshot
 - jietu: for screenshot
 - GIPHY capture: for screenshot
 - LICEcap: for screen recording gif
 ```
 
-## Management
+## Music
 
 ```diff
-+ HelloFont: font Management
-Photos
-Font Books
+Logic Pro X: Music Design
+XLD: Music Conversion
++ Sibelius: 打谱
 
-- RightFont: manage font
+- VOCOLOID 5 Editor: Music Design
+- Audition
 ```
 
-# Writer's Tools
+## Video
+
+```diff
++ Adobe Premiere Pro 2020
+Total Video Converter Pro: Convertion
+GIF Brewery
+Arctime Pro: Caption
+kap: Screenshot
+screenflow: Screen recording and editing
+
+- Gifrocket: for gif generation
+- After Effects
+```
 
 ## Text
 
@@ -140,6 +137,7 @@ Pages
 OmniGraffle: mind map
 Mactex(TexShop, BibDesk, LaTeXiT, Tex Live Utility
 TextEdit
++ iText: OCR
 
 - Mweb: for markdown
 - Writer Pro: for plain text
@@ -151,6 +149,7 @@ TextEdit
 
 ```diff
 PowerPoint
++ Deckset
 
 - Keynote
 ```
@@ -170,6 +169,7 @@ Excel
 ```diff
 PDF Experts
 CAJ Cloud Viewer: CAJ
++ CHM Viewer Star
 
 - Adobe Acrobat
 - Kaleidoscope: for file diff
@@ -179,8 +179,10 @@ CAJ Cloud Viewer: CAJ
 ## Management
 
 ```diff
-+ Papers
-+ Calibre
++ QSpace
++ DEVONthink 3: 准备卸载
+Papers
+Calibre
 jabref
 ```
 
@@ -188,14 +190,21 @@ jabref
 
 ## Social Network
 
+[QQ 助手](https://github.com/TKkk-iOSer/QQPlugin-macOS)
+[微信助手](https://github.com/TKkk-iOSer/wechat-alfred-workflow)
+
 ```diff
 QQ
 WeChat
-QQ 助手 / 微信助手
 Reeder
 Mail
 zoom.us
 Messages
++ Skype
++ Telegram
++ 腾讯会议
++ Gitter
++ Slack
 
 - Tweetbot: for tweet
 - AliWangwang
@@ -207,6 +216,10 @@ Messages
 ```diff
 steam
 UU booster: for steam
++ Google Earth Pro
+Futu bull: stock
+Electrum
+cheatengine
 ```
 
 ## Video
@@ -214,9 +227,9 @@ UU booster: for steam
 ```diff
 ivideo: video player
 Quicktime Player
-VLC: video player
 IINA: video player
 
+- VLC: video player
 - youku
 - aiqiyi
 - 在线视频播放器: for TV
@@ -226,8 +239,10 @@ IINA: video player
 
 ```diff
 NeteaseMusic
-+ QQ Music
+QQ Music
+Music
 Noizio
+Lyrics
 ```
 
 ## Surfing
@@ -261,14 +276,6 @@ Sitesucker
 - WebTorrent: Quick view for BT
 ```
 
-## Others
-
-```diff
-Futubull
-```
-
-# Learner's Tools
-
 ## English
 
 ```diff
@@ -290,35 +297,53 @@ Calenders
 - Fantastical 2
 ```
 
+## Zip
+
+```diff
+betterzip: (un)archiver
+The Unarchiver
+```
+
 # Plugins
+
+按推荐程度排序
 
 ```diff
 Alfred 4
 Paste
 1Password 7
-ShandowsocksX- NG- R8
-EasyConnect
-FreeMyDesktop
 Bartender 3
-caffeine
+Mailbutler
+hyperdock: preview of apps
+V2rayU
+Spectacle: windows layout
 NewFileMenu
 Mounty
++ Boom 3D
+Irvue: change desktop
+FreeMyDesktop
+EasyConnect
++ AppCleaner
++ Timer
 CheetSheet: shortcut reminder
 Flux: bright adjustment
-Irvue: change desktop
-hyperdock: preview of apps
-Background Music
-spectacle: windows layout
-gfxCardStatus: manage graphics card
++ Yoink
++ PixelScheduler
 smcFanControl
-betterzip: (un)archiver
-The Unarchiver
-+ Pock
-cheatengine
-balenaEtcher: make boot disk
-unetbooter: make boot disk
-+ popclip
++ Karabiner: 拳皇改键
+gfxCardStatus: manage graphics card
+Background Music
+Pock
++ context
+popclip
+V2rayX
+ShandowsocksX-NG-R8
+MurGaa Recorder
+Creative Cloud
+Adobe zii
 
+- caffeine
+- unetbooter: make boot disk
 - Fuse
 - superDuper!: for backup
 - boom: Enlarge voice
@@ -339,7 +364,7 @@ unetbooter: make boot disk
 - BetterTouchTool: TrackPad
 ```
 
-# Mobile
+## Mobile
 
 ```diff
 duet
@@ -348,6 +373,7 @@ remote for mac
 splashtop streamer
 air video server HD
 Android File Transfer
+balenaEtcher: make boot disk
 
 - IMazing: Substitute iTunes
 - Reflector 2: make mac apple TV
@@ -356,29 +382,36 @@ Android File Transfer
 
 ## Shell
 
-* cscope
-* ctags
-* curl
-* fzf
-* graphviz
-* imagemagick
-* macvim
-* mas
-* node
-* pandoc
-* pdftk
-* pstree
-* tesseract
-* tldr
-* tmux
-* tree
-* wget
-* yarn
-* zsh
+```diff
+cscope
+ctags
+curl
+conda
++ ffmpeg
+fzf
+graphviz
+imagemagick
+macvim
+mas
+node
+pandoc
+pdftk
+pstree
+tesseract
+tldr
+tmux
+tree
+wget
+yarn
++ you-get
+zsh
+```
 
 ## Drive
 
 ```diff
 Wacom
 Canon Utility
+Epson Remote Print Utility
+OpenGL Extension Viewer
 ```

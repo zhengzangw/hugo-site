@@ -61,3 +61,8 @@ CJKmainfont: STSong
 - `pandoc --list-highlight-languages`
 - `-s` 生成单个文件（而非片段）
 - `--toc` 生成目录
+
+## 图片
+
+- sips
+- iconutil
