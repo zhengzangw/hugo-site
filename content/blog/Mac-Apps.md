@@ -256,6 +256,8 @@ Chrome
 
 ## Download
 
+[baidu disk plugin](https://github.com/CodeTips/BaiduNetdiskPlugin-macOS)
+
 ```diff
 Transmit
 Transmission
