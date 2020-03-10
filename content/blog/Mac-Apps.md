@@ -382,7 +382,9 @@ balenaEtcher: make boot disk
 - 1Keyboard: make mac remote keyboard for iphone
 ```
 
-## Shell
+# Shell
+
+## Brew
 
 ```diff
 cscope
@@ -403,13 +405,16 @@ tesseract
 tldr
 tmux
 tree
++ webkit2png
 wget
 yarn
 + you-get
 zsh
 ```
 
-## Drive
+## Native
+
+# Drive
 
 ```diff
 Wacom

@@ -107,13 +107,12 @@ void drawCircle(int x_c, int y_c, int r){
 - $f(x,y)=r_y^2x^2+r_x^2y^2-r_x^2r_y^2$
 - 斜率：$\frac{dy}{dx}=-\frac{2r_y^2x}{2r_x^2y}$
   - 第一象限分为斜率<-1 和>-1 两个区域，分别为区域 1 和区域 2
-- 区域 1
-  - $p1=f(x_{k+1},y_k-\frac{1}{2})=r_y^2(x_k+1)^2+r_x^2(y_k-\frac{1}{2})^2-r_x^2r_y^2$
-    - $p1<0,y_{k+1}=y_k$
-    - $p\geq 0,y_{k+1}=y_k-1$
-  - $p2=f(x+\frac{1}{2},y_k-1)=r_y^2(x_k+\frac{1}{2})^2+r_x^2(y_k-1)^2-r_x^2r_y^2$
-    - $p2>0,x_{k+1}=x_k$
-    - $p2\leq0,x_{k+1}=x_k+1$
+- $p1=f(x_{k+1},y_k-\frac{1}{2})=r_y^2(x_k+1)^2+r_x^2(y_k-\frac{1}{2})^2-r_x^2r_y^2$
+  - $p1<0,y_{k+1}=y_k$
+  - $p\geq 0,y_{k+1}=y_k-1$
+- $p2=f(x+\frac{1}{2},y_k-1)=r_y^2(x_k+\frac{1}{2})^2+r_x^2(y_k-1)^2-r_x^2r_y^2$
+  - $p2>0,x_{k+1}=x_k$
+  - $p2\leq0,x_{k+1}=x_k+1$
 
 #### 其它曲线
 
