@@ -71,7 +71,7 @@ date: 20200227
   - $\text{FIRST}(\alpha)$: 可以从 $\alpha$ 推到的首符号的集合
   - $\text{FOLLOW}(A)$: 可能在某些句型中紧跟在 $A$ 右边的终结符号的集合
 
-    - 将结束标记 $ 放入 FOLLOW 中，按以下规则迭代直到不增长
+    - 将结束标记 \$ 放入 FOLLOW 中，按以下规则迭代直到不增长
 
       $A\rightarrow \alpha B\beta$: FIRST($\beta$) 中所有非 $\epsilon$ 符号加入 FOLLOW(B)
 
@@ -133,5 +133,6 @@ date: 20200227
     - $I$ 中各项加入 CLOSURE(I)
     - $A\rightarrow\cdot \alpha B\beta$ 在 CLOSURE(I) 中且 $B\rightarrow\gamma$ 是一个产生式，$B\rightarrow\cdot\gamma$ 不在 CLOSURE(I) 中，则迭代加入
   - GOTO 函数：I 是项集，X 是文法符号，GOTO(I,X) 为 I 中所有形如 $[A\rightarrow\alpha\cdot X\beta]$ 的项所对应的 $[A\rightarrow\alpha X\cdot\beta]$ 项的闭包
+- 计算 LR(0) 项集规范组的算法：从初始项集闭包开始，不算计算各种可能的后继，直到生成所有的项集
 
 ## 语法分析器生成工具
