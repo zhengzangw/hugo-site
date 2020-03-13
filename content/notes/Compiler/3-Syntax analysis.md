@@ -131,8 +131,50 @@ date: 20200227
   - 增广文法：增加新开始符号 $S'$，产生式 $S'\rightarrow S$
   - 项集闭包 CLOSURE：如果 $I$ 是文法 $G$ 的一个项集
     - $I$ 中各项加入 CLOSURE(I)
-    - $A\rightarrow\cdot \alpha B\beta$ 在 CLOSURE(I) 中且 $B\rightarrow\gamma$ 是一个产生式，$B\rightarrow\cdot\gamma$ 不在 CLOSURE(I) 中，则迭代加入
+    - $A\rightarrow\alpha\cdot B\beta$ 在 CLOSURE(I) 中且 $B\rightarrow\gamma$ 是一个产生式，$B\rightarrow\cdot\gamma$ 不在 CLOSURE(I) 中，则迭代加入
   - GOTO 函数：I 是项集，X 是文法符号，GOTO(I,X) 为 I 中所有形如 $[A\rightarrow\alpha\cdot X\beta]$ 的项所对应的 $[A\rightarrow\alpha X\cdot\beta]$ 项的闭包
 - 计算 LR(0) 项集规范组的算法：从初始项集闭包开始，不算计算各种可能的后继，直到生成所有的项集
+- LR(0) 自动机
+- LR(0) 语法分析器
+  - ACTION: 状态，终结符号
+  - GOTO: GOTO[$I_i$,A]=$I_j$, 则 GOTO[$i$,A]=$j$
+  - 格局: $(s_0s_1\cdots s_m,a_ia_{i+1}\cdots a_n\$)$，查询 ACTION[$s_m$,$a_i$]
+- LR(0) 分析表
+  - SLR(1) 语法分析表
+    - $[A\rightarrow\alpha\cdot a\beta]$ 在 $I_i$，且 GOTO$(I_i,a)=I_j$，则 ACTION$[i,a]$=$s_j$（移入 j）
+    - $[A\rightarrow\alpha\cdot]$ 在 $I_i$ 中，那么对 FOLLOW($A$) 中所有 $a$，ACTION$[i,a]$=按 $A\rightarrow\alpha$ 规约
+    - 如果 $[S'\rightarrow S\cdot]$ 在 $I_i$ 中，则 ACTION[$i,\$$] 设为接受
+    - GOTO($I_i,A$)=$I_j$, GOTO[i,A]=j
+    - 如果 SLR 分析表没有冲突，则该文法为 SLR
+  - LR 方法：将期望向前看符号加入项中（LR(1)项集，状态太多）
+  - LALR 方法
+- LR(1) 项：$[A\rightarrow\alpha\cdot\beta,a]$，$a$为向前看符号
+  - 增广文法：$[S'\rightarrow S,\$]$
+  - 闭包：存在 $[A\rightarrow\alpha\cdot B\beta,a]$，则 $[B\rightarrow\cdot \theta,b],b=$FIRST($\beta a$)
+  - GOTO: $[A\rightarrow\alpha\cdot X\beta,a]$，则$[A\rightarrow\alpha X\cdot\beta,a]$
+- LR(1) GOTO 图
+- LR(1) 语法分析表
+  - $[A\rightarrow\alpha\cdot a\beta,b]$ 在项集中，且 GOTOI($I_i$,a)=$I_j$，那么 ACTION[$i,a$]=移入 $j$
+  - $[A\rightarrow\alpha\cdot,a]$ 在项集中，ACTION[i,a]=按 $A\rightarrow\alpha$ 规约
+  - $[S'\rightarrow S,\$]$ 在项集中，ACTION[i,\$]=接受
+
+## 语法错误处理
+
+- LL 语法错误的处理：恐慌模式，短语层次恢复
+  - 恐慌模式：忽略输入中的一些符号直到出现由设计者选定的某个同步词法单元
+    - 非终结符：FOLLOW(A) 中所有符号放入 A 的同步集合；高层次非终结符号加入较底层；FIRST(A) 加入 A 的同步集合；A 可以推导空串，将该产生式当做默认值
+    - 终结符：栈顶终结符号匹配错误，可以直接弹出该符号，并且发出消息称已经插入
+  - 短语层次恢复：空白条目中插入错误处理例程
+- LR 语法错误处理
+  - 恐慌模式：假定当前试图规约到 A 但碰到了语法错误，因此设法扫描完包含语法错误的 A 的子串，假装找到了 A 的一个实例
+  - 短语层次的恢复
 
 ## 语法分析器生成工具
+
+- YACC/Bison
+- YACC 中的冲突处理
+  - 缺省处理方法
+    - 规约/移入冲突：总是移入
+    - 规约/规约冲突：选择列在前面的产生式
+  - 确定终结符号优先级
+- YACC 的错误恢复：error
