@@ -1,7 +1,7 @@
 ---
 title: About Me
 date: 2017-09-01
-disablemathmode: true
+mathmode: false
 ---
 
 I am a junior student at Nanjing University, pursuing Bachelor's Degree of Computer Science.
@@ -9,7 +9,7 @@ I am a junior student at Nanjing University, pursuing Bachelor's Degree of Compu
 ## Skills
 
 * Programming: C/C++, Python, Java
-* Production Tools: Git, Linux, LaTeX
+* Production Tools: Git, Linux, $\LaTeX$
 * Language:
   * Mandarin Chineses (Native)
   * English (scored 101 in TOEFL iBT in Dec 2017)
