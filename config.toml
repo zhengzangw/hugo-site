@@ -114,16 +114,16 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "84f6afdab2e4f8e27a1e6a6a1a48d421158b08b5"
-	contentcommitdate = "Wed Mar 11 17:11:28 2020 +0800"
-	contentcommitcomment = "rebuilding site Wed Mar 11 17:11:28 CST 2020"
+	contentcommithash = "1926d7ea47c676e4036f208ebbd0bb69ae400f7c"
+	contentcommitdate = "Fri Mar 13 16:00:32 2020 +0800"
+	contentcommitcomment = "rebuilding site Fri Mar 13 16:00:31 CST 2020"
     ## Git info for theme
 	themecommithash = "47b9f3299d462a73a06216b43f99ce3351004356"
 	themecommitdate = "Tue Mar 3 23:41:23 2020 +0800"
 	themecommitcomment = "fix typo in fixing 'mathmode problem'"
 	## Git info for site binary
-	binarycommithash = "c245b43b2188ea8345e57c50405b7c5854aaf658"
-	binarycommitdate = "Wed Mar 11 17:11:30 2020 +0800"
+	binarycommithash = "2f92a165468c5ed47a172ee546c431b81d75fb18"
+	binarycommitdate = "Fri Mar 13 16:00:33 2020 +0800"
 
     # Bangumi
     bangumiseasonstart = "2018" # After which year, group by season instead of year
@@ -170,13 +170,6 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
         pre = "icon-aboutus"
         post = "关于我"
         weight = 3
-    [[menu.second]]
-        identifier = "bangumi"
-        name = "bangumi"
-        url = "/bangumi/"
-        pre = "icon-bilibili-line"
-        post = "追番列表"
-        weight = 1
     [[menu.second]]
         identifier = "friends"
         name = "friends"
