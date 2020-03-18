@@ -114,9 +114,9 @@ copyright="CC BY-NC 4.0" # Copyright Protocol for your site
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "a20c4f7f69162a608c464dccb51eee4d6f9cf8ac"
-	contentcommitdate = "Sun Mar 15 01:47:22 2020 +0800"
-	contentcommitcomment = "rebuilding site Sun Mar 15 01:47:22 CST 2020"
+	contentcommithash = "bd5e4f46505f227bda7a3369f9eb299e0f845463"
+	contentcommitdate = "Wed Mar 18 13:27:53 2020 +0800"
+	contentcommitcomment = "rebuilding site Wed Mar 18 13:27:53 CST 2020"
     ## Git info for theme
 	themecommithash = "47b9f3299d462a73a06216b43f99ce3351004356"
 	themecommitdate = "Tue Mar 3 23:41:23 2020 +0800"
