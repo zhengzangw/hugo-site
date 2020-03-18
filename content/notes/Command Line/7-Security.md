@@ -14,3 +14,10 @@ sha1sum README.md
 openssl aes-256-cbc -salt -in README.md -out README.enc.md
 openssl aes-256-cbc -d -in README.enc.md -out README.md
 ```
+
+## User
+
+```sh
+whoami
+cat /etc/passwd
+```
