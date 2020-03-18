@@ -1,7 +1,7 @@
 ---
 title: Configurate Ubuntu
 date: 2019-03-21
-tags: [linux, config]
+weight: 12
 ---
 
 ## Platform

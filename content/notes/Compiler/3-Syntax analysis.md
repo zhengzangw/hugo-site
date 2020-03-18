@@ -23,7 +23,7 @@ date: 20200227
 - 上下文无关语言强于正则表达式
 - 二义性：如果一个文法可以为某个句子生成多棵语法分析数，则该文法二义
 - 设计文法
-  - 消除二义性：无较好方法
+  - 消除二义性：无较好方法；优先级，结合性消除
   - 消除左递归：$A\overset{+}{\Rightarrow} A\alpha$
     - 立即左递归：$A\rightarrow A\alpha$
   - 提取左公因子
@@ -157,6 +157,11 @@ date: 20200227
   - $[A\rightarrow\alpha\cdot a\beta,b]$ 在项集中，且 GOTOI($I_i$,a)=$I_j$，那么 ACTION[$i,a$]=移入 $j$
   - $[A\rightarrow\alpha\cdot,a]$ 在项集中，ACTION[i,a]=按 $A\rightarrow\alpha$ 规约
   - $[S'\rightarrow S,\$]$ 在项集中，ACTION[i,\$]=接受
+- LALR(1) 语法分析
+  - 原 LR(1) 中无冲突，则合并后只有归约归约冲突
+  - LALR(1) 分析表构造算法：对于 LR 每个核心，合并具有该核心的项集
+  - 处理正确输入时，LR 与 LALR 处理一样
+  - 处理错误输入时，LALR 会多处理一些归约
 
 ## 语法错误处理
 

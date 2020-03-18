@@ -1,7 +1,7 @@
 ---
-title: Git Usage
+title: Git
 date: 2019-11-08
-tags: [manual]
+weight: 5
 ---
 
 ## commit message

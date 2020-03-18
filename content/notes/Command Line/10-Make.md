@@ -1,7 +1,7 @@
 ---
-title: Makefile 教程
+title: Make
 date: 2018-11-19
-tags: [linux, notes]
+weight: 10
 ---
 
 ## 参数
@@ -150,7 +150,7 @@ clean:
 
 - c++
 
-```cpp
+```makefile
 CC=gcc
 CXX=g++
 RM=rm -f

@@ -25,3 +25,20 @@ weight: 3
 - Disk
   - Definition: $\phi=u\phi_{\max},x=((1-v)r_i+vr)\cos\phi,y=((1-v)r_i+vr)\sin\phi,z=h$
 - Triangle Mesh
+
+## Acceleration
+
+- Testing each object for each ray is slow
+- Fewer Rays
+  - Adaptive sampling: 减少采样，内插
+  - depth control
+- Generalized Rays
+  - beam tracing
+  - cone tracing
+  - pencil tracing
+- Faster Intersection
+  - Bounding boxes (possibly hierarchical)
+  - BVH
+  - Bounding Volumes
+  - Uniform Grid
+  - kd-Tree

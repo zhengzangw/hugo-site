@@ -1,10 +1,8 @@
 ---
-title: C Shell Colorful UI
+title: 3. Shell UI
 date: 2019-03-27
-tags: [c,shell]
+weight: 3
 ---
-
-# 字符
 
 ## Escape Code
 
@@ -20,19 +18,15 @@ tags: [c,shell]
 | \uhhhh          | Unicode        |
 | \uhhhhhhhh      | Unicode        |
 
-<!--more-->
-
 ## Escape Character
 
 ```sh
-echo -e "\033[32;31m string \033[0m"
+echo -e "\033[32;31mstring \033[0m" # Different format seperated by ;
+echo "\e[32;31mstring\e[0m"
+echo "\x1b[32;31mstring\x1b[0m"
 ```
 
-* \e[#m
-* \033
-* \x1b
-* Different format seperated by ;
-* (x) if not work in iterm
+> (x): not work in iterm
 
 | Format     | Representation                                        |
 | ---------- | ----------------------------------------------------- |
@@ -73,89 +67,75 @@ Without m:
 | r;cH | Move the cursor to row r, column c (Start at 1)           |
 | 2J   | Clear the screen                                          |
 
-## 判断是否为终端
+## terminfo
 
-* isattr(STDOUT_FILENO)
+使用 tput 调用 terminfo 数据库
 
-# 屏幕输入
+```sh
+echo $(tput setab 0)$(tput setaf 1)'string' # Set background and foreground
+echo $(tput bold)'string' # dim, smul, rmul, rev, smso, rmso, sgr0
+echo $(tput clear) # 清屏
+echo $(tput sc) # 保存当前光标位置
+echo $(tput cup 10 13) # 光标移动
+echo $(tput civis) # 光标不可见
+echo $(tput cnorm) # 光标可见
+echo $(tput rc) # 显示输出
+```
 
-`<termios.h>` `<unistd.h>`
+## C Program
 
-## tcgetattr
+- isattr(STDOUT_FILENO): 判断是否为终端
+- 屏幕输入：`<termios.h>` `<unistd.h>`
+  - tcgetattr
+  - tcsetattr
+- 获取终端大小：`<sys/ioctl.h>`
+  - struct winsize w
+  - ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+  - w.ws_row, w.ws_col
+
+### tcgetattr
 
 `int tcgetattr(int fd, struct termios *termios_p);`
 
-* struct termios
-  * c_iflag 输入模式
-  * c_oflag 输出模式
-  * c_cflag 控制模式
-  * c_lflag 局部模式
-    * ECHO 显示字符
-    * ICANON 启用特殊字符
-  * c_cc 特殊控制字符
+- struct termios
+  - c_iflag 输入模式
+  - c_oflag 输出模式
+  - c_cflag 控制模式
+  - c_lflag 局部模式
+    - ECHO 显示字符
+    - ICANON 启用特殊字符
+  - c_cc 特殊控制字符
 
-## tcsetattr
+### tcsetattr
 
 `int tcsetattr(int fd, int optional_actions, const struct termios *termios_p);`
 
-* STDIN_FILENO: 标准输入
-* optional_action:
-  * TCSANOW 立即改变
-  * TCSADRAIN 当目前输出完成时改变
-  * TCSAFLUSH 当目前输入完成时改变并舍弃目前所有输入
+- STDIN_FILENO: 标准输入
+- optional_action:
+  - TCSANOW 立即改变
+  - TCSADRAIN 当目前输出完成时改变
+  - TCSAFLUSH 当目前输入完成时改变并舍弃目前所有输入
 
-```C
+```C++
 void setBufferedInput(bool enable) {
-	static bool enabled = true;
-	static struct termios old;
-	struct termios new;
+  static bool enabled = true;
+  static struct termios old;
+  struct termios new;
 
-	if (enable && !enabled) {
-		tcsetattr(STDIN_FILENO,TCSANOW,&old);
-		enabled = true;
-	} else if (!enable && enabled) {
-		tcgetattr(STDIN_FILENO,&new);
-		old = new;
-		new.c_lflag &=(~ICANON & ~ECHO);
-		tcsetattr(STDIN_FILENO,TCSANOW,&new);
-		enabled = false;
-	}
+  if (enable && !enabled) {
+    tcsetattr(STDIN_FILENO,TCSANOW,&old);
+    enabled = true;
+  } else if (!enable && enabled) {
+    tcgetattr(STDIN_FILENO,&new);
+    old = new;
+    new.c_lflag &=(~ICANON & ~ECHO);
+    tcsetattr(STDIN_FILENO,TCSANOW,&new);
+    enabled = false;
+  }
 }
 ```
 
-# 信号处理
-
-`<signal.h>`
-
-## 中断
-
-`<stdint.h>`  
-`signal(SIGINT, signal_callback_handler)`
-
-```C
-void signal_callback_handler(int signum) {
-	printf("         TERMINATED         \n");
-	setBufferedInput(true);
-	printf("\033[?25h\033[m");
-	exit(signum);
-}
-```
-
-# 时间管控
-
-`<time.h>`
-
-* usleep(ms)
-
-# 获取终端大小
-
-`<sys/ioctl.h>`
-
-* struct winsize w
-* ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-* w.ws_row, w.ws_col
-
-# 游戏模型
+### 游戏模型
 
 ```C
 next_frame = 0;

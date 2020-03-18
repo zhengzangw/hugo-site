@@ -1,7 +1,7 @@
 ---
-title: Linux Tutor
+title: Linux
 date: 2019-01-19
-tags: [os, linux, notes]
+weight: 11
 ---
 
 Linux 私房菜
