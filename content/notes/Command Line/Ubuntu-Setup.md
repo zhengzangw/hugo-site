@@ -1,7 +1,7 @@
 ---
-title: Configurate Ubuntu
+title: Ubuntu Setup
 date: 2019-03-21
-weight: 12
+weight: 20
 ---
 
 ## Platform

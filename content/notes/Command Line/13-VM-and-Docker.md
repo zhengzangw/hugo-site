@@ -1,7 +1,7 @@
 ---
-name: Docker
+name: 13. VM & Docker
 date: 2020-02-24
-weight: 10
+weight: 13
 ---
 
 ## Docker

@@ -48,6 +48,8 @@ echo ${url#https://} # 从左边截取 https://
 echo ${url##*:} # 贪婪
 echo ${url%/*} # 从右边开始截取
 echo ${url%%/*} # 贪婪
+echo ${url-unset_show_this}
+echo ${url:-unset_or_null_show_this}
 unset foo
 # Array
 arr=(20 56 "zhengzangw.com")

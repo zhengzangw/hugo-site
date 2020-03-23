@@ -1,5 +1,5 @@
 ---
-title: Terminal
+title: 6. Terminal
 date: 2020-03-17
 weight: 6
 ---

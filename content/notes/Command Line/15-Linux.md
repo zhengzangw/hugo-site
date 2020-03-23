@@ -1,7 +1,7 @@
 ---
-title: Linux
+title: 15. Linux
 date: 2019-01-19
-weight: 11
+weight: 15
 ---
 
 Linux 私房菜

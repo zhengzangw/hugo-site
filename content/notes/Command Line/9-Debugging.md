@@ -1,5 +1,5 @@
 ---
-title: Debugging
+title: 9. Debugging
 date: 2019-03-27
 weight: 9
 ---

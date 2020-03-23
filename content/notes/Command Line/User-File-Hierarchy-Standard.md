@@ -2,6 +2,7 @@
 title: NotAwesome User File Hierarchy Standard
 date: 2019-05-04
 tags: [config]
+weight: 20
 ---
 
 [Link to File Hierarchy](https://www.freedesktop.org/software/systemd/man/file-hierarchy.html)
