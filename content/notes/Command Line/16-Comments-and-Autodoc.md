@@ -1,6 +1,7 @@
 ---
-title: 注释及自动文档生成
+title: 16. Comments and Autodoc
 date: 2020-03-25
+weight: 16
 ---
 
 ## 注释风格
@@ -185,6 +186,8 @@ Modify source/conf.py
   sys.path.insert(0, os.path.abspath('../../../src))
   ```
 
+- language: `language='zh_cn'` 中文支持
+
 - theme: `pip install sphinx-rtd-theme`
 
   ```python
@@ -197,11 +200,38 @@ Modify source/conf.py
 
   ```python
   extensions = [
-      'sphinx.ext.autodoc',
-      'sphinx.ext.napoleon', # Able to parse Numpy and Google
-      'sphnix_autodoc_typehints' # pip install sphinx-autodoc-typehints
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',  # Able to parse Numpy and Google
+    'sphinx_autodoc_typehints', # pip install sphinx-autodoc-typehints
+    'sphinx.ext.todo',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.mathjax',
+    'recommonmark'
   ]
   napoleon_use_param = True
+  ```
+
+- 中文 LaTeX
+
+  ```python
+  latex_engine = 'xelatex'
+  latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
+    # 'papersize': 'letterpaper',
+
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '10pt',
+
+    # Additional stuff for the LaTeX preamble.
+    'preamble': r'''
+    \addto\captionsenglish{\renewcommand{\chaptername}{}}
+    \usepackage[UTF8, scheme = plain]{ctex}
+    \setCJKmainfont{STSongti-SC-Regular}
+    ''',
+
+    # Latex figure (float) alignment
+    # 'figure_align': 'htbp',
+  }
   ```
 
 ## reStructuredText
@@ -225,8 +255,3 @@ Modify source/conf.py
   # Get your stuff done
   project.do_stuff()
 ```
-
-## Format
-
-autopep8
-pylint

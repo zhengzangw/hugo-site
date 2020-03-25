@@ -1,5 +1,5 @@
 ---
-title: Ubuntu Setup
+title: "Setup: Ubuntu"
 date: 2019-03-21
 weight: 20
 ---

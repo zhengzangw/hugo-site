@@ -1,8 +1,8 @@
 ---
-title: php setup
+title: "Setup: PHP"
 date: 2018-12-30
 tags: [php, config]
-weight: 20
+weight: 21
 ---
 
 # Set up VM

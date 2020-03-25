@@ -1,11 +1,15 @@
 ---
-title: NotAwesome User File Hierarchy Standard
+title: 18. File Hierarchy Standard
 date: 2019-05-04
 tags: [config]
-weight: 20
+weight: 18
 ---
 
+# File Hierarchy
+
 [Link to File Hierarchy](https://www.freedesktop.org/software/systemd/man/file-hierarchy.html)
+
+# NotAwesome User File Hierarchy Standard
 
 ## Introduction
 
