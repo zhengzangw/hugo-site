@@ -37,8 +37,41 @@ weight: 3
   - cone tracing
   - pencil tracing
 - Faster Intersection
-  - Bounding boxes (possibly hierarchical)
-  - BVH
-  - Bounding Volumes
-  - Uniform Grid
-  - kd-Tree
+  - Object subdivision approaches
+    - BVH (Bounding Volumne boxes)：recursively finding bounding box of objects and split objects into two groups
+  - Space subdivision approaches
+    - Uniform Grid
+
+      Find bounding box - Determine grid resolution - Place object in cell if its bounding box overlaps the cell- Check that object overlaps cell(expensive!)
+
+      Teapot in a stadium Problem: Not adaptive to distribution of primitives
+
+    - kd-Tree
+
+      SAH(Surface Area Heuristic): 分割平面代价评估函数
+  - Building Time: BVH < KD-Tree
+  - Ray intersection test: BVH > KD-Tree
+
+## Shading
+
+- 计算交点的能量：the sading of each intersection point is the sum of contributions from all light sources
+- Material properties: diffusion, specular, shininess, emission
+- Light types: Ambient light, point light, ...
+- Classic Ray Tracing
+  - Perfect focus
+  - Perfect reflections
+  - Sharp shadow
+- Distributed Ray Tracing: randomly oversampling to reduce aliasing artifacts in rendered images
+  - antialiasing: super-sampling and averaging down
+    - Jittering: randomly generate a ray within each grid
+  - soft shadows: sample area light
+  - depth-of-field: sample on Lens
+  - motion blur: sample on time
+  - glossy reflections: 介于漫反射与镜面反射
+
+## Parallelization
+  
+- Threading(Pthread, OpenMP) distributes rays across cores
+- MPI distributes rays across processors on different machiens (Message Passing Interface)
+- OptiX/CUDA distributes rays on the GPU
+- Memory coherency

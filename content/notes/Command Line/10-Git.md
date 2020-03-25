@@ -4,6 +4,11 @@ date: 2019-11-08
 weight: 5
 ---
 
+- commitizen
+- cz-conventional-changlog
+- conventional-changelog-cli
+- standard-version
+
 ## Github
 
 - hub

@@ -114,16 +114,16 @@ copyright= "[![Creative Commons License](https://i.creativecommons.org/l/by-nc/4
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "b45d55245a2fdef759db6aaaf45aeca4b7880ba9"
-	contentcommitdate = "Wed Mar 18 22:10:53 2020 +0800"
-	contentcommitcomment = "rebuilding site Wed Mar 18 22:10:53 CST 2020"
+	contentcommithash = "96c1609e189b2e34d56a4a42d625ad752eeb2416"
+	contentcommitdate = "Mon Mar 23 11:32:04 2020 +0800"
+	contentcommitcomment = "rebuilding site Mon Mar 23 11:32:04 CST 2020"
     ## Git info for theme
 	themecommithash = "47b9f3299d462a73a06216b43f99ce3351004356"
 	themecommitdate = "Tue Mar 3 23:41:23 2020 +0800"
 	themecommitcomment = "fix typo in fixing 'mathmode problem'"
 	## Git info for site binary
-	binarycommithash = "28b3622ba111754c02689c972c47b7516291b2e2"
-	binarycommitdate = "Wed Mar 18 22:10:54 2020 +0800"
+	binarycommithash = "717a2d183d3fd624f436126d35ef3338aa1c7f01"
+	binarycommitdate = "Mon Mar 23 11:32:07 2020 +0800"
 
     # Bangumi
     bangumiseasonstart = "2018" # After which year, group by season instead of year

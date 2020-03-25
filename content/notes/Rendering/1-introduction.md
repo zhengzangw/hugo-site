@@ -68,3 +68,17 @@ image[i][j] = findColor(hit)
 ### Deep Illumination (arXiv)
 
 - GAN
+
+### 2019 年图灵奖
+
+- Edwin Catmull
+  - Z-buffering
+  - Texture mapping
+  - Catmull-Clark subdivision
+- Patrick Hanrahan
+  - Volume rendering
+  - Subsurface scattering
+  - Light Field rendering
+  - Tableau
+- 1995 玩具总动员
+- RenderMan
