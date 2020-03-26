@@ -9,14 +9,14 @@ weight: 2
 ```sh
 man builtin
 source ~/.zshrc
-read -p "Enter some information > " name url age 
+read -p "Enter some information > " name url age
 cd
 ```
 
 ## 变量
 
-字母数字及下划线组成，并且变量名的第一个字符不能为数字  
-赋值时，变量和等号之间不要有空格，等号和值之间也不要有空格，否则 shell 不会认为变量被定义  
+字母数字及下划线组成，并且变量名的第一个字符不能为数字
+赋值时，变量和等号之间不要有空格，等号和值之间也不要有空格，否则 shell 不会认为变量被定义
 
 ```sh
 echo $(ls) # output -> string
@@ -192,6 +192,7 @@ PS1
 
 ```sh
 # getopts
+# : after letter indicates it requires arguments
 while getopts ":a:" opt; do
   case $opt in
     a)
