@@ -55,12 +55,12 @@ opener.open(url)
 # 6 Exception
 req = urllib.request.Request('http://www.xNOTxEXISTxWEBx.com')
 try:
-	urllib.request.urlopen(req)
+ urllib.request.urlopen(req)
 except urllib.error.HTTPError as e:
-	print(e.code)
+ print(e.code)
 except urllib.error.URLError  as e:
-	if hasattr(e, "reason"):
-		print(e.reason)
+ if hasattr(e, "reason"):
+  print(e.reason)
 
 # 7 Cookie
 from http import cookiejar
@@ -190,6 +190,77 @@ img = img.convert('L') # 灰度图
 img = img.point(lambda x: 0 if x<140 else 255, '1')
 code = pytesseract.image_to_string(img, lang='eng', config='--psm 12 --oem 3').replace(' ','')
 code = input("Maybe {}, enter yours:".format(code))
+
+# 20 lxml
+from lxml import etree
+html = etree.HTML(r.text)
+# or read from file
+html = etree.parse('r.html')
+result = etree.tostring(html, pretty_print=True)
+print(result.decode('utf8'))
+result = html.xpath('//li') # Get list of <li>
+print(result[0].text, result[0].tag)
+result = html.xpath('//li/@class') # Get All attribute of <li>
+
+# 21 XPath
+# see https://www.w3school.com.cn/xpath/xpath_intro.asp for a reference
+```
+
+- `nodename` 选取此节点的所有子节点
+- `/` 从根节点选取
+- `//` 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置
+- `.` 选取当前节点
+- `..` 选取当前节点的父节点
+- `@` 选取属性
+- `/bookstore/book[last()-1]` 选取属于 bookstore 子元素的倒数第二个 book 元素
+- `/bookstore/book[price>35.00]` 选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00
+- `//title[@*]` 选取所有带有属性的 title 元素
+
+```python
+# 22 JS Render
+# Find JSON data in XHR
+url = "https://www.toutiao.com/stream/widget/local_weather/city/"
+r_text = requests.get(url).text
+data = json.loads(r_text)
+
+# 23 Selenium
+from selenium import webdriver # pip install selenium
+from selenium.webdriver.common.keys import Keys
+# brew cask install chromedriver
+# brew services start chromedriver
+driver = webdriver.Chrome()
+# options = webdriver.ChromeOptions()
+# options.add_argument('headless')
+driver.get('http://www.baidu.com') # Open URL
+elem = driver.find_element_by_name("wd")
+elem.send_keys("Test")
+elem.send_keys(Keys.RETURN)
+print(driver.page_source)
+
+# 24 Selenium Interaction
+element = driver.find_element_by_id("passwd-id")
+element = driver.find_element_by_name("passwd")
+element = driver.find_elements_by_tag_name("input")
+element = driver.find_element_by_xpath("//input[@id='passwd-id']")
+element.send_keys("and some", Keys.ARROW_DOWN)
+element.clear()
+from selenium.webdriver.support.ui import Select
+select = Select(driver.find_element_by_name('name'))
+select.select_by_index(index)
+select.select_by_visible_text("text")
+select.select_by_value(value)
+all_selected_options = select.all_selected_options
+options = select.options
+select.deselect_all()
+driver.find_element_by_id("submit").click()
+
+# 25 js2py
+context = js2py.EvalJs()
+with open('test.js', 'r') as f: # JS function F in test.js
+ context.execute(f.read())
+y = context.f(a)
+# or execute immediately
+js2py.eval_js(js_text)
 ```
 
 ## 反爬虫
