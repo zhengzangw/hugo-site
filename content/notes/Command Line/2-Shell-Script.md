@@ -188,26 +188,3 @@ PS1
 
 ![显示值](https://pic4.zhimg.com/80/v2-9d699207efcc666a7a2223cfdd6dedc7_1440w.jpg)
 
-## 参数
-
-```sh
-# getopts
-# : after letter indicates it requires arguments
-while getopts ":a:" opt; do
-  case $opt in
-    a)
-      echo "-a was triggered, Parameter: $OPTARG" >&2
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      exit 1
-      ;;
-    :)
-      echo "Option -$OPTARG requires an argument." >&2
-      exit 1
-      ;;
-  esac
-done
-
-# getopt
-```

@@ -1,7 +1,7 @@
 ---
 title: "Setup: Ubuntu"
 date: 2019-03-21
-weight: 20
+weight: 25
 ---
 
 ## Platform
