@@ -4,7 +4,7 @@ date: 2020-03-26
 weight: 19
 ---
 
-## urllib
+## Python
 
 ```python
 import urllib
