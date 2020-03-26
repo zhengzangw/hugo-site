@@ -1,5 +1,5 @@
 ---
-name: 13. VM & Docker
+name: 13. VM and Docker
 date: 2020-02-24
 weight: 13
 ---
