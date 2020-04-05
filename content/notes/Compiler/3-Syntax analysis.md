@@ -37,8 +37,8 @@ date: 2020-02-27
 
   - 左递归消除算法
 
-    输入：无环和$\epsilon$产生式的文法 $G$  
-    输出：等价的无左递归的文法  
+    输入：无环和$\epsilon$产生式的文法 $G$
+    输出：等价的无左递归的文法
     算法：非终结符号排序 $A_1,\cdots,A_n$
 
     ```cpp
@@ -91,8 +91,8 @@ date: 2020-02-27
 
 - 预测分析表
 
-  输入：文法 $G$  
-  输出：预测分析表 $M$  
+  输入：文法 $G$
+  输出：预测分析表 $M$
   算法：
 
   对于每个产生式 $A\rightarrow \alpha$，将 $A\rightarrow \alpha,a\in \text{FIRST}(\alpha)$ 为终结符号加入 $M[A,a]$ 中；若 $\epsilon\in\text{FIRST}(\alpha)$ 则对 $\text{FOLLOW}(b)$ 中每个符号，将 $A\rightarrow \alpha$ 加入 $M[A,b]$ 中

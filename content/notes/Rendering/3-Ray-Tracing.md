@@ -70,7 +70,7 @@ weight: 3
   - glossy reflections: 介于漫反射与镜面反射
 
 ## Parallelization
-  
+
 - Threading(Pthread, OpenMP) distributes rays across cores
 - MPI distributes rays across processors on different machiens (Message Passing Interface)
 - OptiX/CUDA distributes rays on the GPU

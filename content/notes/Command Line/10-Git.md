@@ -4,10 +4,27 @@ date: 2019-11-08
 weight: 10
 ---
 
+## 规范化 Commit
+
 - commitizen
 - cz-conventional-changlog
+
+      ```bash
+      echo "{\"path\": \"cz-convential-changelog\"}" > .czrc
+      ```
+
 - conventional-changelog-cli
+
+      ```bash
+      conventional-changelog -p angular -i CHANGELOG.md -s -r 0 # 重新生成
+      conventional-changelog -p angular -i CHANGELOG.md -s # 叠加生成
+      ```
+
 - standard-version
+
+      ```bash
+      standard-version
+      ```
 
 ## Github
 

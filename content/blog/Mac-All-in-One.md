@@ -1,7 +1,35 @@
 ---
-title: Mac App Installed on my mac
+title: Mac All in One
 date: 2019-03-21
 ---
+
+笔者 Mac 也用了三年，一直在寻找着适合 Mac 的配置、软件。今天准备第三次重装电脑（第一次是装驱动坏了返厂重修，第二次和这次一样，来个大整理）。希望这次重装后，能达到以下效果：
+
+- 进一步加强文件管理，多用软件管理而非原生目录
+- 奥卡姆剃刀：如无必要，勿增实体
+- 在电脑上完成一整套学习和工作的工作流（Workflow）
+- 配置可复现化（降低 macos 新系统配置代价）
+
+希望这次重装后，我的整个工作环境能够稳定下来。本博客希望传递的知识是
+
+- 让你知道，关于 Mac 你还有不知道的东西
+
+而不是
+
+- 让你知道，关于 Mac 你知道的东西怎么做
+
+在开始重装前，先介绍一下我为 mac 配的外设和硬件：
+
+- 扩展坞/转接口：注意如果是金属的可能会影响 wifi 信号
+- 键盘 + 屏幕保护膜：后悔买迟了
+- 背面贴纸：没贴
+- magic mouse：不怎么用，主要还是触控板
+- 1T 移动固态：电脑 500G 也不够用了。机械暂时不知道放哪合适
+
+我们以重装的流程，组织介绍的顺序。在备份资料后，我们首先要做一下几部
+
+- 保存主目录下的 `.` 文件（GNU stow），以方便快捷导出
+- 记录 brew 下载的应用
 
 # Developer's Tools
 
@@ -16,13 +44,13 @@ Sagemath: sage
 IntelliJ IDEA CE: Java
 Android Studio
 MATLAB R2019a: Matlab
-CocosCreator: Javascript/Cocos
-Orange3: quick ML
-script editor: Apple Script
+script editor: (native) Apple Script
 Qt Series: Qt
 
-- Ecllipse Java: Java
-- CLion: C++
+- CocosCreator: 游戏引擎，基于 cocos
+- Orange3: 快速测试 ML 算法
+- Ecllipse: Java, 选择 IntelliJ 替代
+- CLion: C++, 选择终端命令执行
 - Visual Studio: C#
 - CodeRunner: multi language
 - DataGrip: SQL
