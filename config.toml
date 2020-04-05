@@ -114,9 +114,9 @@ copyright= "[![Creative Commons License](https://i.creativecommons.org/l/by-nc/4
     
     # Git Info
     ## Git info for whole site
-	contentcommithash = "06981b0c284baab49fb72240b7afbd4eb833bfb2"
-	contentcommitdate = "Thu Mar 26 19:18:20 2020 +0800"
-	contentcommitcomment = "rebuilding site Thu Mar 26 19:18:20 CST 2020"
+	contentcommithash = "19abc2f0863b5495bb0fc9c6ea25aa6ce46b1f93"
+	contentcommitdate = "Sun Apr 5 22:42:23 2020 +0800"
+	contentcommitcomment = "rebuilding site Sun Apr  5 22:42:23 CST 2020"
     ## Git info for theme
 	themecommithash = "47b9f3299d462a73a06216b43f99ce3351004356"
 	themecommitdate = "Tue Mar 3 23:41:23 2020 +0800"
