@@ -114,6 +114,7 @@ f3(a2); //实例f3<double>是A<double>的友元，但不是A<int>的友元！
 ### 容器操作
 
 ```cpp
+size();
 T& front();
 T& back();
 void push_front(const T& x);

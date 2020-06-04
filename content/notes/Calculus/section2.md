@@ -41,7 +41,7 @@ weight: 2
     * 有理指数函数：$R(a^x)$
     * 有理三角积分：$R(\cos x,\sin x)$
 * 无穷积分
-  * $f$ 定义在 $[a,+\infty]$ 上，$\forall c\in[a,+\infty]$，$f$ 在 $[a,c]$ 上 Riemann 可积，若 $\lim_{c\rightarrow+\infty}\int_a^c f(x)dx=A$ 则 $\int_a^+\infty f(x)dx=A$
+  * $f$ 定义在 $[a,+\infty]$ 上，$\forall c\in[a,+\infty]$，$f$ 在 $[a,c]$ 上 Riemann 可积，若 $\lim_{c\rightarrow+\infty}\int_a^c f(x)dx=A$ 则 $\int_a^{+\infty} f(x)dx=A$
     * 收敛：$A\not=\pm\infty$
     * 发散：$A=\pm\infty$ 或极限不存在 
   * $\exists d\in\mathbb{R},\int_{-\infty}^df(x)dx,\int_d^{+\infty}f(x)dx$ 皆收敛，$\int_{-\infty}^{+\infty}f(x)dx = \int_{-\infty}^df(x)dx+\int_d^{+\infty}f(x)dx$

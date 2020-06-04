@@ -55,7 +55,7 @@ weight: 3
   * $f$ 的 Fourier 展开：$f(x)\sim\sum_{-\infty}^{+\infty}\langle f,e^{i2n\pi x}\rangle e^{i2n\pi x}$
     * 线性
     * 逐项求导：$f'(x)=\sum_{n=-\infty}^{+\infty}c_n(e^{i2n\pi x})'$
-  * 均方收敛定理：$f$ 有周期 $1$ 且在 $[-\frac{1}{2},\frac{1}{2}]$ 上 Riemann 可积，则 $\lim_{n\rightarrow+\infty}\lVert f-\sum_{k=-n}^n\langle f,e^{ik\pi x}\langle\rVert=0$
+  * 均方收敛定理：$f$ 有周期 $1$ 且在 $[-\frac{1}{2},\frac{1}{2}]$ 上 Riemann 可积，则 $\lim_{n\rightarrow+\infty}\lVert f-\sum_{k=-n}^n\langle f,e^{ik\pi x}\rangle\rVert=0$
   * Parseval 等式：$\lVert f\rVert^2=\sum_{n=-\infty}^{+\infty}|\langle f,e^{i2n\pi x}\rangle|$
   * $f(x)\sim a_0+\sum_{n=1}^{+\infty}(a_n\cos(2n\pi x)+b_n\sin(2n\pi x))$
     * $a_0=c_0=\langle f,1\rangle$

@@ -251,7 +251,17 @@ Modify source/conf.py
 .. code-block:: python
   :linenos:
 
-  import project  
+  import project
   # Get your stuff done
   project.do_stuff()
 ```
+
+## 类型注解
+
+```python
+form typing import List
+def test(a: List[List[int]] =[[0,0]]) -> int:
+  return 0
+```
+
+使用 `mypy` 检查

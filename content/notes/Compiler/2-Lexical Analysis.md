@@ -1,6 +1,7 @@
 ---
 title: Lexical Analysis
 date: 2020-02-18
+weight: 2
 ---
 
 ## 词法分析器的作用

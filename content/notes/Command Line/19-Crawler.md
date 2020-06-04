@@ -163,7 +163,7 @@ soup.a.parent, soup.a.parents
 soup.a.next_sibling, soup.a.previous_sibling
 
 # 18 Beatiful Soup Find (html)
-soup.find_alll( name , attrs , recursive , text , **kwargs )
+soup.find_all( name , attrs , recursive , text , **kwargs )
 for tag in soup.find_all([re.compile("^b"), 'a'], id='link2', class_='sister', attrs={'data-foo': 'value'}, text='Elsie', limit=5):
     print(tag.name)
 find

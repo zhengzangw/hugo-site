@@ -38,7 +38,7 @@ space := $(nullstring) # end
 
 - 内置变量与常用变量
 
-```makefile
+```makefilet
 .RECIPEPREFIX = > # 默认命令前为 \t
 OUTPUT_OPTION = -o \$@
 CC = cc

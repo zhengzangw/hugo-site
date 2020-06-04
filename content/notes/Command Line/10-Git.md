@@ -7,13 +7,14 @@ weight: 10
 ## 规范化 Commit
 
 - commitizen
-- cz-conventional-changlog
+- cz-conventional-changelog
 
       ```bash
-      echo "{\"path\": \"cz-convential-changelog\"}" > .czrc
+      echo "{\"path\": \"cz-conventional-changelog\"}" > .czrc
       ```
 
 - conventional-changelog-cli
+- conventional-changelog
 
       ```bash
       conventional-changelog -p angular -i CHANGELOG.md -s -r 0 # 重新生成
@@ -83,7 +84,7 @@ git cz
 
 配置后只需
 
-```
+```sh
 ln -s /Users/username/node_modules ./node_modules
 git cz
 ```

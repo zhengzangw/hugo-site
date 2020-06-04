@@ -1,6 +1,7 @@
 ---
 title: 语法分析
 date: 2020-02-27
+weight: 3
 ---
 
 ## 上下文无关文法
@@ -20,7 +21,9 @@ date: 2020-02-27
   - 句型 $\alpha$：$S\overset{*}{\Rightarrow} \alpha$
   - 句子：不包含非终结符号的句型
   - 语言：$L(G)=\{\omega|S\overset{*}{\Rightarrow}\omega\}$
-- 上下文无关语言强于正则表达式
+
+##  CFG 处理
+
 - 二义性：如果一个文法可以为某个句子生成多棵语法分析数，则该文法二义
 - 设计文法
   - 消除二义性：无较好方法；优先级，结合性消除
@@ -55,11 +58,7 @@ date: 2020-02-27
 - 预测分析法：当两个产生式具有相同前缀时无法预测
   - 提取左公因子
 
-## 语法分析技术
-
-### 自顶向下语法分析器
-
-处理 LL 文法
+## 自顶向下语法分析器
 
 - 关键问题：确定对最左边的非终结符号应用哪个产生式
 - 不能处理左递归
@@ -115,9 +114,9 @@ date: 2020-02-27
 
     else if M[$X$, $a$] = $X\rightarrow Y_1Y_2\cdots Y_k$: 输出产生式，弹出 $X$，$Y_i$ 入栈
 
-### 自底向上语法分析器
+## 自底向上语法分析器
 
-处理 LR 文法
+$LR(0)\subset SLR(1)\subset LALR(1)\subset LR(1)$
 
 - 移入（shift）：将下一个输入符号移入栈顶
 - 归约（reduce）：将句柄归约为相应的非终结符
@@ -154,11 +153,11 @@ date: 2020-02-27
   - GOTO: $[A\rightarrow\alpha\cdot X\beta,a]$，则$[A\rightarrow\alpha X\cdot\beta,a]$
 - LR(1) GOTO 图
 - LR(1) 语法分析表
-  - $[A\rightarrow\alpha\cdot a\beta,b]$ 在项集中，且 GOTOI($I_i$,a)=$I_j$，那么 ACTION[$i,a$]=移入 $j$
+  - $[A\rightarrow\alpha\cdot a\beta,b]$ 在项集中，且 GOTO($I_i$,a)=$I_j$，那么 ACTION[$i,a$]=移入 $j$
   - $[A\rightarrow\alpha\cdot,a]$ 在项集中，ACTION[i,a]=按 $A\rightarrow\alpha$ 规约
   - $[S'\rightarrow S,\$]$ 在项集中，ACTION[i,\$]=接受
 - LALR(1) 语法分析
-  - 原 LR(1) 中无冲突，则合并后只有归约归约冲突
+  - 原 LR(1) 中无冲突，则合并后只有归约冲突
   - LALR(1) 分析表构造算法：对于 LR 每个核心，合并具有该核心的项集
   - 处理正确输入时，LR 与 LALR 处理一样
   - 处理错误输入时，LALR 会多处理一些归约
@@ -183,3 +182,6 @@ date: 2020-02-27
     - 规约/规约冲突：选择列在前面的产生式
   - 确定终结符号优先级
 - YACC 的错误恢复：error
+- bison: LALR(1)
+- bison + %glr-parser: LR(1)
+- ANTLR: LL(*)

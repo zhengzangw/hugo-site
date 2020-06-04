@@ -1,6 +1,7 @@
 ---
 title: Syntax-Directed Definition and Translation
 date: 2020-03-17
+weight: 4
 ---
 
 ## 属性规则
