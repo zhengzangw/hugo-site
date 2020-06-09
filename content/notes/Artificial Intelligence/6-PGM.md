@@ -1,8 +1,7 @@
 ---
-title: 8-马尔科夫逻辑网络
+title: 6-概率图
 date: 2019-09-10
-tags: [ml, notes]
-weight: 8
+weight: 6
 ---
 
 ## 马尔科夫网

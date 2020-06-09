@@ -1,8 +1,7 @@
 ---
-title: 10-强化学习
+title: 8-强化学习
 date: 2019-09-10
-tags: [ml, notes]
-weight: 10
+weight: 8
 ---
 
 * 本质 Trial and Error

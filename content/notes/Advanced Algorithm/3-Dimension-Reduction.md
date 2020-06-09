@@ -1,7 +1,7 @@
 ---
-title: 6. Dimension Reduction
+title: 3. Dimension Reduction
 date: 2019-09-04
-weight: 6
+weight: 3
 ---
 
 ## Metric Embedding
@@ -27,18 +27,15 @@ weight: 6
 
 ## Nearest Neighbor Search(NNS)
 
-* (P)NNS
+### Problem
+
+* NNS
   * Data: $y_1,\cdots,y_n\in X$
   * Query: $x\in X$
   * Answer: $y_i$ closest to $x$
-* Dictionary data structure
-  * $d$ is small
-    * k-d tree
-    * Voronoi diagram
-  * Curse of dimensionality: It is conjectured that NNS in high dimension requires either super-polynomial(n) space or super-polynomial(d) time
-* (P)Approximate Nearest Neighbor($c$-ANN)
+* $c$-ANN: Approximate Nearest Neighbor
   * Answer: Find a $y_i$ such that $\text{dist}(x,y_i)\leq c\min_{1\leq j\leq n}\text{dist}(x,y_j)$
-* (P)Approximate Near Neighbor($(c,r)$-ANN):
+* $(c,r)$-ANN: Approximate Near Neighbor:
   
 $$\begin{cases}y_{i^*}\in S,\text{dist}(x,y_{i^*})\leq cr & \exists y_i\in S,\text{dist}(x,y_i)\leq r\\\perp & \forall y_i\in S,\text{dist}(x,y_i)> r\\\text{arbitrary} & o.w.\end{cases}$$
 
@@ -55,6 +52,14 @@ $$\begin{cases}y_{i^*}\in S,\text{dist}(x,y_{i^*})\leq cr & \exists y_i\in S,\te
     * space $O(s\log_c R)$
     * answer time $O(t\log\log_c R)$
     * probability $1-O(\delta\log\log_c R)$
+
+### Deterministic
+
+* Dictionary data structure
+  * k-d tree
+  * Voronoi diagram
+* Curse of dimensionality
+  * conjecture: NNS in high dimension requires either super-polynomial space or super-polynomial time
 
 ### Dimension Reduction
 

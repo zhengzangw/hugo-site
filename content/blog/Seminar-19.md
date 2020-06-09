@@ -435,7 +435,7 @@ Microsoft, Industrial Track
 * code summarization: 生成注释
 * extreme code summarization: 生成函数名
 
-## Automati  Program Synthesis of Long Programs with a Learned Garbage Collector (18)
+## Automatic Program Synthesis of Long Programs with a Learned Garbage Collector (18)
 
 * Domain Specific Language
 * 搜索做不大

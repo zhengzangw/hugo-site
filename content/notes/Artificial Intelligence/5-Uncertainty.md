@@ -1,8 +1,7 @@
 ---
-title: 7-不确定性推理
+title: 5-不确定性推理
 date: 2019-09-10
-tags: [ml, notes]
-weight: 7
+weight: 5
 ---
 
 * 限制

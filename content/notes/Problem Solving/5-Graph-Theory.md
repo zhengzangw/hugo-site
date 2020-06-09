@@ -1,5 +1,5 @@
 ---
-title: Graph Theory
+title: 图论
 date: 2018-11-10
 weight: 5
 ---
@@ -45,21 +45,27 @@ weight: 5
 - multigraph: $E$ is a multiset
   - parallel edges: join the same pair of vertices
 - pseudograph: $(u,u)\in E$
-- digraph (directed graph): $(v,u)\neq (u,v)$
-  - $(u,v)$: $u$ adjacent to $v$, $v$ adjacent from $u$
-  - symmetric: $(u,v)\in E\iff(v,u)\in E$
-  - underlying graph: replace direction and parallel edges
-  - tournament: orientation of complete graph
-    - transitive: $(u,v),(v,w)\in T,(u,w)\in T$
-    - every tournament contains a Hamiltonian path
-    - Hamiltonian iff strong
-  - weakly connected: underlying graph is connected
-  - strongly connected: $\forall u,v,\exists P$ from $u$ to $v$ and vice versa
 - oriented graph: if $(u,v)\in E$, $(v,u)\notin E$
   - oritentation of G
-- 图的储存
-  - 邻接矩阵
-  - 边集（可以链式前向星实现）
+- **Storage**
+  - adjacent matrix
+  - edge set（可以链式前向星实现）
+
+### Digraph
+
+- digraph (directed graph): $(v,u)\neq (u,v)$
+- $(u,v)$: $u$ adjacent to $v$, $v$ adjacent from $u$
+- symmetric: $(u,v)\in E\iff(v,u)\in E$
+- underlying graph: replace direction and parallel edges
+- tournament: orientation of complete graph
+  - transitive: $(u,v),(v,w)\in T,(u,w)\in T$
+  - every tournament contains a Hamiltonian path
+  - Hamiltonian iff strong
+- weakly connected: underlying graph is connected
+- strongly connected: $\forall u,v,\exists P$ from $u$ to $v$ and vice versa
+  - strongly connected component (SCC)
+- Semiconnected Digraph: $u\sim v$ or $v\sim u$
+  - Toposort + edges $(v_i,v_{i+1})$ exsits
 
 ## Isomorphism
 
@@ -89,8 +95,32 @@ weight: 5
   - cycle property
   - cut property
   - weight: $w(H)=sum_{e\in E(H)}w(e)$
-- Kruskal's Algorithm
-- Prim's Algorithm
+- **Kruskal's Algorithm**: $O(E\lg V)$
+
+```python
+sort G.E # into nondecreasing order by weight
+for e in E:
+  if find_set(u) != find_set(v):
+     ans += {u,v}
+     merge(u,v)
+```
+
+- **Prim's Algorithm**: $O(E + V\lg V)$
+
+```python
+for u in G.V:
+  u.key = inf
+  u.pi = NIL
+s.key = 0
+Q = G.V
+while Q:
+  u = Extract_Min(Q)
+  for v in G.Adj[u]:
+    if v in Q and w(u,v) < v.key:
+      v.pi = u
+      v.key = w(u,v)
+```
+
 - **_Carley's Theorem_**: the spanning tree of $K_n$ of order n is $n^{n-2}$
 - **_Matrix Tree Theorem_**: The spanning tree of an arbitrary graph is any cofactor of matrix
 
@@ -131,8 +161,8 @@ $$
 ### Vertex
 
 - cut-vertex: $G$ is connected and $G-\{v\}$ is disconnected
-- nonseparable graph: a nontrivial connected graph with no cut-vertices
-- block
+- nonseparable graph (biconnected): a nontrivial connected graph with no cut-vertices
+- block (bicomponent)
   - maximal nonseparable subgraph of $G$
   - equivalence class defined by $R, e R f$ if $e,f$ lie on a common cycle
 - vertex-cut: a set $U$ of vertices of $G$ such that $G-U$ is disconnected
@@ -157,7 +187,7 @@ $$
   - minimum $u$-$v$ separating set
 - internal vertex of $u$-$v$ path $P$: $w\in P,w\neq v,w\neq u$
 - internally disjoint paths: A collection of u-v paths that every two of them have no vertices in common other than u and v
-- **_Menger's Theorem_**: minimum cardinality of u-v separating set = maximum number of internally disjoint u-v paths in G
+- **_Menger's Theorem_**: minimum cardinality of $u$-$v$ separating set = maximum number of internally disjoint $u$-$v$ paths in G
   - induction on the size of graph, discussion on the property of separating set
 - **_Whitney's Theorem_**: $k$-connected $\iff\forall u,v$ there are at least $k$ internally disjoint $u$-$v$ paths
 
@@ -178,6 +208,82 @@ $$
   - (sufficient) $n\geq3,\forall u\not\sim v,\deg u+\deg v\geq n$, then $G$ is Hamiltonian
 - closure $C(G)$: the graph obtained from $G$(order $n$) by recursively joining pairs of nonadjacent vertices whose degree sum $\geq n$ until no such pair remains
   - (neccessary) Hamiltonian Graph: $C(G)$ is Hamiltonian
+
+## Search
+
+- **BFS**: $\Theta(V+E)$
+
+```python
+for u in vertices:
+  u.pi = NIL
+  u.visited = False
+s.visited = True
+Q = {s}
+while Q:
+  u = Q.pop()
+  for v in G.Adj[u]:
+    if not u.visitied:
+      v.pi = u
+      v.visited = True
+      Q.push(u)
+```
+
+- **DFS**: $\Theta(V+E)$
+
+```python
+# all colored white
+def dfs(u):
+  u.visited = True
+  # color gray
+  for v in G.Adj[v]:
+    if not v.visited:
+      v.pi = u
+      v.visited = True
+      dfs(v)
+# color black
+```
+
+- DFS properties
+  - Parenthesis theorem
+  - Nesting of descendant's intervals
+  - White-path theorem
+- Classification of Edges
+  - Tree edge: edge in $G_\pi$ (white)
+  - Back edge: ancestor (gray)
+  - Forward edge: descendant (black)
+  - Cross edge (black)
+  - There is no Forward edges and Cross edge in undirected graphs
+- directed acyclic graph(DAG): no back edge
+- **Toposort** on dag: sort vertices in descending order of their finish times
+  - component graph: dag of its SCCs
+- **Kosaraju's Algorithm**: $\Theta(V+E)$
+
+```python
+dfs(G) # compute u.f for each vertex u
+dfs(G^T) # in order of decreasing u.f in main loop
+# SCC is trees in depth-first forest
+```
+
+- **Tarjan's Algorithm**: $\Theta(V+E)$
+  - cut-vertex(undirected): $\exists v$ son of $u$, low[v] $\geq$ dnf[u]
+  - bridge(undirected): $\exists v$ son of $u$, low[v] > dnf[u]
+  - directed: SCC
+
+```python
+def tarjan_dfs(u):
+  t += 1
+  dfn[u] = low[u] = t
+  Stack.push(u)
+  for v in G.Adj[u]:
+    if not v.visited:
+      tarjan_dfs(v)
+      low[u] = min(low[u], low[v])
+    elif v in Stack:
+      low[u] = min(low[u], dfn[v])
+  if dfn[u] == low[u]:
+    while v != Stack.top():
+      Stack.pop()
+```
 
 ## Distance
 
@@ -205,6 +311,80 @@ $$
   - $Int(G)$: subgraph induced by interior vertices
   - boundary $\Rightarrow$ not interior (connected graph)
 
+## Shortest Path
+
+- simple path -> path
+- path -> walk
+- in DAG or only positive edges: path = simple path
+- shortest path: walk
+  - single source shortest path(sssp):
+  - all pair shortest path(assp)
+- longest path: simple path, NP
+- relaxation
+
+```python
+def relax(u,v,w):
+  if v.d > u.d + w(u,v):
+     v.d = u.d + w(u,v)
+     v.pi = u
+```
+
+- Properties
+  - Triangle inequality
+  - Upper-bound property
+  - No-path property
+  - Convergence property
+  - Path-relaxation property
+  - Predecessor-subgraph property
+- **Bellman-Ford Algorithm**: $\Theta(VE)$
+
+```python
+s.d = 0
+for i in range(|G.V|):
+  for e in G.E:
+    relax(e.u, e.v, w)
+for i in range(|G.V|):
+  if v.d > u.d + w(u,v):
+    return False
+return True
+```
+
+- DAG shortest path: $\Theta(V+E)$
+  - critical path: longest path through dag
+
+```python
+for u in G.topo:
+  for v in G.Adj[u]:
+    relax(u,v,w)
+```
+
+- **Dijkstra Algorithm**: all edges are nonnegative
+  - Array: $O(V^2)$
+  - Min-heap: $O(E\lg V)$ for sparse graph $E=o(\frac{V^2}{\lg V})$
+  - Fib-heap: $O(E+V\lg V)$
+
+```python
+Q = G.V
+while Q:
+  u = Extract_Min(Q)
+  for v in G.Adj[u]:
+    relax(u, v, w)
+```
+
+- matrix multiplication and repeated squaring: $\Theta(n^3\lg n)$
+- **Floyed-Warshall Algorithm**: $\Theta(V^3)$
+  - dynamic programming on first $k$ vertices as intermediate vertices
+
+```python
+for k in range(n):
+  for i in range(n):
+    for j in range(n):
+      d[i][j] = min(d[i][j], d[i][k] + d[k][j])
+```
+
+- **Johnson's Algorithm**: $\Theta(V^2\lg V+VE)$
+  - reweighting: $\hat \omega(u,v)=\omega(u,v)+h(u)-h(v)$
+
 ## Matching
 
 - independent set(matching) $F$: $\forall e_1,e_2\in F,e_1\cap e_2=\emptyset$
@@ -214,6 +394,9 @@ $$
   - equivalent
     - a system of distinct representatives
     - marriage theory
+- **Hungarian algorithm**: $O(VE)$
+  - alternate path: unmatched edge - matched edge - unmatched edge - $\cdots$ - unmatched edge
+  - argumentation path: alternate path covering unmatched vertex
 - perfect matching: a graph of order $2k$ has a matching $M$ of cardinality $k$
   - Every $r$-regular bipartite graph has a perfect matching
 - edge independence number(maximum matching): $\alpha'(G)=\max |M|$
@@ -226,6 +409,49 @@ $$
 - vertex covering number $\beta(G)$
 - **_Gallai Identity_**: $\forall G,|G|=n$, containing no isolated vertices, $\alpha'(G)+\beta'(G)=n, \alpha(G)+\beta(G)=n$
 - **_Konig Theorem_**: bipartite graph $G$ has $\alpha'(G)=\beta(G),\alpha(G)=\beta'(G)$
+
+## Flow
+
+- Flow network: $G=(V,E)$
+  - Capacity constraint: $\forall u,v\in V$, we require $0\leq f(u,v)\leq c(u,v)$
+  - Flow conservation: $\forall u\in V-\{s,t\}$, $\sum_{v\in V}f(v,u)=\sum_{v\in V}f(u,v)$
+- special cases
+  - antiparallel edges: split
+  - multiple sources and sinks: add source or sink
+- flow: $|f(u,v)|=\sum_{v\in V}f(s,v)-\sum_{v\in V}f(v,s)$
+- net flow: $f(S,T)=\sum_{u\in S}\sum_{v\in T}f(u,v)-\sum_{u\in S}\sum_{v\in T}f(v,u)$
+- capacity of cut: $c(S,T)=\sum_{u\in S}\sum_{v\in T}c(u,v)$
+- **_Max-flow Min-cut Theorem_**: The maximum flow $=$ the minimum cut capacity
+- **Ford-Fulkerson Method**
+  - residual networks $G_f$: $E_f=\{(u,v)\in V\times V:c_f(u,v)>0\}$
+    $$c_f(u,v)=\begin{cases}c(u,v)-f(u,v) & (u,v)\in E\\f(v,u) & (v,u)\in E \\ 0 & o.w.\end{cases}$$
+  - augmentation: $f'$ is flow of residual network, if $(u,v)\in E$, $(f\uparrow f')(u,v)=f(u,v)+f'(u,v)-f'(v,u)$
+    - $|f\uparrow f'|=|f|+|f'|$
+  - augmentation path: simple path from $s$ to $t$ in residual network
+
+```python
+# initial flow f to 0
+while augmenting_path in residual_network:
+  augment(f,augmenting_path)
+return f
+```
+
+- **Basic Ford-Fulkerson Algorithm**: $O(|f^*|E)$ arbitrary with integer
+
+```python
+while augmenting_path in residual_network:
+  c_f(p) = min([c_f(u,v) for (u,v) in p])
+  for (u,v) in p:
+    if (u,v) in E
+      (u,v).f += c_f(p)
+    else:
+      (v,u).f -= c_f(p)
+```
+
+- **Edmonds-Karp Algorithm**: $O(VE^2)$
+  - search augmenting path by BFS in residual network, where each edge has unit distance
+- **Push-relabeled algorithms**: $O(V^2E)$
+- **relabel-to-front algorithm**: $O(V^3)$
 
 ## Factorization
 
@@ -322,7 +548,7 @@ $$
   - $\chi(G)\geq\omega(G)$
   - $\chi(G)\geq\frac{n}{\beta(G)}$
   - $\chi(G)\leq 1+\Delta(G)$
-  - ***Brook Theorem***: $G$ is odd circle or complete graph, then $\chi(G)\leq \Delta(G)$
+  - **_Brook Theorem_**: $G$ is odd circle or complete graph, then $\chi(G)\leq \Delta(G)$
   - $\chi(G)\leq 1+\max(\delta(H))$, $H$ is all possible induced subgraph
 - perfect: $\forall H\subseteq G,\chi(H)=\omega(H)$
   - perfect iff complement is perfect
@@ -340,60 +566,3 @@ $$
 - Ramsey's number $r(F_1,F_2)$: the smallest positive integer n such that if every edge of Kn is colored red or blue in any manner whatsoever, then either a red F1 or a blue F2 is produced
 
 ## Domination
-
-## SSSP & APSP
-
-- Properties of shortest path and relaxation
-  - Triangle inequality
-  - Upper-bound property
-  - No-path property
-  - Convergence property
-  - Path-relaxation property
-  - Predecessor-subgraph property
-- **Bellman-Ford Algorithm**
-- **Dijkstra Algorithm**
-  - Array: $O(V^2)$
-  - Min-heap: $O(ElogV)$
-  - Fib-heap: $O(VlogV+E)$
-- **DAG-SSSP**
-- Shortest Simple Path problem: NP
-- Difference constraints
-  - Constraint graph
-- **Floyed-Warshall Algorithm**
-- Transitive closure of a directed graph
-
-## Flow
-
-- Flow network: $G=(V,E)$
-- Capacity constraint: For all $u,v\in V$, we require $0\leq f(u,v)\leq c(u,v)$
-- Flow conservation: For all $u\in V-\{s,t\}$, $\sum_{v\in V}f(v,u)=\sum_{v\in V}f(u,v)$
-- **Ford-Fulkerson Method**
-- net flow: $f(S,T)=\sum_{u\in S}\sum_{v\in T}f(u,v)-\sum_{u\in S}\sum_{v\in T}f(v,u)$
-- capacity of cut: $c(S,T)=\sum_{u\in S}\sum_{v\in T}c(u,v)$
-- _Max-flow min-cut theorem_: The maximum flow is equal to the minimum cut capacity
-- **Basic Ford-Fulkerson Algorithm**: $O(|f^*|E)$
-- **Edmonds-Karp Algorithm**: $O(VE^2)$
-
-## Search
-
-- depth-first forest: predecessor subgraph of DFS
-- Classification of Edges
-  - Tree edge: edge in $G_\pi$
-  - Back edge: ancestor
-  - Forward edge: descendant
-  - Cross edge
-- _Theorem_: There is no Forward edges and Cross edge in undirected graphs.
-- _Parenthesis Theorem_
-- _Nesting of descendant's intervals_
-- _White-path Theorem_
-- DAG: directed acyclic graph $\iff$ no back edge $\iff$ has topo. ordering
-- Toposort: sort vertices in descending order of their finish times
-- Connected Component
-- Strong Connected Component
-- _Theorem_: Every digraph is a dag of its SCCs
-- **Kasaraju's Algorithm**
-- **Tarjan's Algorithm**
-- _Semiconnected Digraph_
-  - Toposort+Check edges($v_i,v_{i+1}$)
-- Biconnected Graph: contains no cut-nodes
-- bicomponenct: a maximal biconnected subgraph

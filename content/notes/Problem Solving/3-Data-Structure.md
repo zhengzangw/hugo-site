@@ -28,6 +28,12 @@ weight: 3
   - increase_key(S, x, k)
   - not good for Search
 
+## 线性数据结构
+
+- Stack
+- Queue
+- Linked list
+
 ## 堆
 
 - property
@@ -52,12 +58,6 @@ def max_heapify(A, i):
         swap(A[i], A[largest])
         mex_heapify(A, largest)
 ```
-
-## 线性数据结构
-
-- Stack
-- Queue
-- Linked list
 
 ## 哈希表
 

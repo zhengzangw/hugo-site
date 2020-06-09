@@ -1,7 +1,7 @@
 ---
-title: 10. Semidefinite Programs
+title: 5. Semidefinite Programs
 date: 2019-09-04
-weight: 10
+weight: 5
 ---
 
 ## A Wishlist for Optimization Algorithms
@@ -15,6 +15,9 @@ weight: 10
   * Lasserre hierarchy
   * Lovász-Schrijver hierarchy
 
+## Quadratic programming
+
+$$\min \frac{1}{2}x^TQx+c^Tx$$
 
 ## Semidefinite Program
 

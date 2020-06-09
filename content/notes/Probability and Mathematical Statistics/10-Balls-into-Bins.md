@@ -1,21 +1,23 @@
 ---
-title: 4. Balls into Bins
+title: Balls into Bins
 date: 2019-09-04
-weight: 4
+weight: 10
 ---
+
+## Balls into Bins
 
 $m$ balls into $n$ bins uniformly and independently
 
-## Birthday Problem
+### Birthday Problem
 
 the mapping is 1-1
 
 * pigeonhole principle: $P=1,m>365$
-* $P(\text{one-to-one})=\frac{n\choose m}{n^m}m!=\prod_{k=1}^{m-1}(1-\frac{k}{n})\approx e^{-\frac{m^2}{2n}}$
+* $P(\text{one-to-one})=\prod_{k=1}^{m-1}(1-\frac{k}{n})\approx e^{-\frac{m^2}{2n}}$
 * $P(\text{collision})=1-P=1-\epsilon,m=\sqrt{2n\ln\frac{1}{\epsilon}}$
   * $P>0.99,m>57$
 
-## Coupon Collector Problem
+### Coupon Collector Problem
 
 the mapping is on-to
 
@@ -24,7 +26,7 @@ the mapping is on-to
 * $P(X\geq n\ln n+cn)<e^{-c},\forall c>0$
 * $\lim_{n\rightarrow\infty}P(X\geq n\ln n+cn)=1-e^{-e^{-c}}$
 
-## Occupancy Problem
+### Occupancy Problem
 
 the maximum load of bins
 

@@ -1,14 +1,8 @@
 ---
-title: Markov Chain Monte Carlo Methods
+title: 7. Markov Chain Monte Carlo Methods
 date: 2019-12-18
-weight: 12
+weight: 7
 ---
-
-## Median Trick
-
-* $\forall\epsilon$, return a $\hat Z$ in time Poly($|\phi|,\frac{1}{\epsilon}$), $P((1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z)\geq\frac{2}{3}$
-* Repeat $O(\log(\frac{1}{\delta}))$ and choose median number (Chernoff Bound)
-* FPRAS: $\forall\epsilon,\delta$, return a $\hat Z$ in time Poly($|\phi|,\frac{1}{\epsilon},\log\frac{1}{\delta}$), $P((1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z)\geq1-\delta$
 
 ## Monte Carlo Method
 
@@ -16,19 +10,20 @@ weight: 12
   * Universe $U$, subset $S\subseteq U$ where $\rho=\frac{|S|}{|U|}$
   * Assume a uniform sampler for elements
   * Estimate $Z=|S|$
-* Monte Carlo Method
+* Monte Carlo Method (for estimating)
   * Sample $X_1,X_2,\cdots,X_N$ uniformly and independently from $U$
   * $Y_i=[X_i\in S]$
   * counting: $\hat Z=\frac{|U|}{N}\sum_{i=1}^NY_i$
 * $\epsilon$-approx estimator: $(1-\epsilon)Z\leq\hat Z\leq(1+\epsilon)Z$
 * Estimator Theorem(Naive): $N\geq\frac{4}{\epsilon^2\rho}\ln\frac{2}{\delta}=\Theta(\frac{1}{\epsilon^2\rho}\ln\frac{1}{\delta})\Rightarrow P(\hat Z$ is $\epsilon$-approx of $|S|)\geq 1-\delta$
+* Monte Carlo Method (for sampling)
+  * rejection sampling: inefficient if $\rho$ is small
 
 ### Counting DNF Solutions
 
-* (P)Counting DNF Solutions
+* (P)Counting DNF Solutions: #$\text{P}$-hard
   * Input: DNF formula $\phi:\{T,F\}^n\rightarrow\{T,F\},U=\{T,F\}^n$
   * Output: $Z=|\phi^{-1}(T)|,S=\phi^{-1}(T)$
-  * #P-hard
   * $\rho=\frac{|S|}{|U|}$ can be exponentially small
 * (P)Union of Sets
   * Input: $m$ sets $S_1,S_2,\cdots,S_m$, estimate $|\bigcup_{i=1}^mS_i|$
@@ -78,7 +73,7 @@ If a **finite** Markov chain is **irreducible** and **ergodic**(aperiodic), then
     * not connected: $\pi=\lambda\pi_A+(1-\lambda)\pi_B$
     * weak connected(absorbing case): $\pi=(0,\pi_B)$
 * **aperiodicity**: distribution converges to $\pi$
-  * period of state $x$: $d_x=\gcd\{t|P^t(x,x)>0\}$
+  * period of state $x$: $d_x=\gcd\{t|P^t_{x,x}>0\}$
   * aperiodic: all states have period $1$
   * if $\forall x\in\Omega,P(x,x)>0$(self-loop), then a chain is aperiodic
   * $x$ and $y$ communicate $\Rightarrow$ $d_x=d_y$
@@ -109,11 +104,12 @@ $$P(u,v)=\begin{cases}\frac{1}{2} & u=v\\\frac{1}{2\text{deg}(u)} & uv\in E\\0&u
   * pointed by more high-rank pages
   * high-rank page have greater influence
   * pages pointing to few others have greater influence
+* $d_+(u)$: out-degree
 * $r(v)=\sum_{u:(u,v)\in E}\frac{r(u)}{d_+(u)}$
 * random walk: $P(u,v)=[(u,v)\in E]\frac{1}{d_+(u)}$
 * stationary distribution: $rP=r$
 
-### Detailed Balance Equation
+### Reversibility
 
 * Detailed Balance Equation: $\pi(x)P(x,y)=\pi(y)P(y,x)$
 * time-reversible Markov chain: $\exists\pi,\forall x,y\in\Omega,\pi(x)P(x,y)=\pi(y)P(y,x)$

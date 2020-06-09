@@ -1,8 +1,7 @@
 ---
-title: 4-推理（演算）
+title: 3-推理（演算）
 date: 2019-09-10
-tags: [ml, notes]
-weight: 4
+weight: 3
 ---
 
 * 推理规则

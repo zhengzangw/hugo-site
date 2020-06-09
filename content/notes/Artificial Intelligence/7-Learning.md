@@ -1,8 +1,7 @@
 ---
-title: 9-符号学习
+title: 7-符号学习
 date: 2019-09-10
-tags: [ml, notes]
-weight: 9
+weight: 7
 ---
 
 样例学习，概念学习，归纳推理

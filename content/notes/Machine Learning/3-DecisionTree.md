@@ -1,7 +1,6 @@
 ---
 title: Decision Tree
 date: 2019-04-14
-tags: [ml, math, notes]
 weight: 3
 ---
 

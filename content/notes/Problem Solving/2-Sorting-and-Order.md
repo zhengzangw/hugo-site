@@ -35,7 +35,7 @@ void merge_sort(vector<int>& A, int l, int r){
 ```
 
 - worst case: $\Theta(n\lg n)$
-- avaerage case: $\Theta(n\lg n)$
+- average case: $\Theta(n\lg n)$
 
 ### 堆排序
 
@@ -114,7 +114,7 @@ def select(A, p, r, i):
     # Get divide point
     A_m = []
     for i in range(p, r, 5):
-        A_m += [median(A, p, r)]
+        A_m += [median(A, i, i+5)]
     q = select(A_m, 0, len(A_m), (r-q+1)/2)
     # Partiion on q
     k = partion_on_q(A, p, r, q)

@@ -7,7 +7,7 @@ weight: 11
 ## Unique Games Conjecture
 
 * Unique Label Cover(ULC): An undirected graph $G(V,E)$, $q$ colors, each dege $e$ associated with a bijection $\phi_e:[q]\rightarrow[q]$. A coloring $\sigma\in[q]^V$ satisfies the constraint of the edge $e=(u,v)\in E$ if $\phi_{e}(\sigma_u)=\phi_e(\sigma_v)$
-* UGC(2002 Khot): $\forall e,\exists q$ such that this is NP-hard to ditinguish between ULC instances:
+* UGC(2002 Khot): $\forall e,\exists q$ such that this is $\text{NP}$-hard to ditinguish between ULC instances:
   * $>1-\epsilon$ fraction of edges satisfied by a coloring;
   * no more than $\epsilon$ fraction of edges satisfied by any coloring
 
@@ -51,9 +51,9 @@ weight: 11
 
 ## Lovász Local Lemma
 
-* Goal: $P(\wedge_{i=1}^m\overline{A}_i)>0$, $m$ bad event $A_1,\cdots,A_m$
+* Goal: $P(\bigwedge_{i=1}^m\overline{A}_i)>0$, $m$ bad event $A_1,\cdots,A_m$
   * union bound: $\sum_{i=1}^mP(A_i)<1$
-  * PIE: $\sum_{I\subseteq\{m\},|I|>0}(-1)^{|I|-1}P(\wedge_{i\in S}A_i)<1$
+  * PIE: $\sum_{I\subseteq\{m\},|I|>0}(-1)^{|I|-1}P(\bigwedge_{i\in S}A_i)<1$
   * LLL: $\forall i,P(A_i)\leq\frac{1}{4d}$ and $A_i$ is independent of all but $\leq d$ other bad events
 * LLL for $k$-SAT: $d\leq 2^{k-2}\Rightarrow\phi$ is always satisfiable
 * LLL (asymmetric version): $\exists \alpha_1,\alpha_2,\cdots,\alpha_m\in[0,1)$

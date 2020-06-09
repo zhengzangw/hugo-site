@@ -1,8 +1,7 @@
 ---
-title: 11-博弈
+title: 9-博弈
 date: 2019-09-10
-tags: [ml, notes]
-weight: 11
+weight: 9
 ---
 
 * 囚徒困境
