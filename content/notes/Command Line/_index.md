@@ -1,6 +1,6 @@
 ---
 title: Command Line
 date: 2019-01-16
-letter: A
+letter: 
 weight: 15
 ---
