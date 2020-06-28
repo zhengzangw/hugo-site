@@ -25,12 +25,13 @@ weight: 2
 | 时间复杂度 | $O(b^d)$     | $O(n^{1+\frac{C^*}{\epsilon}})$ | $O(b^m)$ | $O(b^l)$ | $O(b^d)$   | $O(b^{d/2})$   |
 | 空间复杂度 | $O(b^d)$     | $O(n^{1+\frac{C^*}{\epsilon}})$ | $O(bm)$  | $O(bl)$  | $O(bd)$    | $O(b^{d/2})$   |
 
-## 启发式搜索（有信息搜索）
+## 启发式搜索
 
-- 函数定义
-  - 评价函数: $f(n)$
-  - 已花费的代价：$g(n)$
-  - 启发函数：$h(n)=$结点$n$到目标结点最小代价的估计值
+- a heuristic is a robust technique for the design of randomized algorithms for Optimziation Problems
+  - not able to guarantee the efficiency and the qulity of the computed feasible solution
+- 评价函数: $f(n)$
+- 已花费的代价：$g(n)$
+- 启发函数：$h(n)=$结点$n$到目标结点最小代价的估计值
 
 ### 贪婪优先搜索
 
@@ -49,9 +50,17 @@ $f(n)=g(n)+h(n)$
   - RBFS 递归最佳优先搜索：记录从当前结点的祖先可得到的最佳的可选路径的 $f$值，如果当前结点超过了这个限制，递归将回到可选路径上
   - SMA$^*$：内存耗尽时，删掉当前 $f$ 最差结点，将其值回填到父节点
 
-## 局部搜索
+### Ant System
 
-路径无关
+- heuristic value $\eta(s_i,s_j)$
+- pheromone $\tau(s_i,s_j)$
+  - update
+    - for all edge: $\tau=(1-\rho)\tau$
+    - then for edge path: $\tau += f(\text{cost})$
+- agent(ant)
+- path selection: $p_{ij}=\frac{\tau_{ij}^\delta\eta_{ij}^\beta}{\sum_k\tau_{ik}^\delta\eta_{ik}^\beta}$
+
+## 局部搜索
 
 ### 爬山法（贪婪局部搜索）
 
@@ -68,6 +77,27 @@ $f(n)=g(n)+h(n)$
   - Newton-Raphson 方法
 
 ### 模拟退火搜索
+
+- local search scheme
+  - multistart local search
+  - threshold local search
+- Difference with LSS: may accept a deterioration with $e^{-\frac{E(q)-E(s)}{k_B*T}}$
+  - Boltzmann distribution
+- free variable
+  - neighborhood choice
+  - cooling schedule
+    - initial temperature $T$
+    - temperature reduction function $f(T,t)$
+      - $T:=rT$
+      - $T:=\frac{T}{\log_2(k+2)}$
+    - termination condition
+- asymptotic convergence
+  - $M(x)$ is reachable from $\forall x\in M(x)$
+  - $T$ is at least as large as the depth of the deepest local, nonglobal minimum
+- Avoid following structural properties
+  - spiky structure
+  - deep trough
+  - large plateau-like areas
 
 ### 局部束搜索
 
@@ -104,6 +134,12 @@ $f(n)=g(n)+h(n)$
     - $o(H)$：阶，模式中确定位置的个数
     - $d(H)$: 长度，模式中第一个确定位置到最后一个确定位置的距离
     - $l$: 染色体长度
+
+### Tabu Search
+
+- forbid any feasible solution in the last k steps
+- or require local transformations do not always change the same parts of the representation
+- or modify the cost function
 
 ## 不确定/部分观测搜索
 
@@ -228,7 +264,7 @@ $$
 - CSP 局部搜索
   - 最少冲突启发
 
-### 规划
+## 规划
 
 设计一个动作规划以达成目的
 

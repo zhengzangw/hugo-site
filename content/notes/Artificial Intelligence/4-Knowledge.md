@@ -4,14 +4,16 @@ date: 2019-09-10
 weight: 4
 ---
 
+## 知识表示
+
 - 数据：信息的载体和表示
 - 信息：数据的语义
-- 知识：信息关联后形成的信息结构（事实和规则）
+- 知识：信息关联后形成的信息**结构**（事实和规则）
   - 相对正确性
   - 可表示/利用性
   - 不确定性
 
-## 一阶谓词表示(First Order Predicate)
+### 一阶谓词表示(First Order Predicate)
 
 - 一阶逻辑的知识工程
   - 确定任务
@@ -33,7 +35,7 @@ weight: 4
   - 状态改变
 - 缺点：组合爆炸
 
-## 产生式表示(Production)
+### 产生式表示(Production)
 
 - $P\rightarrow Q$ (IF P THEN Q)
   - 产生式的知识有可信度
@@ -52,12 +54,12 @@ weight: 4
   - 反向推理
   - 混合驱动和控制策略
 
-## 语义网络表示(Semantic Network)
+### 语义网络表示(Semantic Network)
 
 - 通过有向图，其顶点表示概念，边表示概念间的语义关系，来表达复杂的概念及其相互关系
 - 语义网路的推理：带求解问题构造为网络判断，某些节点/边为空（询问点），进行匹配
 
-## 框架表示(Framework) 与知识图谱(Knowledge Graph)
+### 框架表示(Framework) 与知识图谱(Knowledge Graph)
 
 - 框架：描述对象属性的一种数据结构
 - 框架的一般表示
@@ -90,7 +92,7 @@ weight: 4
   - Freebase
   - Google
 
-### RDF(Resource Description Framework)
+#### RDF(Resource Description Framework)
 
 ```xml
 <xml version="1.0">
@@ -111,7 +113,7 @@ weight: 4
 - 聚合工具：收集关于某一资源的所有数据并整合
 - 匿名资源
 
-### RDFS(Resource Description Framework Schema)
+#### RDFS(Resource Description Framework Schema)
 
 - 资源：通过 RDF 描述的食物
 - 核心属性
@@ -126,7 +128,7 @@ weight: 4
   - 传递，相反或对称属性
 - 没有推理支持
 
-### OWL(Web Ontology Language)
+#### OWL(Web Ontology Language)
 
 - 共同理解，形式化
 - 邻域中重要概念的名称+邻域中的背景知识/约束
@@ -144,7 +146,7 @@ weight: 4
   - OWL 2 QL：大量实例数据（类数据库）
   - OWL 2 RL：基于规则的推理引擎
 
-### 知识图谱构建
+#### 知识图谱构建
 
 - 本体工程(ontology engineering)
   - 狭义：methods and methodologies for building ontologies
