@@ -1,5 +1,5 @@
 ---
-title: Number Theory
+title: 7-Number Theory
 date: 2019-01-16
 tags: [ps, math, notes]
 ---

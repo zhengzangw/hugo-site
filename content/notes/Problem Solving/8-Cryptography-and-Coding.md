@@ -1,5 +1,5 @@
 ---
-title: Cryptography
+title: 8-Cryptography
 date: 2019-07-21
 tags: [math, notes]
 ---
