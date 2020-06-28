@@ -1,7 +1,7 @@
 ---
 title: 软件工程
-date: 20190227
-weight: 20
-letter: A
+date: 2019-02-27
+weight: 88
+letter: +
 ---
 

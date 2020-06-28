@@ -1,8 +1,8 @@
 ---
 title: 数字图像处理
 date: 2019-01-16
-weight: 27
-letter: A
+weight: 83
+letter: +
 textbook: 《数字图像处理》
 course: 数字图像处理 - NJU - 张利军
 version:
