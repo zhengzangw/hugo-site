@@ -4,7 +4,7 @@ date: 2019-02-09
 tags: [math, notes]
 ---
 
-* 域： $F$ 为环, $F^\star $ 按乘法构成 Abel 群
+* 域： $F$ 为环, $F^\star$ 按乘法构成 Abel 群
 
 ## 域的特征和扩张
 

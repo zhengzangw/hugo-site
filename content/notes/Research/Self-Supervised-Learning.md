@@ -1,5 +1,5 @@
 ---
-title: Self-Supervised Learning
+title: Self-Supervised Learning 综述
 date: 2020-06-18
 ---
 

@@ -15,14 +15,14 @@ weight: 3
   - 开始符号
   - 产生式
 - 推导：$A\rightarrow\gamma$，则 $\alpha A\beta\Rightarrow \alpha\gamma\beta$
-  - 最左推导：$\alpha$ 中不包含终结符 $\overset{*}{\Rightarrow}_{\text{lm}}$
+  - 最左推导：$\alpha$ 中不包含非终结符 $\overset{*}{\Rightarrow}_{\text{lm}}$
   - 零步或多步推导：$\overset{*}{\Rightarrow}$
   - 一步或多步推导：$\overset{+}{\Rightarrow}$
   - 句型 $\alpha$：$S\overset{*}{\Rightarrow} \alpha$
   - 句子：不包含非终结符号的句型
   - 语言：$L(G)=\{\omega|S\overset{*}{\Rightarrow}\omega\}$
 
-##  CFG 处理
+## CFG 处理
 
 - 二义性：如果一个文法可以为某个句子生成多棵语法分析数，则该文法二义
 - 设计文法
@@ -184,4 +184,4 @@ $LR(0)\subset SLR(1)\subset LALR(1)\subset LR(1)$
 - YACC 的错误恢复：error
 - bison: LALR(1)
 - bison + %glr-parser: LR(1)
-- ANTLR: LL(*)
+- ANTLR: LL(\*)

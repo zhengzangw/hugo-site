@@ -25,7 +25,7 @@ weight: 0.1
 
 - 第一阶段
   - 1943 年, McCulloch 和 Pitts 提出第一个神经元数学模型, 即 M-P 模型, 并从原理上证明了**人工神经网络能够计算任何算数和逻辑函数**
-  - 1949 年, Hebb 发表《The Organization of Behavior》一 书, 提出生物神经元学习的机理, 即 **Hebb 学习规则**
+  - 1949 年, Hebb 发表《The Organization of Behavior》一书, 提出生物神经元学习的机理, 即 **Hebb 学习规则**
   - 1958 年, Rosenblatt 提出**感知机网络**(Perceptron)模型和其学习规则
   - 1960 年, Widrow 和 Hoff 提出**自适应线性神经元**(Adaline)模型和最小均方学习算法
   - 1969 年, Minsky 和 Papert 发表《Perceptrons》一书, 指出单层神经网路不能解决非线性问题, 多层网络的训练算法尚无希望. 这个论断导致神经网络进入**低谷**
