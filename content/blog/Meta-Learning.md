@@ -41,8 +41,9 @@ tags: [ml, notes]
 
 - multi-task learning
   - special case of meta-learning where $\phi_i=\theta$
-- hyperparameter optimization & auto-ML:
+- hyperparameter optimization
   - $\theta$ = hyperparameters, $\phi$ = network weights
+- auto-ML
   - $\theta$ = architecture, $\phi$ = network weights
 
 ## Dataset (few-shot image recognition)

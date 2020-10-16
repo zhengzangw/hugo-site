@@ -89,7 +89,7 @@ weight: 6
     * 未格式化容量 = 记录面数\*理论柱面数\*内圈周长\*最内道位密度
     * 柱面数 = (有效记录区外径-有效记录区内径)/2*道密度
     * 扇区大小 512字节，4KB扇区
-  * data transfer rate (internal tranfer rate/sustained transfer rate) = 每分钟转速/60\*内圈周长*最内道位密度
+  * data transfer rate (internal transfer rate/sustained transfer rate) = 每分钟转速/60\*内圈周长*最内道位密度
   * external transfer rate (burst data transfer rate)
   * 平均存取时间
     * 响应时间 = 排队延迟 + 控制器时间 + (寻道时间5-10ms + 旋转等待时间4-6ms + 数据传输时间0.01ms/sector)  （后三个为存取时间）
