@@ -3,6 +3,8 @@ title: 算法程序设计与分析作业三
 date: 2020-10-16
 ---
 
+注意这次交三次的作业，缺交的同学及时补交（邮箱：zzw@smail.nju.edu.cn）
+
 ## 9-24
 
 4.2
@@ -58,6 +60,8 @@ $\lg\lg n<\lg n=\ln n<(\lg n)^2<\sqrt{n}<n<n\lg n<n^{1+\epsilon}<n^2=n^2+\lg n<n
 
 证明思路：$\forall f\in o(f),f\in O(f)-\Theta(f)$ and $\forall f\in O(f)-\Theta(f),f\in o(f)$
 
+举反例的同学注意，若极限不存在，$f\notin O(f)$
+
 3.7
 
 - (a) $O(n\log n)$
@@ -69,7 +73,7 @@ $O(n)$
 
 3.10
 
-Tips: 部分使用 Master Theorem 更加简单，但要相差至少 $n^{\epsilon}$ 才能用
+Tips: 部分使用 Master Theorem 更加简单
 
 - (a) $O(\lg^2 n)$
 - (b) $O(n)$
