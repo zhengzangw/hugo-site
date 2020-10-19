@@ -12,18 +12,18 @@ date: 2020-10-16
 - (a) $\frac{1}{2}n(n-1)$, decreasing sequence
 - (b) increasing, $n-1$
 
-4.3
+  4.3
 
 - (a) 用循环不变式证明 （$E[j]$ is the maximum in $[0,j]$)
 - (b) 略
 
-4.4
+  4.4
 
 - (a) 可利用 4.3(a) 的循环不变式证明
 - 略
 - 不影响
 
-4.23
+  4.23
 
 注意需使用 Section 2.3.2 的数据结构
 
@@ -32,7 +32,7 @@ date: 2020-10-16
 - (a) 可以使用两个数组 $A,B$，基于归并时处于归并树结点深度的奇偶性，奇数时保存到 $A$，偶数时保存到 $B$（滚动数组）
 - (b) $n\log n$
 
-4.28
+  4.28
 
 找中点：设置两个指针，一个步长为 1， 一个步长为 2，当快指针到达尾结点时，慢指针指向中间结点。该时间复杂度为 $O(n)$。由于 merge 也是 $O(n)$，时间复杂度不变为 $O(n\log n)$。空间复杂度 $O(n\log n)$，有 garbage collection 为 $O(n)$
 
@@ -58,16 +58,17 @@ $\lg\lg n<\lg n=\ln n<(\lg n)^2<\sqrt{n}<n<n\lg n<n^{1+\epsilon}<n^2=n^2+\lg n<n
 
 1.33
 
-证明思路：$\forall f\in o(f),f\in O(f)-\Theta(f)$ and $\forall f\in O(f)-\Theta(f),f\in o(f)$
+根据定义（$O$ 是否使用极限定义）不同，可以证明或举反例
 
-举反例的同学注意，若极限不存在，$f\notin O(f)$
+- 证明思路：$\forall f\in o(f),f\in O(f)-\Theta(f)$ and $\forall f\in O(f)-\Theta(f),f\in o(f)$
+- 举反例：找一个极限不存在的函数
 
 3.7
 
 - (a) $O(n\log n)$
 - (b) $M(n)=n\log_2n-n+1$
 
-3.8
+  3.8
 
 $O(n)$
 
@@ -103,4 +104,4 @@ $T(n)=3T(\frac{m}{2})$，$T(n)=O(n^{\log_23})$
 
 15 个节点高位 4 的满二叉树
 
-例：8 4 12 14 10 6 2 15 13 11 9 7 5 3 1
+例：1-15 顺序插入，得到 8 4 12 14 10 6 2 15 13 11 9 7 5 3 1
